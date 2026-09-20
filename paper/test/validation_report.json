@@ -1,0 +1,403 @@
+[
+  {
+    "case": "cellranger_all_contig",
+    "source_records": 15377,
+    "output_records": 15377,
+    "output_cells": 6864,
+    "matched": 15377,
+    "missing": 0,
+    "additional": 0,
+    "fasta_tsv_id_disagreement": 0,
+    "duplicate_ids": 0,
+    "sequence_altered": 0,
+    "cell_id_mismatch": 0,
+    "leaked_annotation_columns": 0,
+    "unexpected_columns": [],
+    "fasta_headers_with_extra_text": 0,
+    "warnings": 1,
+    "parse_report": {
+      "fasta_records": 15377,
+      "annotation_rows": 15377,
+      "rows_without_contig_id": 0,
+      "rows_without_barcode": 0,
+      "rows_without_fasta_sequence": 0,
+      "fasta_records_without_annotation": 0,
+      "records_written": 15377
+    },
+    "umi_count_mismatch": 0,
+    "read_count_mismatch": 0,
+    "is_cell_mismatch": 0,
+    "high_confidence_mismatch": 0,
+    "productive_mismatch": 0,
+    "empty_values": {
+      "sequence_id": 0,
+      "sequence": 0,
+      "cell_id": 0,
+      "umi_count": 0,
+      "read_count": 0,
+      "is_cell": 0,
+      "high_confidence": 0,
+      "productive": 0
+    },
+    "inputs": {
+      "contig_fasta": {
+        "file": "sc5p_v2_hs_PBMC_10k_t_all_contig.fasta",
+        "size_bytes": 8209974,
+        "sha256": "6c6d8404c797d4c42610079c9a355ad09fc6fc3056e58682971f0b2481913f2b"
+      },
+      "contig_annotations": {
+        "file": "sc5p_v2_hs_PBMC_10k_t_all_contig_annotations.csv",
+        "size_bytes": 2787875,
+        "sha256": "200fc94628622bcec86724fbe160feefc9e67c3869bc8427fd1e68d6e4034a9e"
+      }
+    },
+    "outputs": {
+      "final.fasta": "03e75c5a79243c301d7246014ff53f61322d5bc0633cb313fd30ffbd7141a975",
+      "metadata.tsv": "c58a36b4cd6ab423df51e771b187dd039f9d20ccd16ac46f32ec258822377795",
+      "source_annotations.tsv": "25f848ec2461a8daec8e94ac571a50a645f8dae7f7f6bb253a5063d6e4fbe5b2"
+    },
+    "source_annotations": {
+      "written": true,
+      "file": "source_annotations.tsv",
+      "rows": 15377,
+      "distinct_ids": 15377,
+      "duplicate_ids": 0,
+      "rows_without_a_normalized_record": 0,
+      "normalized_records_without_a_row": 0,
+      "columns": 18,
+      "source_columns_preserved": "18/18",
+      "source_columns_missing": [],
+      "annotation_columns_preserved": [
+        "c_gene",
+        "cdr3",
+        "cdr3_nt",
+        "chain",
+        "d_gene",
+        "j_gene",
+        "productive",
+        "v_gene"
+      ],
+      "sha256": "25f848ec2461a8daec8e94ac571a50a645f8dae7f7f6bb253a5063d6e4fbe5b2"
+    },
+    "discrepancies": []
+  },
+  {
+    "case": "cellranger_filtered_contig",
+    "source_records": 10817,
+    "output_records": 10817,
+    "output_cells": 5328,
+    "matched": 10817,
+    "missing": 0,
+    "additional": 0,
+    "fasta_tsv_id_disagreement": 0,
+    "duplicate_ids": 0,
+    "sequence_altered": 0,
+    "cell_id_mismatch": 0,
+    "leaked_annotation_columns": 0,
+    "unexpected_columns": [],
+    "fasta_headers_with_extra_text": 0,
+    "warnings": 1,
+    "parse_report": {
+      "fasta_records": 10817,
+      "annotation_rows": 10817,
+      "rows_without_contig_id": 0,
+      "rows_without_barcode": 0,
+      "rows_without_fasta_sequence": 0,
+      "fasta_records_without_annotation": 0,
+      "records_written": 10817
+    },
+    "umi_count_mismatch": 0,
+    "read_count_mismatch": 0,
+    "is_cell_mismatch": 0,
+    "high_confidence_mismatch": 0,
+    "productive_mismatch": 0,
+    "empty_values": {
+      "sequence_id": 0,
+      "sequence": 0,
+      "cell_id": 0,
+      "umi_count": 0,
+      "read_count": 0,
+      "is_cell": 0,
+      "high_confidence": 0,
+      "productive": 0
+    },
+    "inputs": {
+      "contig_fasta": {
+        "file": "sc5p_v2_hs_PBMC_10k_t_filtered_contig.fasta",
+        "size_bytes": 6003804,
+        "sha256": "ca3a7412cfd84688599d48274668d6e3758b817b315e6a74db3db8038ad0416f"
+      },
+      "contig_annotations": {
+        "file": "sc5p_v2_hs_PBMC_10k_t_filtered_contig_annotations.csv",
+        "size_bytes": 2186570,
+        "sha256": "cf6b573fc00a52b03e5aa8b25002ae9112ff7f6b355ff75a6e6a1364088223dd"
+      }
+    },
+    "outputs": {
+      "final.fasta": "6efce936f886ce1aa1b8c46403f7a579e3437b459703981ce6faf006916a0a1d",
+      "metadata.tsv": "ad99268a882e02d9107180377bebc33d31fc083530b0022c55d3806080e96f92",
+      "source_annotations.tsv": "48e4bf4787a00b69748dbd8babd0082f97af6a542cc87b01b4f22f3b988868ea"
+    },
+    "source_annotations": {
+      "written": true,
+      "file": "source_annotations.tsv",
+      "rows": 10817,
+      "distinct_ids": 10817,
+      "duplicate_ids": 0,
+      "rows_without_a_normalized_record": 0,
+      "normalized_records_without_a_row": 0,
+      "columns": 18,
+      "source_columns_preserved": "18/18",
+      "source_columns_missing": [],
+      "annotation_columns_preserved": [
+        "c_gene",
+        "cdr3",
+        "cdr3_nt",
+        "chain",
+        "d_gene",
+        "j_gene",
+        "productive",
+        "v_gene"
+      ],
+      "sha256": "48e4bf4787a00b69748dbd8babd0082f97af6a542cc87b01b4f22f3b988868ea"
+    },
+    "discrepancies": []
+  },
+  {
+    "case": "cellranger_airr_tsv",
+    "source_records": 10817,
+    "output_records": 10817,
+    "output_cells": 5328,
+    "matched": 10817,
+    "missing": 0,
+    "additional": 0,
+    "fasta_tsv_id_disagreement": 0,
+    "duplicate_ids": 0,
+    "sequence_altered": 0,
+    "cell_id_mismatch": 0,
+    "leaked_annotation_columns": 0,
+    "unexpected_columns": [],
+    "fasta_headers_with_extra_text": 0,
+    "warnings": 1,
+    "parse_report": {
+      "airr_rows": 10817,
+      "rows_without_sequence": 0,
+      "rows_without_barcode": 0,
+      "records_written": 10817
+    },
+    "umi_count_mismatch": 0,
+    "read_count_mismatch": 0,
+    "is_cell_mismatch": 0,
+    "high_confidence_mismatch": 0,
+    "productive_mismatch": 0,
+    "empty_values": {
+      "sequence_id": 0,
+      "sequence": 0,
+      "cell_id": 0,
+      "umi_count": 0,
+      "read_count": 0,
+      "is_cell": 0,
+      "high_confidence": 10817,
+      "productive": 0
+    },
+    "inputs": {
+      "airr_tsv": {
+        "file": "sc5p_v2_hs_PBMC_10k_t_airr_rearrangement.tsv",
+        "size_bytes": 25486075,
+        "sha256": "70376051c9e6cf2df79c881c38bb25bcf29763d7a57e3e7062b7a95c870e70b0"
+      }
+    },
+    "outputs": {
+      "final.fasta": "6efce936f886ce1aa1b8c46403f7a579e3437b459703981ce6faf006916a0a1d",
+      "metadata.tsv": "ff234e95dfdbb2a0db6a5d7b77b85dab099ad1f260908993a7f9ebd7c5f92801",
+      "source_annotations.tsv": "692669a29a07930d944d577fd6afba98220baf3275d05ae89b96dc20292a14c3"
+    },
+    "source_annotations": {
+      "written": true,
+      "file": "source_annotations.tsv",
+      "rows": 10817,
+      "distinct_ids": 10817,
+      "duplicate_ids": 0,
+      "rows_without_a_normalized_record": 0,
+      "normalized_records_without_a_row": 0,
+      "columns": 31,
+      "source_columns_preserved": "32/32",
+      "source_columns_missing": [],
+      "annotation_columns_preserved": [
+        "c_call",
+        "c_cigar",
+        "d_call",
+        "d_cigar",
+        "germline_alignment",
+        "j_call",
+        "j_cigar",
+        "junction",
+        "junction_aa",
+        "productive",
+        "rev_comp",
+        "sequence_alignment",
+        "v_call",
+        "v_cigar"
+      ],
+      "sha256": "692669a29a07930d944d577fd6afba98220baf3275d05ae89b96dc20292a14c3"
+    },
+    "discrepancies": []
+  },
+  {
+    "case": "productive_suppressed_by_default",
+    "records": 10817,
+    "productive_populated": 0,
+    "discrepancies": []
+  },
+  {
+    "case": "generic_fasta_mapping",
+    "source_records": 10817,
+    "output_records": 10817,
+    "output_cells": 5328,
+    "matched": 10817,
+    "missing": 0,
+    "additional": 0,
+    "fasta_tsv_id_disagreement": 0,
+    "duplicate_ids": 0,
+    "sequence_altered": 0,
+    "cell_id_mismatch": 0,
+    "leaked_annotation_columns": 0,
+    "unexpected_columns": [],
+    "fasta_headers_with_extra_text": 0,
+    "warnings": 0,
+    "parse_report": {
+      "fasta_records": 10817,
+      "barcode_map_rows": 10817,
+      "barcodes_from_map": 10817,
+      "records_without_barcode": 0,
+      "records_written": 10817
+    },
+    "umi_count_mismatch": 0,
+    "read_count_mismatch": 0,
+    "is_cell_mismatch": 0,
+    "high_confidence_mismatch": 0,
+    "productive_mismatch": 0,
+    "empty_values": {
+      "sequence_id": 0,
+      "sequence": 0,
+      "cell_id": 0,
+      "umi_count": 0,
+      "read_count": 0,
+      "is_cell": 10817,
+      "high_confidence": 10817,
+      "productive": 10817
+    },
+    "inputs": {
+      "fasta": {
+        "file": "sc5p_v2_hs_PBMC_10k_t_filtered_contig.fasta",
+        "size_bytes": 6003804,
+        "sha256": "ca3a7412cfd84688599d48274668d6e3758b817b315e6a74db3db8038ad0416f"
+      },
+      "barcode_map": {
+        "file": "generic_fasta_barcode_map.tsv",
+        "size_bytes": 595107,
+        "sha256": "d8be38a2962b9642747792ebc96aadf67f8f734e6481b06ec572fb1bb5638bc3"
+      }
+    },
+    "outputs": {
+      "final.fasta": "6efce936f886ce1aa1b8c46403f7a579e3437b459703981ce6faf006916a0a1d",
+      "metadata.tsv": "eaee5e7802f68b20babe9ca28c5f6f12a17d148695c5e9e6f84938a3bf220c15",
+      "source_annotations.tsv": "327364bf6d4a3854993bb1d11286277b0aa4775b1ec7e424f2edd8e752759821"
+    },
+    "source_annotations": {
+      "written": true,
+      "file": "source_annotations.tsv",
+      "rows": 10817,
+      "distinct_ids": 10817,
+      "duplicate_ids": 0,
+      "rows_without_a_normalized_record": 0,
+      "normalized_records_without_a_row": 0,
+      "columns": 4,
+      "source_columns_preserved": "4/4",
+      "source_columns_missing": [],
+      "annotation_columns_preserved": [],
+      "sha256": "327364bf6d4a3854993bb1d11286277b0aa4775b1ec7e424f2edd8e752759821"
+    },
+    "discrepancies": []
+  },
+  {
+    "case": "generic_fasta_regex",
+    "source_records": 10817,
+    "output_records": 10817,
+    "output_cells": 5328,
+    "matched": 10817,
+    "missing": 0,
+    "additional": 0,
+    "fasta_tsv_id_disagreement": 0,
+    "duplicate_ids": 0,
+    "sequence_altered": 0,
+    "cell_id_mismatch": 0,
+    "leaked_annotation_columns": 0,
+    "unexpected_columns": [],
+    "fasta_headers_with_extra_text": 0,
+    "warnings": 0,
+    "parse_report": {
+      "fasta_records": 10817,
+      "barcode_map_rows": 0,
+      "barcodes_from_map": 0,
+      "records_without_barcode": 0,
+      "records_written": 10817
+    },
+    "umi_count_mismatch": 0,
+    "read_count_mismatch": 0,
+    "is_cell_mismatch": 0,
+    "high_confidence_mismatch": 0,
+    "productive_mismatch": 0,
+    "empty_values": {
+      "sequence_id": 0,
+      "sequence": 0,
+      "cell_id": 0,
+      "umi_count": 10817,
+      "read_count": 10817,
+      "is_cell": 10817,
+      "high_confidence": 10817,
+      "productive": 10817
+    },
+    "inputs": {
+      "fasta": {
+        "file": "sc5p_v2_hs_PBMC_10k_t_filtered_contig.fasta",
+        "size_bytes": 6003804,
+        "sha256": "ca3a7412cfd84688599d48274668d6e3758b817b315e6a74db3db8038ad0416f"
+      }
+    },
+    "outputs": {
+      "final.fasta": "6efce936f886ce1aa1b8c46403f7a579e3437b459703981ce6faf006916a0a1d",
+      "metadata.tsv": "52c09f5a39e33cecd8226df7c18f1b9991ea448d7519385db7a52bfc74b81ae6",
+      "source_annotations.tsv": "7f1fff1199ebdb8375d232ddfa11e1bafabe76471b0503a814b97fd1ae4e4776"
+    },
+    "source_annotations": {
+      "written": true,
+      "file": "source_annotations.tsv",
+      "rows": 10817,
+      "distinct_ids": 10817,
+      "duplicate_ids": 0,
+      "rows_without_a_normalized_record": 0,
+      "normalized_records_without_a_row": 0,
+      "columns": 1,
+      "source_columns_preserved": "1/1",
+      "source_columns_missing": [],
+      "annotation_columns_preserved": [],
+      "sha256": "7f1fff1199ebdb8375d232ddfa11e1bafabe76471b0503a814b97fd1ae4e4776"
+    },
+    "discrepancies": []
+  },
+  {
+    "case": "generic_fasta_no_barcode_rule (T5)",
+    "expected": "refused",
+    "observed": "refused",
+    "message": "Generic FASTA requires a way to recover the cell barcode: upload a barcode mapping file (sequence_id, cell_id, umi_count, read_count), or supply a header regex with one capture group. Without one, cell_id cannot be recovered and single-cell resolution cannot be guaranteed.",
+    "discrepancies": []
+  },
+  {
+    "case": "generic_fasta_incomplete_mapping",
+    "expected": "refused",
+    "observed": "refused",
+    "message": "No barcode could be recovered for 1 of 10817 sequences: TTTGTCATCTTCGAGA-1_contig_2. Single-cell resolution cannot be guaranteed, so the run was stopped rather than inventing a cell_id. Check that the mapping file covers every sequence_id, or that the header regex matches every header.",
+    "discrepancies": []
+  }
+]

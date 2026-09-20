@@ -1,0 +1,514 @@
+{
+  "generated": "2026-09-19T23:03:27",
+  "host": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.8"
+  },
+  "backend_test_suite": {
+    "command": "cd presto-backend && python -m unittest discover -s tests",
+    "run": 93,
+    "passed": 93,
+    "failed": [],
+    "wall_seconds": 6.63,
+    "tests_per_module": {
+      "test_assemble_headers.AssembleHeaderTests": 6,
+      "test_negative_inputs.GenericFastaRefusals": 4,
+      "test_negative_inputs.MismatchedTrust4PairRefusals": 4,
+      "test_negative_inputs.UnusableBamTagRefusals": 4,
+      "test_negative_inputs.WorkflowCompositionRefusalCount": 1,
+      "test_no_proprietary_binaries.MissingBinaryMessages": 1,
+      "test_no_proprietary_binaries.NoPredefinedWorkflowNeedsUsearch": 1,
+      "test_no_proprietary_binaries.NoUsearchInTheTree": 4,
+      "test_no_proprietary_binaries.OpenToolsAreTheDefault": 4,
+      "test_security_controls.CaptchaTests": 3,
+      "test_security_controls.EmailHashingTests": 1,
+      "test_security_controls.EmailVerificationCodeTests": 9,
+      "test_security_controls.RecoveryLinkTests": 1,
+      "test_security_controls.RouteGuardTests": 3,
+      "test_security_controls.TrackingRecoveryTests": 6,
+      "test_singlecell_adapters.CellRangerTests": 2,
+      "test_singlecell_adapters.EmailHashTests": 1,
+      "test_singlecell_adapters.GenericFastaTests": 3,
+      "test_singlecell_adapters.Trust4AdapterTests": 6,
+      "test_singlecell_adapters.Trust4RunnerTests": 4,
+      "test_singlecell_adapters.WorkflowProvenanceTests": 2,
+      "test_source_annotations.CellRangerSidecarTests": 3,
+      "test_source_annotations.GenericFastaSidecarTests": 1,
+      "test_source_annotations.ProvenanceRecordTests": 1,
+      "test_source_annotations.Trust4SidecarTests": 1,
+      "test_workflow_validation.WorkflowValidationTests": 17
+    },
+    "all_passed": true,
+    "exit_code": 0
+  },
+  "component_matrix": {
+    "available": true,
+    "cases": 47,
+    "by_denominator": {
+      "component-matrix-47": {
+        "identical": 46,
+        "not comparable (native pRESTO failed)": 1
+      }
+    },
+    "not_comparable": [
+      "ConvertHeaders.migec"
+    ],
+    "every_case_has_an_output_digest": true
+  },
+  "usearch_clustersets_test": {
+    "available": true,
+    "separate_from_the_47": true,
+    "usearch_version": "7.0.1090",
+    "platform": "win32",
+    "cases": [
+      {
+        "operation": "ClusterSets.all",
+        "native": "command line rejected by USEARCH",
+        "airrprep": "command line accepted; blocked by the Windows open-file limit"
+      },
+      {
+        "operation": "ClusterSets.barcode",
+        "native": "command line rejected by USEARCH",
+        "airrprep": "command line accepted; blocked by the Windows open-file limit"
+      },
+      {
+        "operation": "ClusterSets.set",
+        "native": "command line rejected by USEARCH",
+        "airrprep": "command line accepted; blocked by the Windows open-file limit"
+      }
+    ]
+  },
+  "singlecell_validation": {
+    "available": true,
+    "cases": [
+      {
+        "case": "cellranger_all_contig",
+        "source_records": 15377,
+        "output_records": 15377,
+        "discrepancies": [],
+        "source_annotation_rows": 15377,
+        "source_annotation_columns_preserved": "18/18",
+        "rows_that_do_not_join_back": 0
+      },
+      {
+        "case": "cellranger_filtered_contig",
+        "source_records": 10817,
+        "output_records": 10817,
+        "discrepancies": [],
+        "source_annotation_rows": 10817,
+        "source_annotation_columns_preserved": "18/18",
+        "rows_that_do_not_join_back": 0
+      },
+      {
+        "case": "cellranger_airr_tsv",
+        "source_records": 10817,
+        "output_records": 10817,
+        "discrepancies": [],
+        "source_annotation_rows": 10817,
+        "source_annotation_columns_preserved": "32/32",
+        "rows_that_do_not_join_back": 0
+      },
+      {
+        "case": "productive_suppressed_by_default",
+        "source_records": null,
+        "output_records": null,
+        "discrepancies": [],
+        "source_annotation_rows": null,
+        "source_annotation_columns_preserved": null,
+        "rows_that_do_not_join_back": null
+      },
+      {
+        "case": "generic_fasta_mapping",
+        "source_records": 10817,
+        "output_records": 10817,
+        "discrepancies": [],
+        "source_annotation_rows": 10817,
+        "source_annotation_columns_preserved": "4/4",
+        "rows_that_do_not_join_back": 0
+      },
+      {
+        "case": "generic_fasta_regex",
+        "source_records": 10817,
+        "output_records": 10817,
+        "discrepancies": [],
+        "source_annotation_rows": 10817,
+        "source_annotation_columns_preserved": "1/1",
+        "rows_that_do_not_join_back": 0
+      },
+      {
+        "case": "generic_fasta_no_barcode_rule (T5)",
+        "source_records": null,
+        "output_records": null,
+        "discrepancies": [],
+        "source_annotation_rows": null,
+        "source_annotation_columns_preserved": null,
+        "rows_that_do_not_join_back": null
+      },
+      {
+        "case": "generic_fasta_incomplete_mapping",
+        "source_records": null,
+        "output_records": null,
+        "discrepancies": [],
+        "source_annotation_rows": null,
+        "source_annotation_columns_preserved": null,
+        "rows_that_do_not_join_back": null
+      }
+    ],
+    "all_clean": true
+  },
+  "trust4_validation": {
+    "available": true,
+    "raw": {
+      "software": {
+        "airrprep": "dev",
+        "container_image": null,
+        "presto": null,
+        "trust4": "1.1.9",
+        "python": "3.12.14"
+      },
+      "results": [
+        {
+          "case": "T2_fastq_10x",
+          "outcome": "accepted",
+          "seconds": 47.0,
+          "parse_report": {
+            "annot_contigs": 9240,
+            "report_rows": 452,
+            "report_rows_without_barcode": 0,
+            "report_chain_fields_parsed": 627,
+            "report_chain_fields_unmatched": 0,
+            "airr_rows": 562,
+            "airr_rows_with_cell_id": 562,
+            "duplicate_mappings": 562,
+            "conflicting_mappings": 0,
+            "contigs_not_in_cell_report": 8613,
+            "records_written": 627,
+            "cells": 452
+          },
+          "records": 627,
+          "cells": 452,
+          "cell_ids_not_barcode_shaped": 7,
+          "cell_ids_equal_to_a_sequence_id": 0,
+          "contigs_per_cell_median": 1,
+          "chains": {
+            "IGH": 203,
+            "IGK": 313,
+            "IGL": 109,
+            "TRA": 1,
+            "TRG": 1
+          },
+          "cellranger_cells": 83,
+          "cellranger_cells_recovered": 83,
+          "warnings": [
+            "TRUST4: 8613 of 9240 assembled contigs are not reported by TRUST4 as a chain of any cell and were left out (e.g. CCTAGCTCAGCTTAAT_7, CCTAGCTCAGCTTAAT_8, CCTAGCTCAGCTTAAT_9, CCTAGCTCAGCTTAAT_10, CGATGTACAGACAGGT_11). No contig was assigned an invented cell."
+          ],
+          "inputs": {
+            "r1_fastq": {
+              "file": "sc5p_v2_hs_PBMC_1k_b_S1_L001_R1_001.fastq.gz",
+              "size_bytes": 10480255,
+              "sha256": "8288981b3c56ef91df7848a2faf6646ce2c91516da773de902443880e778820f"
+            },
+            "r2_fastq": {
+              "file": "sc5p_v2_hs_PBMC_1k_b_S1_L001_R2_001.fastq.gz",
+              "size_bytes": 22304174,
+              "sha256": "21431f7307eed79600aba5fd7931e8b5809b1295bd8b7f768957be2f3a8aebeb"
+            }
+          },
+          "cdr3_concordance_with_cellranger": {
+            "cellranger_cells": 83,
+            "cellranger_cells_called_by_trust4": 83,
+            "cell_locus_pairs": 165,
+            "cell_locus_pairs_with_identical_cdr3": 165,
+            "cells_with_heavy_chain": 81,
+            "heavy_identical": 81,
+            "cells_with_light_chain": 83,
+            "light_identical": 83,
+            "cells_with_both": 81,
+            "both_identical": 81
+          },
+          "barcodes_with_N": 7,
+          "attempts": 1,
+          "trust4_segfaults_before_success": 0,
+          "trust4_outputs": {
+            "trust4_annot.fa": {
+              "file": "trust4_annot.fa",
+              "size_bytes": 2615652,
+              "sha256": "7ee564bce3d2bfa7993b02b8f3fe90de226e2c5f7d22ad31fa755f36c831f97e"
+            },
+            "trust4_barcode_report.tsv": {
+              "file": "trust4_barcode_report.tsv",
+              "size_bytes": 93940,
+              "sha256": "84812036182b84bb436fc90767659a3ea1c939a19f9e474d22c7412edb974d8b"
+            },
+            "trust4_barcode_airr.tsv": {
+              "file": "trust4_barcode_airr.tsv",
+              "size_bytes": 582187,
+              "sha256": "5dab1dca2392178c47329c16db69a4a0620e3edcd7e669198bf3ad1bec8865c9"
+            }
+          }
+        },
+        {
+          "case": "T1_trust4_upload",
+          "outcome": "accepted",
+          "seconds": 0.0,
+          "parse_report": {
+            "annot_contigs": 9240,
+            "report_rows": 452,
+            "report_rows_without_barcode": 0,
+            "report_chain_fields_parsed": 627,
+            "report_chain_fields_unmatched": 0,
+            "airr_rows": 0,
+            "airr_rows_with_cell_id": 0,
+            "duplicate_mappings": 0,
+            "conflicting_mappings": 0,
+            "contigs_not_in_cell_report": 8613,
+            "records_written": 627,
+            "cells": 452
+          },
+          "records": 627,
+          "cells": 452,
+          "cell_ids_not_barcode_shaped": 7,
+          "cell_ids_equal_to_a_sequence_id": 0,
+          "contigs_per_cell_median": 1,
+          "chains": {
+            "IGH": 203,
+            "IGK": 313,
+            "IGL": 109,
+            "TRA": 1,
+            "TRG": 1
+          },
+          "cellranger_cells": 83,
+          "cellranger_cells_recovered": 83,
+          "warnings": [
+            "TRUST4: 8613 of 9240 assembled contigs are not reported by TRUST4 as a chain of any cell and were left out (e.g. CCTAGCTCAGCTTAAT_7, CCTAGCTCAGCTTAAT_8, CCTAGCTCAGCTTAAT_9, CCTAGCTCAGCTTAAT_10, CGATGTACAGACAGGT_11). No contig was assigned an invented cell."
+          ],
+          "inputs": {
+            "annot_fasta": {
+              "file": "trust4_annot.fa",
+              "size_bytes": 2615652,
+              "sha256": "7ee564bce3d2bfa7993b02b8f3fe90de226e2c5f7d22ad31fa755f36c831f97e"
+            },
+            "barcode_report": {
+              "file": "trust4_barcode_report.tsv",
+              "size_bytes": 93940,
+              "sha256": "84812036182b84bb436fc90767659a3ea1c939a19f9e474d22c7412edb974d8b"
+            }
+          },
+          "cdr3_concordance_with_cellranger": {
+            "cellranger_cells": 83,
+            "cellranger_cells_called_by_trust4": 83,
+            "cell_locus_pairs": 165,
+            "cell_locus_pairs_with_identical_cdr3": 165,
+            "cells_with_heavy_chain": 81,
+            "heavy_identical": 81,
+            "cells_with_light_chain": 83,
+            "light_identical": 83,
+            "cells_with_both": 81,
+            "both_identical": 81
+          },
+          "barcodes_with_N": 7,
+          "attempts": 1,
+          "trust4_segfaults_before_success": 0,
+          "agreement_with_T2": {
+            "T1_records": 627,
+            "T2_records": 627,
+            "identical_records": 627,
+            "only_in_T1": 0,
+            "only_in_T2": 0
+          }
+        },
+        {
+          "case": "T3_bam_samtools",
+          "outcome": "accepted",
+          "seconds": 196.7,
+          "parse_report": {
+            "reads": 2833786,
+            "reads_with_barcode": 2833786,
+            "reads_with_umi": 2833786,
+            "paired": 0,
+            "annot_contigs": 20472,
+            "report_rows": 397,
+            "report_rows_without_barcode": 0,
+            "report_chain_fields_parsed": 622,
+            "report_chain_fields_unmatched": 0,
+            "airr_rows": 482,
+            "airr_rows_with_cell_id": 482,
+            "duplicate_mappings": 482,
+            "conflicting_mappings": 0,
+            "contigs_not_in_cell_report": 19850,
+            "records_written": 622,
+            "cells": 397
+          },
+          "records": 622,
+          "cells": 397,
+          "cell_ids_not_barcode_shaped": 0,
+          "cell_ids_equal_to_a_sequence_id": 0,
+          "contigs_per_cell_median": 1,
+          "chains": {
+            "IGH": 223,
+            "IGK": 313,
+            "IGL": 75,
+            "TRA": 6,
+            "TRB": 5
+          },
+          "cellranger_cells": 83,
+          "cellranger_cells_recovered": 83,
+          "warnings": [
+            "TRUST4: 19850 of 20472 assembled contigs are not reported by TRUST4 as a chain of any cell and were left out (e.g. GACTACATCCTCAATT-1_5, GACTACATCCTCAATT-1_6, GACTACATCCTCAATT-1_7, GACTACATCCTCAATT-1_8, GACTACATCCTCAATT-1_10). No contig was assigned an invented cell."
+          ],
+          "inputs": {
+            "bam": {
+              "file": "all_contig.bam",
+              "size_bytes": 133476116,
+              "sha256": "63a4051b0d40d60e923483022a81593f1abdfcf8835ea4efb72ce2edd65f4102"
+            }
+          },
+          "cdr3_concordance_with_cellranger": {
+            "cellranger_cells": 83,
+            "cellranger_cells_called_by_trust4": 83,
+            "cell_locus_pairs": 165,
+            "cell_locus_pairs_with_identical_cdr3": 165,
+            "cells_with_heavy_chain": 81,
+            "heavy_identical": 81,
+            "cells_with_light_chain": 83,
+            "light_identical": 83,
+            "cells_with_both": 81,
+            "both_identical": 81
+          },
+          "barcodes_with_N": 0,
+          "attempts": 1,
+          "trust4_segfaults_before_success": 0,
+          "trust4_outputs": {
+            "trust4_annot.fa": {
+              "file": "trust4_annot.fa",
+              "size_bytes": 5391226,
+              "sha256": "3d7a289dc7a247ae6591807e38af472d7155018c67ec05468d67c24894907e9f"
+            },
+            "trust4_barcode_report.tsv": {
+              "file": "trust4_barcode_report.tsv",
+              "size_bytes": 120119,
+              "sha256": "80818a4e31901db48f180229958cd7abfd31883c409a3051c9057a73f6999eff"
+            },
+            "trust4_barcode_airr.tsv": {
+              "file": "trust4_barcode_airr.tsv",
+              "size_bytes": 516903,
+              "sha256": "e63f49623eddaad29da93e28832db88b600e8674db7baccdf24a4713812817e8"
+            }
+          },
+          "bam_tag_counts": {
+            "reads": 2833786,
+            "reads_with_barcode": 2833786,
+            "reads_with_umi": 2833786,
+            "paired": 0
+          }
+        },
+        {
+          "case": "T3n1_contig_bam_genome_route",
+          "expected": "refused",
+          "outcome": "refused",
+          "seconds": 0.0,
+          "message": "This BAM is not aligned to a reference genome, so TRUST4 cannot use it. Its reference sequences look like: AACTCAGCAATGAAAC-1_contig_1, AACTCCCAGGCTAGGT-1_contig_1, AACTCCCAGGCTAGGT-1_contig_2. TRUST4 needs a genome-aligned BAM whose references are chromosomes (chr1, chr2, chr14, \u2026), because it finds V(D)J reads by genomic coordinate. Cell Ranger's all_contig.bam is aligned to the assembled contigs, not the genome, so it cannot be used here \u2014 upload possorted_genome_bam.bam (or an equivalent genome alignment) instead. If all you have is all_contig.bam, use the Cell Ranger VDJ workflow with all"
+        },
+        {
+          "case": "T3n2_example_bam_genome_route",
+          "expected": "refused",
+          "outcome": "refused",
+          "seconds": 0.5,
+          "message": "TRUST4 could not assemble this BAM using its CB/UB tags: TRUST4 completed but produced no assembled contigs (trust4_annot.fa is missing or empty).. The run was stopped instead of retrying without barcodes, because a barcode-free assembly cannot be assigned to cells. If the BAM does carry CB/UB tags, try the \"Extract reads with samtools first\" option, which copies the tags into TRUST4's FASTQ path."
+        },
+        {
+          "case": "T3n3_example_bam_samtools_route",
+          "expected": "refused",
+          "outcome": "refused",
+          "seconds": 1.8,
+          "message": "None of the 198 reads carried a CB tag, so no read could be assigned to a cell. This BAM does not look like 10x output."
+        },
+        {
+          "case": "T4_bam_genome",
+          "outcome": "accepted",
+          "seconds": 24.1,
+          "parse_report": {
+            "annot_contigs": 6461,
+            "report_rows": 279,
+            "report_rows_without_barcode": 0,
+            "report_chain_fields_parsed": 337,
+            "report_chain_fields_unmatched": 0,
+            "airr_rows": 322,
+            "airr_rows_with_cell_id": 322,
+            "duplicate_mappings": 322,
+            "conflicting_mappings": 0,
+            "contigs_not_in_cell_report": 6124,
+            "records_written": 337,
+            "cells": 279
+          },
+          "records": 337,
+          "cells": 279,
+          "cell_ids_not_barcode_shaped": 0,
+          "cell_ids_equal_to_a_sequence_id": 0,
+          "contigs_per_cell_median": 1,
+          "chains": {
+            "IGH": 19,
+            "IGK": 61,
+            "IGL": 36,
+            "TRA": 70,
+            "TRB": 150,
+            "TRD": 1
+          },
+          "cellranger_cells": 83,
+          "cellranger_cells_recovered": 79,
+          "warnings": [
+            "TRUST4: 6124 of 6461 assembled contigs are not reported by TRUST4 as a chain of any cell and were left out (e.g. TTTATGCAGTACTTGC-1_0, TTTATGCAGTACTTGC-1_1, GAAATGATCACCGGGT-1_3, GAAATGATCACCGGGT-1_5, GAAATGATCACCGGGT-1_7). No contig was assigned an invented cell."
+          ],
+          "inputs": {
+            "bam": {
+              "file": "sc5p_v2_hs_PBMC_1k_5gex_vdj_loci.bam",
+              "size_bytes": 15432117,
+              "sha256": "bcc2c1fdc3e3224af7e788b99a366c5f7a65035b81eca091122e8b9b9a0f28d2"
+            }
+          },
+          "cdr3_concordance_with_cellranger": {
+            "cellranger_cells": 83,
+            "cellranger_cells_called_by_trust4": 79,
+            "cell_locus_pairs": 165,
+            "cell_locus_pairs_with_identical_cdr3": 95,
+            "cells_with_heavy_chain": 81,
+            "heavy_identical": 17,
+            "cells_with_light_chain": 83,
+            "light_identical": 77,
+            "cells_with_both": 81,
+            "both_identical": 16
+          },
+          "barcodes_with_N": 0,
+          "attempts": 1,
+          "trust4_segfaults_before_success": 0,
+          "trust4_outputs": {
+            "trust4_annot.fa": {
+              "file": "trust4_annot.fa",
+              "size_bytes": 2370057,
+              "sha256": "9a69420cbd51db6e1fc3bb552bc7a87c809a0fba2248fa6c7fee1b17e2c087ea"
+            },
+            "trust4_barcode_report.tsv": {
+              "file": "trust4_barcode_report.tsv",
+              "size_bytes": 49751,
+              "sha256": "24510997a4b81d15072014fbb0727dd952504ae2c75fecc7e5d64a5ac8e30218"
+            },
+            "trust4_barcode_airr.tsv": {
+              "file": "trust4_barcode_airr.tsv",
+              "size_bytes": 399813,
+              "sha256": "2ba2265bfdaf481baf52f01d510dd7ffabeaf31db13837573a0c31a93f4f9ece"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "benchmark": {
+    "available": true,
+    "scope": "one Windows 11 workstation, 25,000-read-pair subsets; small-input execution overhead, not production throughput",
+    "keys": [
+      "nonumi2x250",
+      "race325275",
+      "umi2x250"
+    ]
+  }
+}

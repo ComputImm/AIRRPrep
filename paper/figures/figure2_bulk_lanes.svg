@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" role="img" aria-label="Bulk read-stream states. Two uploaded files put the pipeline in the dual state with read streams R1 and R2; one file puts it in the single state with stream R1 only. Per-stream operations and the paired input-output operations keep the state unchanged; the four AssemblePairs operations merge the dual state into the single state. In the single state the paired and assembly modes are refused. ParseHeaders.table converts either state into a terminal TSV. The output format follows the input format unless ParseHeaders.table or the convert-to-FASTA option is used." font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="12">
+  <defs>
+    <marker id="f2ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+    </marker>
+    <marker id="f2arRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#E68677"/>
+    </marker>
+  </defs>
+
+  <!-- ── entries ── -->
+  <rect x="14" y="96" width="126" height="38" rx="5" fill="#007DAE" fill-opacity="0.14" stroke="#007DAE" stroke-width="1.4"/>
+  <text x="77" y="112" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">2 files uploaded</text>
+  <text x="77" y="126" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.85">paired R1 + R2</text>
+
+  <rect x="14" y="256" width="126" height="38" rx="5" fill="#007DAE" fill-opacity="0.14" stroke="#007DAE" stroke-width="1.4"/>
+  <text x="77" y="272" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">1 file uploaded</text>
+  <text x="77" y="286" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.85">single file</text>
+
+  <!-- ── states ── -->
+  <rect x="250" y="84" width="220" height="62" rx="7" fill="#008F90" fill-opacity="0.14" stroke="#008F90" stroke-width="2"/>
+  <text x="360" y="108" text-anchor="middle" fill="currentColor" font-size="13" font-weight="700">DUAL</text>
+  <text x="360" y="124" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.9">two read streams, R1 and R2,</text>
+  <text x="360" y="137" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.9">each typed independently</text>
+
+  <rect x="250" y="244" width="220" height="62" rx="7" fill="#008F90" fill-opacity="0.14" stroke="#008F90" stroke-width="2"/>
+  <text x="360" y="268" text-anchor="middle" fill="currentColor" font-size="13" font-weight="700">SINGLE</text>
+  <text x="360" y="284" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.9">one read stream, R1</text>
+  <text x="360" y="297" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.9">(uploaded, or produced by assembly)</text>
+
+  <rect x="700" y="158" width="210" height="62" rx="7" fill="#75CD9F" fill-opacity="0.18" stroke="#75CD9F" stroke-width="2"/>
+  <text x="805" y="182" text-anchor="middle" fill="currentColor" font-size="13" font-weight="700">TSV — terminal</text>
+  <text x="805" y="198" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.9">annotations as a flat table;</text>
+  <text x="805" y="211" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.9">no further step is offered</text>
+
+  <g stroke="currentColor" stroke-width="1.4" fill="none">
+    <path d="M 140 115 L 246 115" marker-end="url(#f2ar)"/>
+    <path d="M 140 275 L 246 275" marker-end="url(#f2ar)"/>
+
+    <!-- DUAL self-transitions -->
+    <path d="M 300 84 L 300 54 L 420 54 L 420 80" marker-end="url(#f2ar)"/>
+    <!-- DUAL -> SINGLE -->
+    <path d="M 360 146 L 360 240" marker-end="url(#f2ar)"/>
+    <!-- SINGLE self-transitions -->
+    <path d="M 330 306 L 330 350 L 440 350 L 440 310" marker-end="url(#f2ar)"/>
+    <!-- to TSV -->
+    <path d="M 470 128 L 620 128 L 620 180 L 696 180" marker-end="url(#f2ar)"/>
+    <path d="M 470 262 L 620 262 L 620 198 L 696 198" marker-end="url(#f2ar)"/>
+  </g>
+
+  <text x="360" y="26" text-anchor="middle" fill="currentColor" font-size="10.5">Per-stream operations — <tspan font-weight="600">R1 | R2 | both</tspan> — state unchanged</text>
+  <text x="360" y="41" text-anchor="middle" fill="currentColor" font-size="10.5"><tspan font-weight="600">PairSeq · SplitSeq.samplepair</tspan> (paired input/output) — 2 files in, 2 files out</text>
+
+  <text x="352" y="176" text-anchor="end" fill="currentColor" font-size="10.5" font-weight="600">AssemblePairs align | join |</text>
+  <text x="352" y="189" text-anchor="end" fill="currentColor" font-size="10.5" font-weight="600">reference | sequential</text>
+  <text x="352" y="203" text-anchor="end" fill="currentColor" font-size="10.5" opacity="0.85">2 files in → 1 file out;</text>
+  <text x="352" y="215" text-anchor="end" fill="currentColor" font-size="10.5" opacity="0.85">capabilities of R1 ∪ R2</text>
+
+  <text x="335" y="373" text-anchor="middle" fill="currentColor" font-size="10.5">Per-stream operations on <tspan font-weight="600">R1</tspan> — state unchanged</text>
+
+  <text x="540" y="120" text-anchor="middle" fill="currentColor" font-size="10.5" font-weight="600">ParseHeaders.table</text>
+  <text x="540" y="254" text-anchor="middle" fill="currentColor" font-size="10.5" font-weight="600">ParseHeaders.table</text>
+
+  <!-- ── refusal ── -->
+  <rect x="14" y="326" width="200" height="76" rx="6" fill="#E68677" fill-opacity="0.10" stroke="#E68677" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="114" y="346" text-anchor="middle" fill="currentColor" font-size="11" font-weight="700">Refused in SINGLE</text>
+  <text x="114" y="362" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.9">PairSeq · SplitSeq.samplepair ·</text>
+  <text x="114" y="374" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.9">AssemblePairs.*</text>
+  <text x="114" y="391" text-anchor="middle" fill="currentColor" font-size="10" opacity="0.85">“requires two input files (R1 and R2)”</text>
+  <path d="M 254 302 L 218 334" stroke="#E68677" stroke-width="1.5" fill="none" stroke-dasharray="4 3" marker-end="url(#f2arRed)"/>
+
+  <!-- ── output rules ── -->
+  <rect x="480" y="300" width="466" height="128" rx="6" fill="none" stroke="currentColor" stroke-width="1.3" opacity="0.55"/>
+  <text x="500" y="322" text-anchor="start" fill="currentColor" font-size="11" font-weight="700">Output format follows the components chosen</text>
+  <text x="500" y="344" text-anchor="start" fill="currentColor" font-size="10.5">FASTQ in → <tspan font-weight="600">FASTQ</tspan> out; FASTA in → <tspan font-weight="600">FASTA</tspan> out (most modes keep the type)</text>
+  <text x="500" y="364" text-anchor="start" fill="currentColor" font-size="10.5">FilterSeq.quality · trimqual · maskqual need FASTQ — unavailable on FASTA input</text>
+  <text x="500" y="384" text-anchor="start" fill="currentColor" font-size="10.5">ParseHeaders.table → <tspan font-weight="600">TSV</tspan>, and the sequence stream ends there</text>
+  <text x="500" y="404" text-anchor="start" fill="currentColor" font-size="10.5">optional convert-to-FASTA on the final file → <tspan font-weight="600">FASTA</tspan> from a FASTQ stream</text>
+  <text x="500" y="420" text-anchor="start" fill="currentColor" font-size="10" opacity="0.8">every step also writes its own pass file, _fail file and read count</text>
+</svg>

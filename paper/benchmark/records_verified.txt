@@ -1,0 +1,57 @@
+==============================================================================
+race325275 -- UMI-barcoded 5'RACE MiSeq 325+275 (SRR4026043)
+  AIRRPrep job: jobs\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\ca9a60a4-7000-449f-aa8d-a65e37e5652b
+
+  step                            records  identical  missing  extra  altered  order bytes
+  1  FilterSeq.quality R1          22,285     22,285        0      0        0  DIFF  diff
+  2  FilterSeq.quality R2          20,424     20,424        0      0        0  DIFF  diff
+  3  MaskPrimers.score R1          21,204     21,204        0      0        0  DIFF  diff
+  4  MaskPrimers.score R2          19,899     19,899        0      0        0  DIFF  diff
+  5  PairSeq (mate 1)              18,778     18,778        0      0        0  DIFF  diff
+  5  PairSeq (mate 2)              18,778     18,778        0      0        0  DIFF  diff
+  6  BuildConsensus R1             16,022     16,022        0      0        0  DIFF  diff
+  7  BuildConsensus R2             16,039     16,039        0      0        0  DIFF  diff
+  8  PairSeq (mate 1)              16,020     16,020        0      0        0  DIFF  diff
+  8  PairSeq (mate 2)              16,020     16,020        0      0        0  DIFF  diff
+  9  AssemblePairs.sequential      15,493     15,493        0      0        0  DIFF  diff
+  10 MaskPrimers.align             14,939     14,939        0      0        0  DIFF  diff
+  11 ParseHeaders.collapse         14,939     14,939        0      0        0  DIFF  diff
+  12 CollapseSeq                   13,905     13,905        0      0        0  DIFF  diff
+  13 SplitSeq.group                 2,419      2,419        0      0        0  DIFF  diff
+  14 ParseHeaders.table             2,419      2,419        0      0        0  DIFF  diff
+
+==============================================================================
+umi2x250 -- UMI-barcoded 5'RACE MiSeq 2x250 (SRR1383456)
+  AIRRPrep job: jobs\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\68627fdc-0562-4f18-bb49-4fd99abd4437
+
+  step                            records  identical  missing  extra  altered  order bytes
+  1  FilterSeq.quality R1          22,822     22,822        0      0        0  DIFF  diff
+  2  FilterSeq.quality R2          19,910     19,910        0      0        0  DIFF  diff
+  3  MaskPrimers.score R1          20,421     20,421        0      0        0  DIFF  diff
+  4  MaskPrimers.score R2          19,049     19,049        0      0        0  DIFF  diff
+  5  PairSeq (mate 1)              17,142     17,142        0      0        0  DIFF  diff
+  5  PairSeq (mate 2)              17,142     17,142        0      0        0  DIFF  diff
+  6  BuildConsensus R1              4,097      4,097        0      0        0  DIFF  diff
+  7  BuildConsensus R2              4,089      4,089        0      0        0  DIFF  diff
+  8  PairSeq (mate 1)               4,087      4,087        0      0        0  DIFF  diff
+  8  PairSeq (mate 2)               4,087      4,087        0      0        0  DIFF  diff
+  9  AssemblePairs.align            1,888      1,888        0      0        0  DIFF  diff
+  10 ParseHeaders.collapse          1,888      1,888        0      0        0  DIFF  diff
+  11 CollapseSeq                    1,137      1,137        0      0        0  DIFF  diff
+  12 SplitSeq.group                   645        645        0      0        0  DIFF  diff
+  13 ParseHeaders.table               645        645        0      0        0  DIFF  diff
+
+==============================================================================
+nonumi2x250 -- MiSeq 2x250 BCR mRNA (ERR346600)
+  AIRRPrep job: jobs\3b5fc8b1-204e-4bf5-a68c-db23c4d463e7\e4ef526e-dbf8-47d0-8531-901490051b28
+
+  step                            records  identical  missing  extra  altered  order bytes
+  1  AssemblePairs.align           24,363     24,363        0      0        0  DIFF  diff
+  2  FilterSeq.quality             24,361     24,361        0      0        0  DIFF  diff
+  3  MaskPrimers.score V           23,968     23,968        0      0        0  DIFF  diff
+  4  MaskPrimers.score C           23,573     23,573        0      0        0  DIFF  diff
+  5  CollapseSeq                   13,079     13,079        0      0        0  DIFF  diff
+  6  SplitSeq.group                 1,044      1,044        0      0        0  DIFF  diff
+  7  ParseHeaders.table             1,044      1,044        0      0        0  DIFF  diff
+
+ALL STEPS RECORD-IDENTICAL

@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 580" role="img" aria-label="Workflow overview. Uploaded data divide into bulk AIRR-seq, taking one or two FASTQ or FASTA files, and single-cell AIRR, whose file set is matched to one of seven format specifications. Bulk data are composed into a pRESTO step list, contract-validated, then executed, producing FASTQ, FASTA or TSV. Single-cell data go to an adapter, preceded by a TRUST4 assembly when the input is raw reads, producing FASTA, metadata TSV and provenance files from which upstream V(D)J annotations are omitted. Both outputs feed downstream IMGT or IgBLAST annotation." font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="12">
+  <defs>
+    <marker id="f1ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+    </marker>
+    <marker id="f1arRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#E68677"/>
+    </marker>
+  </defs>
+
+  <!-- ═══ input ═══ -->
+  <rect x="350" y="16" width="280" height="34" rx="6" fill="#007DAE" fill-opacity="0.14" stroke="#007DAE" stroke-width="1.5"/>
+  <text x="490" y="38" text-anchor="middle" fill="currentColor" font-weight="600">Uploaded file set (.gz accepted)</text>
+
+  <g stroke="currentColor" stroke-width="1.4" fill="none">
+    <path d="M 490 50 L 490 70"/>
+    <path d="M 250 70 L 730 70"/>
+    <path d="M 250 70 L 250 90" marker-end="url(#f1ar)"/>
+    <path d="M 730 70 L 730 90" marker-end="url(#f1ar)"/>
+  </g>
+  <text x="242" y="64" text-anchor="end" fill="currentColor" font-size="11.5" font-weight="700">BULK AIRR-seq</text>
+  <text x="738" y="64" text-anchor="start" fill="currentColor" font-size="11.5" font-weight="700">SINGLE-CELL AIRR</text>
+
+  <!-- ═══ BULK: input kinds ═══ -->
+  <rect x="30" y="92" width="440" height="80" rx="6" fill="#008F90" fill-opacity="0.10" stroke="#008F90" stroke-width="1.4"/>
+  <text x="250" y="110" text-anchor="middle" fill="currentColor" font-size="11" font-weight="700">Input — 1 or 2 sequence files, both the same format</text>
+  <rect x="44" y="118" width="200" height="46" rx="5" fill="#008F90" fill-opacity="0.13" stroke="#008F90" stroke-width="1.2"/>
+  <text x="144" y="134" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">single file</text>
+  <text x="144" y="152" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.85">FASTQ/FASTA → stream R1</text>
+  <rect x="256" y="118" width="200" height="46" rx="5" fill="#008F90" fill-opacity="0.13" stroke="#008F90" stroke-width="1.2"/>
+  <text x="356" y="134" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">paired R1 + R2 files</text>
+  <text x="356" y="152" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.85">FASTQ/FASTA → streams R1 + R2</text>
+
+  <!-- BULK: compose -->
+  <rect x="90" y="196" width="320" height="42" rx="6" fill="#008F90" fill-opacity="0.13" stroke="#008F90" stroke-width="1.5"/>
+  <text x="250" y="214" text-anchor="middle" fill="currentColor" font-weight="600">Composed pRESTO step list</text>
+  <text x="250" y="229" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.85">3 predefined workflows or custom · 47 operations</text>
+
+  <!-- BULK: validation -->
+  <rect x="90" y="266" width="320" height="50" rx="6" fill="#E68677" fill-opacity="0.14" stroke="#E68677" stroke-width="1.8"/>
+  <text x="250" y="284" text-anchor="middle" fill="currentColor" font-weight="600">Contract validation</text>
+  <text x="250" y="299" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.85">capabilities + file type, tracked per read stream,</text>
+  <text x="250" y="311" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.85">replayed against the uploaded files (Suppl. Fig. S4)</text>
+
+  <rect x="14" y="266" width="62" height="50" rx="5" fill="none" stroke="#E68677" stroke-width="1.3" stroke-dasharray="4 3"/>
+  <text x="45" y="285" text-anchor="middle" fill="currentColor" font-size="10" font-weight="700">refused</text>
+  <text x="45" y="298" text-anchor="middle" fill="currentColor" font-size="9.5" opacity="0.85">step, stream,</text>
+  <text x="45" y="309" text-anchor="middle" fill="currentColor" font-size="9.5" opacity="0.85">unmet need</text>
+  <path d="M 90 291 L 80 291" stroke="#E68677" stroke-width="1.4" fill="none" marker-end="url(#f1arRed)"/>
+
+  <!-- BULK: executor -->
+  <rect x="90" y="344" width="320" height="42" rx="6" fill="#008F90" fill-opacity="0.13" stroke="#008F90" stroke-width="1.5"/>
+  <text x="250" y="362" text-anchor="middle" fill="currentColor" font-weight="600">Step-by-step execution (Celery)</text>
+  <text x="250" y="377" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.85">every step writes its own pass + _fail file and a read count</text>
+
+  <!-- BULK: output -->
+  <rect x="90" y="414" width="320" height="56" rx="6" fill="#75CD9F" fill-opacity="0.18" stroke="#75CD9F" stroke-width="1.8"/>
+  <text x="250" y="432" text-anchor="middle" fill="currentColor" font-weight="600">Bulk output</text>
+  <text x="250" y="447" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.9">FASTQ · FASTA · TSV — set by the components chosen:</text>
+  <text x="250" y="460" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.9">input format is carried through; ParseHeaders.table ends it as TSV</text>
+
+  <g stroke="currentColor" stroke-width="1.4" fill="none">
+    <path d="M 250 172 L 250 192" marker-end="url(#f1ar)"/>
+    <path d="M 250 238 L 250 262" marker-end="url(#f1ar)"/>
+    <path d="M 250 316 L 250 340" marker-end="url(#f1ar)"/>
+    <path d="M 250 386 L 250 410" marker-end="url(#f1ar)"/>
+  </g>
+  <text x="258" y="333" text-anchor="start" fill="currentColor" font-size="10" opacity="0.85">valid</text>
+
+  <!-- ═══ SINGLE-CELL: input kinds ═══ -->
+  <rect x="510" y="92" width="440" height="80" rx="6" fill="#5A86CE" fill-opacity="0.10" stroke="#5A86CE" stroke-width="1.4"/>
+  <text x="730" y="110" text-anchor="middle" fill="currentColor" font-size="11" font-weight="700">Input — file set matched to one of 7 input specifications</text>
+  <rect x="524" y="118" width="200" height="46" rx="5" fill="#5A86CE" fill-opacity="0.13" stroke="#5A86CE" stroke-width="1.2"/>
+  <text x="624" y="133" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">assembled contigs</text>
+  <text x="624" y="147" text-anchor="middle" fill="currentColor" font-size="10" opacity="0.85">Cell Ranger · TRUST4 output ·</text>
+  <text x="624" y="159" text-anchor="middle" fill="currentColor" font-size="10" opacity="0.85">generic FASTA</text>
+  <rect x="736" y="118" width="200" height="46" rx="5" fill="#1BA6DB" fill-opacity="0.14" stroke="#1BA6DB" stroke-width="1.2"/>
+  <text x="836" y="133" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600">raw reads</text>
+  <text x="836" y="147" text-anchor="middle" fill="currentColor" font-size="10" opacity="0.85">10x FASTQ R1 + R2 ·</text>
+  <text x="836" y="159" text-anchor="middle" fill="currentColor" font-size="10" opacity="0.85">genome-aligned BAM (CB/UB)</text>
+
+  <!-- SC: TRUST4 -->
+  <rect x="736" y="196" width="200" height="42" rx="6" fill="#1BA6DB" fill-opacity="0.14" stroke="#1BA6DB" stroke-width="1.5"/>
+  <text x="836" y="214" text-anchor="middle" fill="currentColor" font-weight="600">TRUST4 assembly</text>
+  <text x="836" y="229" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.85">reads → contigs, barcode-aware</text>
+
+  <!-- SC: adapter -->
+  <rect x="570" y="266" width="320" height="50" rx="6" fill="#5A86CE" fill-opacity="0.14" stroke="#5A86CE" stroke-width="1.5"/>
+  <text x="730" y="284" text-anchor="middle" fill="currentColor" font-weight="600">Format adapter → internal normalized record</text>
+  <text x="730" y="299" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.85">sequence_id · sequence · cell_id · umi_count · read_count</text>
+  <text x="730" y="311" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.85">is_cell · high_confidence · productive</text>
+
+  <!-- SC: writer -->
+  <rect x="570" y="344" width="320" height="42" rx="6" fill="#5A86CE" fill-opacity="0.13" stroke="#5A86CE" stroke-width="1.5"/>
+  <text x="730" y="362" text-anchor="middle" fill="currentColor" font-weight="600">Record validation + writer</text>
+  <text x="730" y="377" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.85">upstream V(D)J annotations omitted · no invented cell ids</text>
+
+  <!-- SC: output -->
+  <rect x="570" y="414" width="320" height="56" rx="6" fill="#75CD9F" fill-opacity="0.18" stroke="#75CD9F" stroke-width="1.8"/>
+  <text x="730" y="432" text-anchor="middle" fill="currentColor" font-weight="600">Single-cell output</text>
+  <text x="730" y="447" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.9">final.fasta · metadata.tsv · provenance.json</text>
+  <text x="730" y="460" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.9">same 8-field schema for all 7 input specifications</text>
+
+  <g stroke="currentColor" stroke-width="1.4" fill="none">
+    <path d="M 836 172 L 836 192" marker-end="url(#f1ar)"/>
+    <path d="M 836 238 L 836 252 L 800 252 L 800 262" marker-end="url(#f1ar)"/>
+    <path d="M 624 172 L 624 252 L 660 252 L 660 262" marker-end="url(#f1ar)"/>
+    <path d="M 730 316 L 730 340" marker-end="url(#f1ar)"/>
+    <path d="M 730 386 L 730 410" marker-end="url(#f1ar)"/>
+  </g>
+  <text x="600" y="212" text-anchor="middle" fill="currentColor" font-size="10" opacity="0.85" transform="rotate(-90 600 212)">no assembly needed</text>
+
+  <g stroke="currentColor" stroke-width="1.4" fill="none">
+    <path d="M 250 470 L 250 500 L 326 500 L 326 516" marker-end="url(#f1ar)"/>
+    <path d="M 730 470 L 730 500 L 654 500 L 654 516" marker-end="url(#f1ar)"/>
+  </g>
+
+  <rect x="330" y="520" width="320" height="40" rx="6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-dasharray="5 3" opacity="0.55"/>
+  <text x="490" y="539" text-anchor="middle" fill="currentColor" font-size="11" font-weight="600" opacity="0.78">Downstream — out of scope</text>
+  <text x="490" y="553" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.68">IMGT/HighV-QUEST · IgBLAST → clonal and lineage analysis</text>
+</svg>

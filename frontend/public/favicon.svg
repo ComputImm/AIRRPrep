@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AIRR Preprocessor">
+  <title>AIRR Preprocessor</title>
+  <!--
+    A DNA double helix narrowing into a funnel: the two sequencing reads going
+    in, the filtered repertoire coming out. Drawn as strokes rather than fills
+    so it stays legible at 16px, and on a solid rounded tile so it reads on
+    both light and dark browser chrome.
+  -->
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="14" fill="url(#tile)"/>
+
+  <g fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round">
+    <!-- Two strands crossing twice, then converging toward the funnel neck. -->
+    <path d="M20 12 C 34 20, 34 28, 20 36" opacity="0.95"/>
+    <path d="M44 12 C 30 20, 30 28, 44 36" opacity="0.95"/>
+  </g>
+
+  <!-- Base pairs between the strands. -->
+  <g stroke="#bfdbfe" stroke-width="2.2" stroke-linecap="round">
+    <line x1="23" y1="16" x2="41" y2="16"/>
+    <line x1="30" y1="24" x2="34" y2="24"/>
+    <line x1="23" y1="32" x2="41" y2="32"/>
+  </g>
+
+  <!-- Funnel: wide intake, narrow spout. -->
+  <path d="M16 40 H48 L37 51 V56 H27 V51 Z"
+        fill="#ffffff" fill-opacity="0.16"
+        stroke="#ffffff" stroke-width="3" stroke-linejoin="round"/>
+</svg>

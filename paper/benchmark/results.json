@@ -1,0 +1,818 @@
+{
+  "race325275": {
+    "label": "UMI-barcoded 5'RACE MiSeq 325+275 (SRR4026043)",
+    "airrprep": [
+      285.81,
+      305.44,
+      270.37
+    ],
+    "cli": [
+      341.56,
+      340.94,
+      355.95
+    ],
+    "last_job": {
+      "session": "fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b",
+      "job": "ca9a60a4-7000-449f-aa8d-a65e37e5652b",
+      "step_stats": [
+        {
+          "index": 1,
+          "name": "FilterSeq.quality",
+          "lanes": [
+            "R1"
+          ],
+          "before": 25000,
+          "failed": 2715,
+          "remaining": 22285,
+          "by_lane": {
+            "R1": {
+              "before": 25000,
+              "failed": 2715,
+              "remaining": 22285
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\steps\\01\\SRR4026043_ca9a60a4_step01_FilterSeq-quality_R1.fastq"
+          }
+        },
+        {
+          "index": 2,
+          "name": "FilterSeq.quality",
+          "lanes": [
+            "R2"
+          ],
+          "before": 25000,
+          "failed": 4576,
+          "remaining": 20424,
+          "by_lane": {
+            "R2": {
+              "before": 25000,
+              "failed": 4576,
+              "remaining": 20424
+            }
+          },
+          "output_paths": {
+            "R2": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\steps\\02\\SRR4026043_ca9a60a4_step02_FilterSeq-quality_R2.fastq"
+          }
+        },
+        {
+          "index": 3,
+          "name": "MaskPrimers.score",
+          "lanes": [
+            "R1"
+          ],
+          "before": 22285,
+          "failed": 1081,
+          "remaining": 21204,
+          "by_lane": {
+            "R1": {
+              "before": 22285,
+              "failed": 1081,
+              "remaining": 21204
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\steps\\03\\SRR4026043_ca9a60a4_step03_MaskPrimers-score_R1.fastq"
+          }
+        },
+        {
+          "index": 4,
+          "name": "MaskPrimers.score",
+          "lanes": [
+            "R2"
+          ],
+          "before": 20424,
+          "failed": 525,
+          "remaining": 19899,
+          "by_lane": {
+            "R2": {
+              "before": 20424,
+              "failed": 525,
+              "remaining": 19899
+            }
+          },
+          "output_paths": {
+            "R2": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\steps\\04\\SRR4026043_ca9a60a4_step04_MaskPrimers-score_R2.fastq"
+          }
+        },
+        {
+          "index": 5,
+          "name": "PairSeq.default",
+          "lanes": [
+            "R1",
+            "R2"
+          ],
+          "before": 41103,
+          "failed": 3547,
+          "remaining": 37556,
+          "by_lane": {
+            "R1": {
+              "before": 21204,
+              "failed": 2426,
+              "remaining": 18778
+            },
+            "R2": {
+              "before": 19899,
+              "failed": 1121,
+              "remaining": 18778
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\steps\\05\\SRR4026043_ca9a60a4_step05_PairSeq-default_R1_pair-pass.fastq",
+            "R2": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\steps\\05\\SRR4026043_ca9a60a4_step05_PairSeq-default_R2_pair-pass.fastq"
+          }
+        },
+        {
+          "index": 6,
+          "name": "BuildConsensus.default",
+          "lanes": [
+            "R1"
+          ],
+          "before": 18778,
+          "failed": 2756,
+          "remaining": 16022,
+          "by_lane": {
+            "R1": {
+              "before": 18778,
+              "failed": 2756,
+              "remaining": 16022
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\steps\\06\\SRR4026043_ca9a60a4_step06_BuildConsensus-default_R1.fastq"
+          }
+        },
+        {
+          "index": 7,
+          "name": "BuildConsensus.default",
+          "lanes": [
+            "R2"
+          ],
+          "before": 18778,
+          "failed": 2739,
+          "remaining": 16039,
+          "by_lane": {
+            "R2": {
+              "before": 18778,
+              "failed": 2739,
+              "remaining": 16039
+            }
+          },
+          "output_paths": {
+            "R2": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\steps\\07\\SRR4026043_ca9a60a4_step07_BuildConsensus-default_R2.fastq"
+          }
+        },
+        {
+          "index": 8,
+          "name": "PairSeq.default",
+          "lanes": [
+            "R1",
+            "R2"
+          ],
+          "before": 32061,
+          "failed": 21,
+          "remaining": 32040,
+          "by_lane": {
+            "R1": {
+              "before": 16022,
+              "failed": 2,
+              "remaining": 16020
+            },
+            "R2": {
+              "before": 16039,
+              "failed": 19,
+              "remaining": 16020
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\steps\\08\\SRR4026043_ca9a60a4_step08_PairSeq-default_R1_pair-pass.fastq",
+            "R2": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\steps\\08\\SRR4026043_ca9a60a4_step08_PairSeq-default_R2_pair-pass.fastq"
+          }
+        },
+        {
+          "index": 9,
+          "name": "AssembleSeq.sequential",
+          "lanes": [
+            "merged"
+          ],
+          "before": 16020,
+          "failed": 527,
+          "remaining": 15493,
+          "by_lane": {
+            "merged": {
+              "before": 16020,
+              "failed": 527,
+              "remaining": 15493
+            }
+          },
+          "output_paths": {
+            "merged": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\steps\\09\\SRR4026043_ca9a60a4_step09_AssembleSeq-sequential_assembled.fastq",
+            "merged_fail": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\steps\\09\\SRR4026043_ca9a60a4_step09_AssembleSeq-sequential_assembled_fail.fastq"
+          }
+        },
+        {
+          "index": 10,
+          "name": "MaskPrimers.align",
+          "lanes": [
+            "R1"
+          ],
+          "before": 15493,
+          "failed": 554,
+          "remaining": 14939,
+          "by_lane": {
+            "R1": {
+              "before": 15493,
+              "failed": 554,
+              "remaining": 14939
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\steps\\10\\SRR4026043_ca9a60a4_step10_MaskPrimers-align_R1.fastq"
+          }
+        },
+        {
+          "index": 11,
+          "name": "ParseHeaders.collapse",
+          "lanes": [
+            "R1"
+          ],
+          "before": 14939,
+          "failed": 0,
+          "remaining": 14939,
+          "by_lane": {
+            "R1": {
+              "before": 14939,
+              "failed": 0,
+              "remaining": 14939
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\steps\\11\\SRR4026043_ca9a60a4_step11_ParseHeaders-collapse_R1.fastq"
+          }
+        },
+        {
+          "index": 12,
+          "name": "CollapseSeq.default",
+          "lanes": [
+            "R1"
+          ],
+          "before": 14939,
+          "failed": 1034,
+          "remaining": 13905,
+          "by_lane": {
+            "R1": {
+              "before": 14939,
+              "failed": 1034,
+              "remaining": 13905
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\steps\\12\\SRR4026043_ca9a60a4_step12_CollapseSeq-default_R1.fastq"
+          }
+        },
+        {
+          "index": 13,
+          "name": "SplitSeq.group",
+          "lanes": [
+            "R1"
+          ],
+          "before": 13905,
+          "failed": 11486,
+          "remaining": 2419,
+          "by_lane": {
+            "R1": {
+              "before": 13905,
+              "failed": 11486,
+              "remaining": 2419
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\steps\\13\\SRR4026043_ca9a60a4_step13_SplitSeq-group_R1_atleast-2.fastq"
+          },
+          "parts": [
+            {
+              "label": "atleast-2",
+              "lane": null,
+              "name": "SRR4026043_ca9a60a4_step13_SplitSeq-group_R1_atleast-2.fastq",
+              "path": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\steps\\13\\SRR4026043_ca9a60a4_step13_SplitSeq-group_R1_atleast-2.fastq",
+              "sequences": 2419
+            },
+            {
+              "label": "under-2",
+              "lane": null,
+              "name": "SRR4026043_ca9a60a4_step13_SplitSeq-group_R1_under-2.fastq",
+              "path": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\steps\\13\\SRR4026043_ca9a60a4_step13_SplitSeq-group_R1_under-2.fastq",
+              "sequences": 11486
+            }
+          ]
+        },
+        {
+          "index": 14,
+          "name": "ParseHeaders.table",
+          "lanes": [
+            "R1"
+          ],
+          "before": 2419,
+          "failed": 0,
+          "remaining": 2419,
+          "by_lane": {
+            "R1": {
+              "before": 2419,
+              "failed": 0,
+              "remaining": 2419
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\fe57a2a9-49ed-485a-a7b5-fef59f5bdc7b\\ca9a60a4-7000-449f-aa8d-a65e37e5652b\\outputs\\SRR4026043_ca9a60a4.tsv"
+          }
+        }
+      ]
+    }
+  },
+  "umi2x250": {
+    "label": "UMI-barcoded 5'RACE MiSeq 2x250 (SRR1383456)",
+    "airrprep": [
+      40.18,
+      40.36,
+      42.31
+    ],
+    "cli": [
+      115.37,
+      115.38,
+      114.81
+    ],
+    "last_job": {
+      "session": "2d83d2d4-b58a-4273-a78f-c2adc8b497b7",
+      "job": "68627fdc-0562-4f18-bb49-4fd99abd4437",
+      "step_stats": [
+        {
+          "index": 1,
+          "name": "FilterSeq.quality",
+          "lanes": [
+            "R1"
+          ],
+          "before": 25000,
+          "failed": 2178,
+          "remaining": 22822,
+          "by_lane": {
+            "R1": {
+              "before": 25000,
+              "failed": 2178,
+              "remaining": 22822
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\\68627fdc-0562-4f18-bb49-4fd99abd4437\\steps\\01\\SRR1383456_68627fdc_step01_FilterSeq-quality_R1.fastq"
+          }
+        },
+        {
+          "index": 2,
+          "name": "FilterSeq.quality",
+          "lanes": [
+            "R2"
+          ],
+          "before": 25000,
+          "failed": 5090,
+          "remaining": 19910,
+          "by_lane": {
+            "R2": {
+              "before": 25000,
+              "failed": 5090,
+              "remaining": 19910
+            }
+          },
+          "output_paths": {
+            "R2": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\\68627fdc-0562-4f18-bb49-4fd99abd4437\\steps\\02\\SRR1383456_68627fdc_step02_FilterSeq-quality_R2.fastq"
+          }
+        },
+        {
+          "index": 3,
+          "name": "MaskPrimers.score",
+          "lanes": [
+            "R1"
+          ],
+          "before": 22822,
+          "failed": 2401,
+          "remaining": 20421,
+          "by_lane": {
+            "R1": {
+              "before": 22822,
+              "failed": 2401,
+              "remaining": 20421
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\\68627fdc-0562-4f18-bb49-4fd99abd4437\\steps\\03\\SRR1383456_68627fdc_step03_MaskPrimers-score_R1.fastq"
+          }
+        },
+        {
+          "index": 4,
+          "name": "MaskPrimers.score",
+          "lanes": [
+            "R2"
+          ],
+          "before": 19910,
+          "failed": 861,
+          "remaining": 19049,
+          "by_lane": {
+            "R2": {
+              "before": 19910,
+              "failed": 861,
+              "remaining": 19049
+            }
+          },
+          "output_paths": {
+            "R2": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\\68627fdc-0562-4f18-bb49-4fd99abd4437\\steps\\04\\SRR1383456_68627fdc_step04_MaskPrimers-score_R2.fastq"
+          }
+        },
+        {
+          "index": 5,
+          "name": "PairSeq.default",
+          "lanes": [
+            "R1",
+            "R2"
+          ],
+          "before": 39470,
+          "failed": 5186,
+          "remaining": 34284,
+          "by_lane": {
+            "R1": {
+              "before": 20421,
+              "failed": 3279,
+              "remaining": 17142
+            },
+            "R2": {
+              "before": 19049,
+              "failed": 1907,
+              "remaining": 17142
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\\68627fdc-0562-4f18-bb49-4fd99abd4437\\steps\\05\\SRR1383456_68627fdc_step05_PairSeq-default_R1_pair-pass.fastq",
+            "R2": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\\68627fdc-0562-4f18-bb49-4fd99abd4437\\steps\\05\\SRR1383456_68627fdc_step05_PairSeq-default_R2_pair-pass.fastq"
+          }
+        },
+        {
+          "index": 6,
+          "name": "BuildConsensus.default",
+          "lanes": [
+            "R1"
+          ],
+          "before": 17142,
+          "failed": 13045,
+          "remaining": 4097,
+          "by_lane": {
+            "R1": {
+              "before": 17142,
+              "failed": 13045,
+              "remaining": 4097
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\\68627fdc-0562-4f18-bb49-4fd99abd4437\\steps\\06\\SRR1383456_68627fdc_step06_BuildConsensus-default_R1.fastq"
+          }
+        },
+        {
+          "index": 7,
+          "name": "BuildConsensus.default",
+          "lanes": [
+            "R2"
+          ],
+          "before": 17142,
+          "failed": 13053,
+          "remaining": 4089,
+          "by_lane": {
+            "R2": {
+              "before": 17142,
+              "failed": 13053,
+              "remaining": 4089
+            }
+          },
+          "output_paths": {
+            "R2": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\\68627fdc-0562-4f18-bb49-4fd99abd4437\\steps\\07\\SRR1383456_68627fdc_step07_BuildConsensus-default_R2.fastq"
+          }
+        },
+        {
+          "index": 8,
+          "name": "PairSeq.default",
+          "lanes": [
+            "R1",
+            "R2"
+          ],
+          "before": 8186,
+          "failed": 12,
+          "remaining": 8174,
+          "by_lane": {
+            "R1": {
+              "before": 4097,
+              "failed": 10,
+              "remaining": 4087
+            },
+            "R2": {
+              "before": 4089,
+              "failed": 2,
+              "remaining": 4087
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\\68627fdc-0562-4f18-bb49-4fd99abd4437\\steps\\08\\SRR1383456_68627fdc_step08_PairSeq-default_R1_pair-pass.fastq",
+            "R2": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\\68627fdc-0562-4f18-bb49-4fd99abd4437\\steps\\08\\SRR1383456_68627fdc_step08_PairSeq-default_R2_pair-pass.fastq"
+          }
+        },
+        {
+          "index": 9,
+          "name": "AssembleSeq.align",
+          "lanes": [
+            "merged"
+          ],
+          "before": 4087,
+          "failed": 2199,
+          "remaining": 1888,
+          "by_lane": {
+            "merged": {
+              "before": 4087,
+              "failed": 2199,
+              "remaining": 1888
+            }
+          },
+          "output_paths": {
+            "merged": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\\68627fdc-0562-4f18-bb49-4fd99abd4437\\steps\\09\\SRR1383456_68627fdc_step09_AssembleSeq-align_assembled.fastq",
+            "merged_fail": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\\68627fdc-0562-4f18-bb49-4fd99abd4437\\steps\\09\\SRR1383456_68627fdc_step09_AssembleSeq-align_assembled_fail.fastq"
+          }
+        },
+        {
+          "index": 10,
+          "name": "ParseHeaders.collapse",
+          "lanes": [
+            "R1"
+          ],
+          "before": 1888,
+          "failed": 0,
+          "remaining": 1888,
+          "by_lane": {
+            "R1": {
+              "before": 1888,
+              "failed": 0,
+              "remaining": 1888
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\\68627fdc-0562-4f18-bb49-4fd99abd4437\\steps\\10\\SRR1383456_68627fdc_step10_ParseHeaders-collapse_R1.fastq"
+          }
+        },
+        {
+          "index": 11,
+          "name": "CollapseSeq.default",
+          "lanes": [
+            "R1"
+          ],
+          "before": 1888,
+          "failed": 751,
+          "remaining": 1137,
+          "by_lane": {
+            "R1": {
+              "before": 1888,
+              "failed": 751,
+              "remaining": 1137
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\\68627fdc-0562-4f18-bb49-4fd99abd4437\\steps\\11\\SRR1383456_68627fdc_step11_CollapseSeq-default_R1.fastq"
+          }
+        },
+        {
+          "index": 12,
+          "name": "SplitSeq.group",
+          "lanes": [
+            "R1"
+          ],
+          "before": 1137,
+          "failed": 492,
+          "remaining": 645,
+          "by_lane": {
+            "R1": {
+              "before": 1137,
+              "failed": 492,
+              "remaining": 645
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\\68627fdc-0562-4f18-bb49-4fd99abd4437\\steps\\12\\SRR1383456_68627fdc_step12_SplitSeq-group_R1_atleast-2.fastq"
+          },
+          "parts": [
+            {
+              "label": "atleast-2",
+              "lane": null,
+              "name": "SRR1383456_68627fdc_step12_SplitSeq-group_R1_atleast-2.fastq",
+              "path": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\\68627fdc-0562-4f18-bb49-4fd99abd4437\\steps\\12\\SRR1383456_68627fdc_step12_SplitSeq-group_R1_atleast-2.fastq",
+              "sequences": 645
+            },
+            {
+              "label": "under-2",
+              "lane": null,
+              "name": "SRR1383456_68627fdc_step12_SplitSeq-group_R1_under-2.fastq",
+              "path": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\\68627fdc-0562-4f18-bb49-4fd99abd4437\\steps\\12\\SRR1383456_68627fdc_step12_SplitSeq-group_R1_under-2.fastq",
+              "sequences": 492
+            }
+          ]
+        },
+        {
+          "index": 13,
+          "name": "ParseHeaders.table",
+          "lanes": [
+            "R1"
+          ],
+          "before": 645,
+          "failed": 0,
+          "remaining": 645,
+          "by_lane": {
+            "R1": {
+              "before": 645,
+              "failed": 0,
+              "remaining": 645
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\2d83d2d4-b58a-4273-a78f-c2adc8b497b7\\68627fdc-0562-4f18-bb49-4fd99abd4437\\outputs\\SRR1383456_68627fdc.tsv"
+          }
+        }
+      ]
+    }
+  },
+  "nonumi2x250": {
+    "label": "MiSeq 2x250 BCR mRNA (ERR346600)",
+    "airrprep": [
+      75.87,
+      82.59,
+      81.95
+    ],
+    "cli": [
+      141.8,
+      143.87,
+      143.09
+    ],
+    "last_job": {
+      "session": "3b5fc8b1-204e-4bf5-a68c-db23c4d463e7",
+      "job": "e4ef526e-dbf8-47d0-8531-901490051b28",
+      "step_stats": [
+        {
+          "index": 1,
+          "name": "AssembleSeq.align",
+          "lanes": [
+            "merged"
+          ],
+          "before": 25000,
+          "failed": 637,
+          "remaining": 24363,
+          "by_lane": {
+            "merged": {
+              "before": 25000,
+              "failed": 637,
+              "remaining": 24363
+            }
+          },
+          "output_paths": {
+            "merged": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\3b5fc8b1-204e-4bf5-a68c-db23c4d463e7\\e4ef526e-dbf8-47d0-8531-901490051b28\\steps\\01\\ERR346600_e4ef526e_step01_AssembleSeq-align_assembled.fastq",
+            "merged_fail": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\3b5fc8b1-204e-4bf5-a68c-db23c4d463e7\\e4ef526e-dbf8-47d0-8531-901490051b28\\steps\\01\\ERR346600_e4ef526e_step01_AssembleSeq-align_assembled_fail.fastq"
+          }
+        },
+        {
+          "index": 2,
+          "name": "FilterSeq.quality",
+          "lanes": [
+            "R1"
+          ],
+          "before": 24363,
+          "failed": 2,
+          "remaining": 24361,
+          "by_lane": {
+            "R1": {
+              "before": 24363,
+              "failed": 2,
+              "remaining": 24361
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\3b5fc8b1-204e-4bf5-a68c-db23c4d463e7\\e4ef526e-dbf8-47d0-8531-901490051b28\\steps\\02\\ERR346600_e4ef526e_step02_FilterSeq-quality_R1.fastq"
+          }
+        },
+        {
+          "index": 3,
+          "name": "MaskPrimers.score",
+          "lanes": [
+            "R1"
+          ],
+          "before": 24361,
+          "failed": 393,
+          "remaining": 23968,
+          "by_lane": {
+            "R1": {
+              "before": 24361,
+              "failed": 393,
+              "remaining": 23968
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\3b5fc8b1-204e-4bf5-a68c-db23c4d463e7\\e4ef526e-dbf8-47d0-8531-901490051b28\\steps\\03\\ERR346600_e4ef526e_step03_MaskPrimers-score_R1.fastq"
+          }
+        },
+        {
+          "index": 4,
+          "name": "MaskPrimers.score",
+          "lanes": [
+            "R1"
+          ],
+          "before": 23968,
+          "failed": 395,
+          "remaining": 23573,
+          "by_lane": {
+            "R1": {
+              "before": 23968,
+              "failed": 395,
+              "remaining": 23573
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\3b5fc8b1-204e-4bf5-a68c-db23c4d463e7\\e4ef526e-dbf8-47d0-8531-901490051b28\\steps\\04\\ERR346600_e4ef526e_step04_MaskPrimers-score_R1.fastq"
+          }
+        },
+        {
+          "index": 5,
+          "name": "CollapseSeq.default",
+          "lanes": [
+            "R1"
+          ],
+          "before": 23573,
+          "failed": 10494,
+          "remaining": 13079,
+          "by_lane": {
+            "R1": {
+              "before": 23573,
+              "failed": 10494,
+              "remaining": 13079
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\3b5fc8b1-204e-4bf5-a68c-db23c4d463e7\\e4ef526e-dbf8-47d0-8531-901490051b28\\steps\\05\\ERR346600_e4ef526e_step05_CollapseSeq-default_R1.fastq"
+          }
+        },
+        {
+          "index": 6,
+          "name": "SplitSeq.group",
+          "lanes": [
+            "R1"
+          ],
+          "before": 13079,
+          "failed": 12035,
+          "remaining": 1044,
+          "by_lane": {
+            "R1": {
+              "before": 13079,
+              "failed": 12035,
+              "remaining": 1044
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\3b5fc8b1-204e-4bf5-a68c-db23c4d463e7\\e4ef526e-dbf8-47d0-8531-901490051b28\\steps\\06\\ERR346600_e4ef526e_step06_SplitSeq-group_R1_atleast-2.fastq"
+          },
+          "parts": [
+            {
+              "label": "atleast-2",
+              "lane": null,
+              "name": "ERR346600_e4ef526e_step06_SplitSeq-group_R1_atleast-2.fastq",
+              "path": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\3b5fc8b1-204e-4bf5-a68c-db23c4d463e7\\e4ef526e-dbf8-47d0-8531-901490051b28\\steps\\06\\ERR346600_e4ef526e_step06_SplitSeq-group_R1_atleast-2.fastq",
+              "sequences": 1044
+            },
+            {
+              "label": "under-2",
+              "lane": null,
+              "name": "ERR346600_e4ef526e_step06_SplitSeq-group_R1_under-2.fastq",
+              "path": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\3b5fc8b1-204e-4bf5-a68c-db23c4d463e7\\e4ef526e-dbf8-47d0-8531-901490051b28\\steps\\06\\ERR346600_e4ef526e_step06_SplitSeq-group_R1_under-2.fastq",
+              "sequences": 12035
+            }
+          ]
+        },
+        {
+          "index": 7,
+          "name": "ParseHeaders.table",
+          "lanes": [
+            "R1"
+          ],
+          "before": 1044,
+          "failed": 0,
+          "remaining": 1044,
+          "by_lane": {
+            "R1": {
+              "before": 1044,
+              "failed": 0,
+              "remaining": 1044
+            }
+          },
+          "output_paths": {
+            "R1": "C:\\Users\\sahar\\OneDrive\\Desktop\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\jobs\\3b5fc8b1-204e-4bf5-a68c-db23c4d463e7\\e4ef526e-dbf8-47d0-8531-901490051b28\\outputs\\ERR346600_e4ef526e.tsv"
+          }
+        }
+      ]
+    }
+  }
+}

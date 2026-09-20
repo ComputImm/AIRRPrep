@@ -1,0 +1,55 @@
+==============================================================================
+race325275 -- UMI-barcoded 5'RACE MiSeq 325+275 (SRR4026043)
+  CLI-pRESTO runs : [341.56, 340.94, 355.95]
+  AIRRPrep   runs : [285.81, 305.44, 270.37]
+
+  step                                  CLI     AIRRPrep
+  1  FilterSeq.quality R1            22,285       22,285
+  2  FilterSeq.quality R2            20,424       20,424
+  3  MaskPrimers.score R1            21,204       21,204
+  4  MaskPrimers.score R2            19,899       19,899
+  5  PairSeq                         18,778       18,778
+  6  BuildConsensus R1               16,022       16,022
+  7  BuildConsensus R2               16,039       16,039
+  8  PairSeq                         16,020       16,020
+  9  AssemblePairs.sequential        15,493       15,493
+  10 MaskPrimers.align               14,939       14,939
+  11 ParseHeaders.collapse           14,939       14,939
+  12 CollapseSeq                     13,905       13,905
+  13 SplitSeq.group                   2,419        2,419
+  14 ParseHeaders.table               2,419        2,419
+
+==============================================================================
+umi2x250 -- UMI-barcoded 5'RACE MiSeq 2x250 (SRR1383456)
+  CLI-pRESTO runs : [115.37, 115.38, 114.81]
+  AIRRPrep   runs : [40.18, 40.36, 42.31]
+
+  step                                  CLI     AIRRPrep
+  1  FilterSeq.quality R1            22,822       22,822
+  2  FilterSeq.quality R2            19,910       19,910
+  3  MaskPrimers.score R1            20,421       20,421
+  4  MaskPrimers.score R2            19,049       19,049
+  5  PairSeq                         17,142       17,142
+  6  BuildConsensus R1                4,097        4,097
+  7  BuildConsensus R2                4,089        4,089
+  8  PairSeq                          4,087        4,087
+  9  AssemblePairs.align              1,888        1,888
+  10 ParseHeaders.collapse            1,888        1,888
+  11 CollapseSeq                      1,137        1,137
+  12 SplitSeq.group                     645          645
+  13 ParseHeaders.table                 645          645
+
+==============================================================================
+nonumi2x250 -- MiSeq 2x250 BCR mRNA (ERR346600)
+  CLI-pRESTO runs : [141.8, 143.87, 143.09]
+  AIRRPrep   runs : [75.87, 82.59, 81.95]
+
+  step                                  CLI     AIRRPrep
+  1  AssemblePairs.align             24,363       24,363
+  2  FilterSeq.quality               24,361       24,361
+  3  MaskPrimers.score V             23,968       23,968
+  4  MaskPrimers.score C             23,573       23,573
+  5  CollapseSeq                     13,079       13,079
+  6  SplitSeq.group                   1,044        1,044
+  7  ParseHeaders.table               1,044        1,044
+

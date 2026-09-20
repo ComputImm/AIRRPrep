@@ -1,0 +1,5 @@
+# SHA-256 of each release artifact
+
+448d6b8fcb89332614ac196088a36790323305582b9f3ca272b30dec497ed340      55167939  component-matrix-archive.tar.gz
+3119b45e4539dbdeb19bfcb22223d685a4f2d477843ead39d760b2a0179473d7      21477962  singlecell-validation-output.tar.gz
+8f41b9449b957703b2cde32829aa4062f6a210df4bdc13c19091d6ef404544d2     143837851  benchmark-run-directories.tar.gz

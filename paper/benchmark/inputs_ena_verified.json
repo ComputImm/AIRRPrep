@@ -1,0 +1,86 @@
+{
+  "SRR4026043_1": {
+    "local_records": 25000,
+    "ena_records_read": 25000,
+    "identical_sequence": 25000,
+    "identical_quality": 0,
+    "identical_header": 0,
+    "ena_quality_is_placeholder": true,
+    "local_sha256": "f0f1e921983f7fae60fc989b8c23b8738fc90f5791b15c0e28980c6f3072a835",
+    "example_headers": {
+      "local": "@SRR4026043.1 1 length=326",
+      "ena": "@SRR4026043.1 1/1"
+    },
+    "ena_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR402/003/SRR4026043/SRR4026043_1.fastq.gz"
+  },
+  "SRR4026043_2": {
+    "local_records": 25000,
+    "ena_records_read": 25000,
+    "identical_sequence": 25000,
+    "identical_quality": 0,
+    "identical_header": 0,
+    "ena_quality_is_placeholder": true,
+    "local_sha256": "055debd753ab7e8692e191b75b56fed6e1a2ed693a2bb666926a58d3e5c667d3",
+    "example_headers": {
+      "local": "@SRR4026043.1 1 length=276",
+      "ena": "@SRR4026043.1 1/2"
+    },
+    "ena_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR402/003/SRR4026043/SRR4026043_2.fastq.gz"
+  },
+  "ERR346600_1": {
+    "local_records": 25000,
+    "ena_records_read": 25000,
+    "identical_sequence": 25000,
+    "identical_quality": 25000,
+    "identical_header": 25000,
+    "ena_quality_is_placeholder": false,
+    "local_sha256": "c8b31a643842f6e01f8fbf758310298f8a8aa2956d7f3b59410d84a3fff47363",
+    "example_headers": {
+      "local": "@ERR346600.1 BS-DSFCONTROL04:4:000000000-A3F0Y:1:1101:16649:1641/1",
+      "ena": "@ERR346600.1 BS-DSFCONTROL04:4:000000000-A3F0Y:1:1101:16649:1641/1"
+    },
+    "ena_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR346/ERR346600/ERR346600_1.fastq.gz"
+  },
+  "ERR346600_2": {
+    "local_records": 25000,
+    "ena_records_read": 25000,
+    "identical_sequence": 25000,
+    "identical_quality": 25000,
+    "identical_header": 25000,
+    "ena_quality_is_placeholder": false,
+    "local_sha256": "b7c5e84c7b05fee7dbee73c14134eab3daf214d17a84b4ee8dea6812e272ccc0",
+    "example_headers": {
+      "local": "@ERR346600.1 BS-DSFCONTROL04:4:000000000-A3F0Y:1:1101:16649:1641/2",
+      "ena": "@ERR346600.1 BS-DSFCONTROL04:4:000000000-A3F0Y:1:1101:16649:1641/2"
+    },
+    "ena_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR346/ERR346600/ERR346600_2.fastq.gz"
+  },
+  "SRR1383456_1": {
+    "local_records": 25000,
+    "ena_records_read": 25000,
+    "identical_sequence": 25000,
+    "identical_quality": 25000,
+    "identical_header": 0,
+    "ena_quality_is_placeholder": false,
+    "local_sha256": "4eefc6ea2f48b98fbcc5506071c5c4bef065599e807e5473bb3368bc1809d48f",
+    "example_headers": {
+      "local": "@SRR1383456.1 1 length=250",
+      "ena": "@SRR1383456.1 1/1"
+    },
+    "ena_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR138/006/SRR1383456/SRR1383456_1.fastq.gz"
+  },
+  "SRR1383456_2": {
+    "local_records": 25000,
+    "ena_records_read": 25000,
+    "identical_sequence": 25000,
+    "identical_quality": 25000,
+    "identical_header": 0,
+    "ena_quality_is_placeholder": false,
+    "local_sha256": "484acf4eb8bfd149b3b93837804006b50bcc9b74c1e0e5db77bed8087d31f9b1",
+    "example_headers": {
+      "local": "@SRR1383456.1 1 length=250",
+      "ena": "@SRR1383456.1 1/2"
+    },
+    "ena_url": "https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR138/006/SRR1383456/SRR1383456_2.fastq.gz"
+  }
+}

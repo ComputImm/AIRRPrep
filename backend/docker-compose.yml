@@ -1,0 +1,167 @@
+services:
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+
+    command:
+      - redis-server
+      - --port
+      - "6836"
+      - --requirepass
+      - ${REDIS_PASSWORD:?set REDIS_PASSWORD in .env}
+
+    expose:
+      - "6836"
+
+    volumes:
+      - redis_data:/data
+
+    networks:
+      - internal
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "redis-cli",
+          "-p",
+          "6836",
+          "-a",
+          "${REDIS_PASSWORD}",
+          "ping"
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+
+      args:
+        TRUST4_VERSION: ${TRUST4_VERSION:-1.1.9}
+
+    restart: unless-stopped
+
+    environment:
+      REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6836/0
+      #ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-http://localhost:4287}
+      MAX_UPLOAD_SIZE_MB: ${MAX_UPLOAD_SIZE_MB:-200}
+      # Email notifications. The API sends the verification code and the
+      # "job started" message; the worker below sends the completion one, so
+      # both containers need the same SMTP settings.
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      SMTP_SECURITY: ${SMTP_SECURITY:-starttls}
+      MAIL_FROM: ${MAIL_FROM:-no-reply@localhost}
+      MAIL_FROM_NAME: ${MAIL_FROM_NAME:-AIRR Preprocessor}
+      PUBLIC_APP_URL: ${PUBLIC_APP_URL:-http://localhost:4287}
+      NOTIFY_MIN_SECONDS: ${NOTIFY_MIN_SECONDS:-300}
+      NOTIFY_MIN_INPUT_MB: ${NOTIFY_MIN_INPUT_MB:-150}
+      TRACKED_JOB_TTL_DAYS: ${TRACKED_JOB_TTL_DAYS:-7}
+      EMAIL_CODE_TTL: ${EMAIL_CODE_TTL:-900}
+      EMAIL_CODE_MAX_ATTEMPTS: ${EMAIL_CODE_MAX_ATTEMPTS:-5}
+      EMAIL_CODE_RESEND_COOLDOWN: ${EMAIL_CODE_RESEND_COOLDOWN:-60}
+      # Anti-bot check on the email-sending and tracking-code routes. Only
+      # the API serves and verifies it, so the worker does not need these.
+      CAPTCHA_ENABLED: ${CAPTCHA_ENABLED:-true}
+      CAPTCHA_TTL: ${CAPTCHA_TTL:-300}
+      CAPTCHA_LENGTH: ${CAPTCHA_LENGTH:-5}
+      # Key for the HMAC stored on tracking records in place of the email
+      # address. Required; keep it stable (changing it voids open tracking codes).
+      EMAIL_HASH_SECRET: ${EMAIL_HASH_SECRET:?set EMAIL_HASH_SECRET in .env}
+      # Single-cell raw-read (TRUST4) settings — the API only reads these to
+      # report availability to the UI; the worker below is what actually runs
+      # TRUST4, so the two must stay in sync.
+      TRUST4_REF_DIR: ${TRUST4_REF_DIR:-/opt/trust4/references}
+      TRUST4_DEFAULT_SPECIES: ${TRUST4_DEFAULT_SPECIES:-human}
+      # Blank means "two thirds of this host's cores", computed at startup by
+      # docker-entrypoint.sh. Set a number to pin it instead.
+      CPU_FRACTION: ${CPU_FRACTION:-0.6667}
+      TRUST4_THREADS: ${TRUST4_THREADS:-}
+      TRUST4_TIMEOUT: ${TRUST4_TIMEOUT:-21600}
+      TRUST4_BARCODE_WHITELIST: ${TRUST4_BARCODE_WHITELIST:-}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:?set ALLOWED_ORIGINS in .env}
+
+    volumes:
+      - backend_jobs:/app/jobs
+      - backend_uploads:/app/uploads
+
+    depends_on:
+      redis:
+        condition: service_healthy
+
+    networks:
+      - internal
+
+    ports:
+      - "127.0.0.1:${BACKEND_PORT:-8743}:8743"
+
+  celery_worker:
+    build:
+      context: .
+      args:
+        TRUST4_VERSION: ${TRUST4_VERSION:-1.1.9}
+    restart: unless-stopped
+
+    healthcheck:
+      test: ["CMD-SHELL", "celery -A app.workers.celery_worker inspect ping --destination=celery@$$HOSTNAME --timeout=5 | grep -q pong"]
+      interval: 60s
+      timeout: 15s
+      start_period: 60s
+      retries: 3
+
+    command:
+      [
+        "celery",
+        "-A",
+        "app.workers.celery_worker",
+        "worker",
+        "--loglevel=info"
+      ]
+
+    environment:
+      REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6836/0
+      MAX_UPLOAD_SIZE_MB: ${MAX_UPLOAD_SIZE_MB:-200}
+      # Sends the "your results are ready" / "your run did not finish" email
+      # when a tracked job reaches a terminal state — so this container needs
+      # the SMTP settings and the public URL just as much as the API does.
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-587}
+      SMTP_USER: ${SMTP_USER:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+      SMTP_SECURITY: ${SMTP_SECURITY:-starttls}
+      MAIL_FROM: ${MAIL_FROM:-no-reply@localhost}
+      MAIL_FROM_NAME: ${MAIL_FROM_NAME:-AIRR Preprocessor}
+      PUBLIC_APP_URL: ${PUBLIC_APP_URL:-http://localhost:4287}
+      TRACKED_JOB_TTL_DAYS: ${TRACKED_JOB_TTL_DAYS:-7}
+      # This is the container that actually shells out to TRUST4.
+      TRUST4_REF_DIR: ${TRUST4_REF_DIR:-/opt/trust4/references}
+      TRUST4_DEFAULT_SPECIES: ${TRUST4_DEFAULT_SPECIES:-human}
+      # Blank means "two thirds of this host's cores", computed at startup by
+      # docker-entrypoint.sh. Set a number to pin it instead.
+      CPU_FRACTION: ${CPU_FRACTION:-0.6667}
+      TRUST4_THREADS: ${TRUST4_THREADS:-}
+      TRUST4_TIMEOUT: ${TRUST4_TIMEOUT:-21600}
+      TRUST4_BARCODE_WHITELIST: ${TRUST4_BARCODE_WHITELIST:-}
+    volumes:
+      - backend_jobs:/app/jobs
+      - backend_uploads:/app/uploads
+
+    depends_on:
+      redis:
+        condition: service_healthy
+
+    networks:
+      - internal
+
+networks:
+  internal:
+
+volumes:
+  redis_data:
+  backend_jobs:
+  backend_uploads:
+

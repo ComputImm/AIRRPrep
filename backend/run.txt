@@ -1,0 +1,3 @@
+python -m celery -A app.workers.celery_worker worker --pool=solo --loglevel=info
+
+uvicorn main:app --reload

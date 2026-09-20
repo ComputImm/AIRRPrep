@@ -1,0 +1,388 @@
+{
+  "workflows": [
+    {
+      "name": "race325275",
+      "label": "UMI-barcoded 5'RACE MiSeq 325+275 (SRR4026043)",
+      "cli": [
+        341.56,
+        340.94,
+        355.95
+      ],
+      "airrprep": [
+        285.81,
+        305.44,
+        270.37
+      ],
+      "cli_mean": 346.1,
+      "cli_sd": 8.5,
+      "ap_mean": 287.2,
+      "ap_sd": 17.6,
+      "ratio": 1.21,
+      "paired": [
+        1.2,
+        1.12,
+        1.32
+      ],
+      "steps": [
+        {
+          "label": "1  FilterSeq.quality R1",
+          "cli_n": 22285,
+          "ap_n": 22285,
+          "cli_s": 13.2,
+          "ap_s": 1.7,
+          "cli_derived": true,
+          "ap_derived": false
+        },
+        {
+          "label": "2  FilterSeq.quality R2",
+          "cli_n": 20424,
+          "ap_n": 20424,
+          "cli_s": 12.9,
+          "ap_s": 1.6,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "3  MaskPrimers.score R1",
+          "cli_n": 21204,
+          "ap_n": 21204,
+          "cli_s": 13.6,
+          "ap_s": 3.1,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "4  MaskPrimers.score R2",
+          "cli_n": 19899,
+          "ap_n": 19899,
+          "cli_s": 13.3,
+          "ap_s": 2.5,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "5  PairSeq",
+          "cli_n": 18778,
+          "ap_n": 18778,
+          "cli_s": 3.3,
+          "ap_s": 2.7,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "6  BuildConsensus R1",
+          "cli_n": 16022,
+          "ap_n": 16022,
+          "cli_s": 14.9,
+          "ap_s": 6.8,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "7  BuildConsensus R2",
+          "cli_n": 16039,
+          "ap_n": 16039,
+          "cli_s": 14.8,
+          "ap_s": 5.6,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "8  PairSeq",
+          "cli_n": 16020,
+          "ap_n": 16020,
+          "cli_s": 2.8,
+          "ap_s": 2.0,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "9  AssemblePairs.sequential",
+          "cli_n": 15493,
+          "ap_n": 15493,
+          "cli_s": 243.8,
+          "ap_s": 236.0,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "10 MaskPrimers.align",
+          "cli_n": 14939,
+          "ap_n": 14939,
+          "cli_s": 13.9,
+          "ap_s": 3.8,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "11 ParseHeaders.collapse",
+          "cli_n": 14939,
+          "ap_n": 14939,
+          "cli_s": 2.0,
+          "ap_s": 1.3,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "12 CollapseSeq",
+          "cli_n": 13905,
+          "ap_n": 13905,
+          "cli_s": 3.8,
+          "ap_s": 1.8,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "13 SplitSeq.group",
+          "cli_n": 2419,
+          "ap_n": 2419,
+          "cli_s": 3.0,
+          "ap_s": 1.0,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "14 ParseHeaders.table",
+          "cli_n": 2419,
+          "ap_n": 2419,
+          "cli_s": 0.7,
+          "ap_s": 0.5,
+          "cli_derived": false,
+          "ap_derived": true
+        }
+      ]
+    },
+    {
+      "name": "umi2x250",
+      "label": "UMI-barcoded 5'RACE MiSeq 2x250 (SRR1383456)",
+      "cli": [
+        115.37,
+        115.38,
+        114.81
+      ],
+      "airrprep": [
+        40.18,
+        40.36,
+        42.31
+      ],
+      "cli_mean": 115.2,
+      "cli_sd": 0.3,
+      "ap_mean": 41.0,
+      "ap_sd": 1.2,
+      "ratio": 2.81,
+      "paired": [
+        2.87,
+        2.86,
+        2.71
+      ],
+      "steps": [
+        {
+          "label": "1  FilterSeq.quality R1",
+          "cli_n": 22822,
+          "ap_n": 22822,
+          "cli_s": 11.0,
+          "ap_s": 1.5,
+          "cli_derived": true,
+          "ap_derived": false
+        },
+        {
+          "label": "2  FilterSeq.quality R2",
+          "cli_n": 19910,
+          "ap_n": 19910,
+          "cli_s": 11.1,
+          "ap_s": 1.5,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "3  MaskPrimers.score R1",
+          "cli_n": 20421,
+          "ap_n": 20421,
+          "cli_s": 12.2,
+          "ap_s": 2.7,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "4  MaskPrimers.score R2",
+          "cli_n": 19049,
+          "ap_n": 19049,
+          "cli_s": 12.6,
+          "ap_s": 8.9,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "5  PairSeq",
+          "cli_n": 17142,
+          "ap_n": 17142,
+          "cli_s": 2.9,
+          "ap_s": 2.4,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "6  BuildConsensus R1",
+          "cli_n": 4097,
+          "ap_n": 4097,
+          "cli_s": 9.9,
+          "ap_s": 4.1,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "7  BuildConsensus R2",
+          "cli_n": 4089,
+          "ap_n": 4089,
+          "cli_s": 13.1,
+          "ap_s": 4.3,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "8  PairSeq",
+          "cli_n": 4087,
+          "ap_n": 4087,
+          "cli_s": 1.4,
+          "ap_s": 0.5,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "9  AssemblePairs.align",
+          "cli_n": 1888,
+          "ap_n": 1888,
+          "cli_s": 35.0,
+          "ap_s": 15.8,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "10 ParseHeaders.collapse",
+          "cli_n": 1888,
+          "ap_n": 1888,
+          "cli_s": 0.9,
+          "ap_s": 0.2,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "11 CollapseSeq",
+          "cli_n": 1137,
+          "ap_n": 1137,
+          "cli_s": 2.0,
+          "ap_s": 0.2,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "12 SplitSeq.group",
+          "cli_n": 645,
+          "ap_n": 645,
+          "cli_s": 2.1,
+          "ap_s": 0.1,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "13 ParseHeaders.table",
+          "cli_n": 645,
+          "ap_n": 645,
+          "cli_s": 0.6,
+          "ap_s": 0.1,
+          "cli_derived": false,
+          "ap_derived": true
+        }
+      ]
+    },
+    {
+      "name": "nonumi2x250",
+      "label": "MiSeq 2x250 BCR mRNA (ERR346600)",
+      "cli": [
+        141.8,
+        143.87,
+        143.09
+      ],
+      "airrprep": [
+        75.87,
+        82.59,
+        81.95
+      ],
+      "cli_mean": 142.9,
+      "cli_sd": 1.0,
+      "ap_mean": 80.1,
+      "ap_sd": 3.7,
+      "ratio": 1.78,
+      "paired": [
+        1.87,
+        1.74,
+        1.75
+      ],
+      "steps": [
+        {
+          "label": "1  AssemblePairs.align",
+          "cli_n": 24363,
+          "ap_n": 24363,
+          "cli_s": 94.8,
+          "ap_s": 67.8,
+          "cli_derived": true,
+          "ap_derived": false
+        },
+        {
+          "label": "2  FilterSeq.quality",
+          "cli_n": 24361,
+          "ap_n": 24361,
+          "cli_s": 12.2,
+          "ap_s": 2.1,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "3  MaskPrimers.score V",
+          "cli_n": 23968,
+          "ap_n": 23968,
+          "cli_s": 14.5,
+          "ap_s": 6.6,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "4  MaskPrimers.score C",
+          "cli_n": 23573,
+          "ap_n": 23573,
+          "cli_s": 14.3,
+          "ap_s": 2.5,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "5  CollapseSeq",
+          "cli_n": 13079,
+          "ap_n": 13079,
+          "cli_s": 3.7,
+          "ap_s": 1.6,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "6  SplitSeq.group",
+          "cli_n": 1044,
+          "ap_n": 1044,
+          "cli_s": 2.9,
+          "ap_s": 0.9,
+          "cli_derived": false,
+          "ap_derived": false
+        },
+        {
+          "label": "7  ParseHeaders.table",
+          "cli_n": 1044,
+          "ap_n": 1044,
+          "cli_s": 0.7,
+          "ap_s": 0.5,
+          "cli_derived": false,
+          "ap_derived": true
+        }
+      ]
+    }
+  ]
+}

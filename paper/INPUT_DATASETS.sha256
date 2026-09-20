@@ -1,0 +1,24 @@
+# SHA-256 and size of the public input files the validation uses.
+# These are not redistributed here: download them from the sources named in
+# the manuscript's Data availability section and check them against this list.
+# generated 2026-09-19
+
+70376051c9e6cf2df79c881c38bb25bcf29763d7a57e3e7062b7a95c870e70b0      25486075  paper/test/sc5p_v2_hs_PBMC_10k_t_airr_rearrangement.tsv
+6c6d8404c797d4c42610079c9a355ad09fc6fc3056e58682971f0b2481913f2b       8209974  paper/test/sc5p_v2_hs_PBMC_10k_t_all_contig.fasta
+200fc94628622bcec86724fbe160feefc9e67c3869bc8427fd1e68d6e4034a9e       2787875  paper/test/sc5p_v2_hs_PBMC_10k_t_all_contig_annotations.csv
+ca3a7412cfd84688599d48274668d6e3758b817b315e6a74db3db8038ad0416f       6003804  paper/test/sc5p_v2_hs_PBMC_10k_t_filtered_contig.fasta
+cf6b573fc00a52b03e5aa8b25002ae9112ff7f6b355ff75a6e6a1364088223dd       2186570  paper/test/sc5p_v2_hs_PBMC_10k_t_filtered_contig_annotations.csv
+663f9cdc30e435bf6a9cd11826058629dcddb882aa446c0a1de9b6783b50269f           403  presto-backend/temp/bench/inputs/AbSeq_Human_IG_InternalCRegion.fasta
+a5778f72504ba18c6112eb7b4b4123d44e36aacf05e4ce734914251e31104460           227  presto-backend/temp/bench/inputs/AbSeq_R1_Human_IG_Primers.fasta
+e8a15d8ee0db7f9ceb326534a2de05b27976ac278bb9c5794d323f8abcfb0380           100  presto-backend/temp/bench/inputs/AbSeq_R2_TS.fasta
+c8b31a643842f6e01f8fbf758310298f8a8aa2956d7f3b59410d84a3fff47363      14422674  presto-backend/temp/bench/inputs/ERR346600_1.fastq
+b7c5e84c7b05fee7dbee73c14134eab3daf214d17a84b4ee8dea6812e272ccc0      14422674  presto-backend/temp/bench/inputs/ERR346600_2.fastq
+072ee7bb240c66eea455a186c6d4443360f6ac5d1b1e4969ed04a457a7392f1f            27  presto-backend/temp/bench/inputs/Greiff2014_CPrimers.fasta
+e91f62eba3b34bdc61d64b0f956e5b682e9b999ce9f12182db1e3cf80256663b           563  presto-backend/temp/bench/inputs/Greiff2014_VPrimers.fasta
+79a9a15b78e54ff71dea6e2bc448500178895d3fa32f16a9b7cda17630265383        171244  presto-backend/temp/bench/inputs/IMGT_Human_IG_V.fasta
+4eefc6ea2f48b98fbcc5506071c5c4bef065599e807e5473bb3368bc1809d48f      14255576  presto-backend/temp/bench/inputs/SRR1383456_1.fastq
+484acf4eb8bfd149b3b93837804006b50bcc9b74c1e0e5db77bed8087d31f9b1      14255576  presto-backend/temp/bench/inputs/SRR1383456_2.fastq
+f0f1e921983f7fae60fc989b8c23b8738fc90f5791b15c0e28980c6f3072a835      18055576  presto-backend/temp/bench/inputs/SRR4026043_1.fastq
+055debd753ab7e8692e191b75b56fed6e1a2ed693a2bb666926a58d3e5c667d3      15555576  presto-backend/temp/bench/inputs/SRR4026043_2.fastq
+fdf2f71bda86eaf83dccb62430713a65b292c9a056b61c58fa6792a1faab08b5           139  presto-backend/temp/bench/inputs/Stern2014_CPrimers.fasta
+b777587e498be9bf00c050cd0ff3e5e8e0f4f0d3c891edd5ed793f9c90785571          1336  presto-backend/temp/bench/inputs/Stern2014_VPrimers.fasta

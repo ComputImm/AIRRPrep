@@ -1,0 +1,38 @@
+# Build output and caches
+__pycache__/
+*.py[cod]
+node_modules/
+dist/
+.output/
+.vinxi/
+.tanstack/
+.nitro/
+.wrangler/
+venv/
+.venv/
+
+# Secrets and per-deployment state
+.env
+.env.*
+!.env.example
+jobs/
+uploads/
+outputs/
+results/
+temp/
+
+# Large release evidence: attach to the tagged release, do not commit
+release-artifacts/*.tar.gz
+
+# Regenerable working directories of the validation harnesses
+paper/test/component_matrix/work/
+paper/test/validation_output/
+
+# LaTeX build products
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz

@@ -1,0 +1,80 @@
+{
+  "test": "USEARCH-specific ClusterSets test (additional; not part of the 47-case component matrix)",
+  "usearch_version": "7.0.1090",
+  "usearch_binary": "usearch7.0.1090_win64.exe",
+  "platform": "win32",
+  "input": "paper\\test\\component_matrix\\work\\fixtures\\r1p\\R1_primers-pass.fastq",
+  "results": [
+    {
+      "operation": "ClusterSets.all",
+      "denominator": "usearch-additional",
+      "input": "paper\\test\\component_matrix\\work\\fixtures\\r1p\\R1_primers-pass.fastq",
+      "parameters": {
+        "ident": 0.9,
+        "cluster_tool": "usearch"
+      },
+      "native": {
+        "command": "python.exe ClusterSets.py all -s paper\\test\\component_matrix\\work\\fixtures\\r1p\\R1_primers-pass.fastq --ident 0.9 --cluster usearch --exec C:\\Tools\\usearch\\usearch7.0.1090_win64.exe --outdir paper\\test\\component_matrix\\work\\usearch\\ClusterSets_all\\native --outname native --nproc 1",
+        "returncode": 1,
+        "seconds": 5.37,
+        "usearch_message": "Invalid command line | Unknown option minwordmatches",
+        "outcome": "command line rejected by USEARCH"
+      },
+      "airrprep": {
+        "command": "run_pipeline_step(SINGLE(r1=paper\\test\\component_matrix\\work\\fixtures\\r1p\\R1_primers-pass.fastq), {\"name\": \"ClusterSets.all\", \"params\": {\"cluster_tool\": \"usearch\", \"ident\": 0.9}, \"lanes\": \"R1\"})",
+        "returncode": 1,
+        "seconds": 7.2,
+        "usearch_message": "---Fatal error--- | Cannot open C:\\Users\\sahar\\AppData\\Local\\Temp\\tmpbfx6qxpa, errno=13 Permission denied",
+        "outcome": "command line accepted; blocked by the Windows open-file limit"
+      }
+    },
+    {
+      "operation": "ClusterSets.barcode",
+      "denominator": "usearch-additional",
+      "input": "paper\\test\\component_matrix\\work\\fixtures\\r1p\\R1_primers-pass.fastq",
+      "parameters": {
+        "barcode_field": "BARCODE",
+        "ident": 0.9,
+        "cluster_tool": "usearch"
+      },
+      "native": {
+        "command": "python.exe ClusterSets.py barcode -s paper\\test\\component_matrix\\work\\fixtures\\r1p\\R1_primers-pass.fastq -f BARCODE --ident 0.9 --cluster usearch --exec C:\\Tools\\usearch\\usearch7.0.1090_win64.exe --outdir paper\\test\\component_matrix\\work\\usearch\\ClusterSets_barcode\\native --outname native --nproc 1",
+        "returncode": 1,
+        "seconds": 5.11,
+        "usearch_message": "Invalid command line | Unknown option minwordmatches",
+        "outcome": "command line rejected by USEARCH"
+      },
+      "airrprep": {
+        "command": "run_pipeline_step(SINGLE(r1=paper\\test\\component_matrix\\work\\fixtures\\r1p\\R1_primers-pass.fastq), {\"name\": \"ClusterSets.barcode\", \"params\": {\"barcode_field\": \"BARCODE\", \"cluster_tool\": \"usearch\", \"ident\": 0.9}, \"lanes\": \"R1\"})",
+        "returncode": 1,
+        "seconds": 6.43,
+        "usearch_message": "---Fatal error--- | Cannot open C:\\Users\\sahar\\AppData\\Local\\Temp\\tmpyaqg4ukr, errno=13 Permission denied",
+        "outcome": "command line accepted; blocked by the Windows open-file limit"
+      }
+    },
+    {
+      "operation": "ClusterSets.set",
+      "denominator": "usearch-additional",
+      "input": "paper\\test\\component_matrix\\work\\fixtures\\r1p\\R1_primers-pass.fastq",
+      "parameters": {
+        "set_field": "BARCODE",
+        "ident": 0.9,
+        "cluster_tool": "usearch"
+      },
+      "native": {
+        "command": "python.exe ClusterSets.py set -s paper\\test\\component_matrix\\work\\fixtures\\r1p\\R1_primers-pass.fastq -f BARCODE --ident 0.9 --cluster usearch --exec C:\\Tools\\usearch\\usearch7.0.1090_win64.exe --outdir paper\\test\\component_matrix\\work\\usearch\\ClusterSets_set\\native --outname native --nproc 1",
+        "returncode": null,
+        "seconds": 240.88,
+        "usearch_message": "Invalid command line | Unknown option minwordmatches",
+        "outcome": "command line rejected by USEARCH"
+      },
+      "airrprep": {
+        "command": "run_pipeline_step(SINGLE(r1=paper\\test\\component_matrix\\work\\fixtures\\r1p\\R1_primers-pass.fastq), {\"name\": \"ClusterSets.set\", \"params\": {\"cluster_tool\": \"usearch\", \"ident\": 0.9, \"set_field\": \"BARCODE\"}, \"lanes\": \"R1\"})",
+        "returncode": 1,
+        "seconds": 7.37,
+        "usearch_message": "---Fatal error--- | Cannot open C:\\Users\\sahar\\AppData\\Local\\Temp\\tmp8x5n8f57, errno=13 Permission denied",
+        "outcome": "command line accepted; blocked by the Windows open-file limit"
+      }
+    }
+  ]
+}

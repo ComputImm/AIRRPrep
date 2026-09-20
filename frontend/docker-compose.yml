@@ -1,0 +1,12 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: ${VITE_API_URL:?VITE_API_URL must be set}
+
+    restart: unless-stopped
+
+    ports:
+      - "127.0.0.1:${FRONTEND_PORT:-4287}:4287"

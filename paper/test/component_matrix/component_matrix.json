@@ -1,0 +1,2607 @@
+{
+  "inputs": {
+    "source": "SRR1383456 first 8000 read pairs",
+    "tools": {
+      "muscle": "C:\\Tools\\muscle\\muscle3.8.31_i86win32.exe",
+      "usearch": "C:\\Tools\\usearch\\usearch7.0.1090_win64.exe",
+      "vsearch": "C:\\Tools\\vsearch\\vsearch-2.31.0-win-x86_64\\bin\\vsearch.exe",
+      "blastn": "C:\\Program Files\\NCBI\\blast-2.17.0+\\bin\\blastn.EXE",
+      "makeblastdb": "C:\\Program Files\\NCBI\\blast-2.17.0+\\bin\\makeblastdb.EXE",
+      "linux": {
+        "python": "python",
+        "scripts": "/usr/local/bin",
+        "muscle": "C:\\Tools\\muscle\\muscle3.8.31_i86win32.exe",
+        "usearch": "C:\\Tools\\usearch\\usearch7.0.1090_win64.exe",
+        "vsearch": "/opt/tools/vsearch",
+        "blastn": "/opt/tools/blastn",
+        "makeblastdb": "/opt/tools/makeblastdb"
+      },
+      "win32": {
+        "python": "E:\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\venv\\Scripts\\python.exe",
+        "scripts": "E:\\AIRR-Preprocessing\\Preprocessing-code\\presto-backend\\venv\\Scripts",
+        "muscle": "C:\\Tools\\muscle\\muscle3.8.31_i86win32.exe",
+        "usearch": "C:\\Tools\\usearch\\usearch7.0.1090_win64.exe",
+        "vsearch": "C:\\Tools\\vsearch\\vsearch-2.31.0-win-x86_64\\bin\\vsearch.exe",
+        "blastn": "C:\\Program Files\\NCBI\\blast-2.17.0+\\bin\\blastn.EXE",
+        "makeblastdb": "C:\\Program Files\\NCBI\\blast-2.17.0+\\bin\\makeblastdb.EXE"
+      }
+    }
+  },
+  "results": [
+    {
+      "operation": "FilterSeq.length",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/raw_R1.fastq"
+      ],
+      "parameters": {
+        "inner": true,
+        "min_length": 200
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe FilterSeq.py length -s paper/test/component_matrix/work/fixtures/raw_R1.fastq -n 200 --inner --outdir paper/test/component_matrix/work/cases/FilterSeq_length/native --outname native --nproc 1 --failed",
+        "returncode": 0,
+        "seconds": 11.66,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.77,
+        "by_lane": {
+          "R1": {
+            "before": 8000,
+            "failed": 0,
+            "remaining": 8000
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/raw_R1.fastq), {\"name\": \"FilterSeq.length\", \"params\": {\"inner\": true, \"min_length\": 200}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 8000,
+          "airrprep_records": 8000,
+          "identical": 8000,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "3e3c8881e7b4b7f63a22c5a4e944a29865c5a0977fc89dc11c1bc09aae360332",
+        "airrprep": "dab4639c12c3368221529608c1d8974eadc8dd58cd5b42694aa2ab4fb32ce6bb"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "FilterSeq.quality",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/raw_R1.fastq"
+      ],
+      "parameters": {
+        "inner": true,
+        "min_qual": 20
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe FilterSeq.py quality -s paper/test/component_matrix/work/fixtures/raw_R1.fastq -q 20 --inner --outdir paper/test/component_matrix/work/cases/FilterSeq_quality/native --outname native --nproc 1 --failed",
+        "returncode": 0,
+        "seconds": 11.54,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.89,
+        "by_lane": {
+          "R1": {
+            "before": 8000,
+            "failed": 647,
+            "remaining": 7353
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/raw_R1.fastq), {\"name\": \"FilterSeq.quality\", \"params\": {\"inner\": true, \"min_qual\": 20}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 7353,
+          "airrprep_records": 7353,
+          "identical": 7353,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "fail": {
+          "native_records": 647,
+          "airrprep_records": 647,
+          "identical": 647,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "55447f4576b993106932fce2397bb5e471f0ad9531827735f88cdde4d666dcf2",
+        "airrprep": "acc9c28f27c6e7ecf60472fae411729b4059bf52ec549efcbddbecadd490c3fc"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "FilterSeq.missing",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/raw_R1.fastq"
+      ],
+      "parameters": {
+        "inner": true,
+        "max_missing": 1
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe FilterSeq.py missing -s paper/test/component_matrix/work/fixtures/raw_R1.fastq -n 1 --inner --outdir paper/test/component_matrix/work/cases/FilterSeq_missing/native --outname native --nproc 1 --failed",
+        "returncode": 0,
+        "seconds": 11.24,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.8,
+        "by_lane": {
+          "R1": {
+            "before": 8000,
+            "failed": 17,
+            "remaining": 7983
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/raw_R1.fastq), {\"name\": \"FilterSeq.missing\", \"params\": {\"inner\": true, \"max_missing\": 1}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 7983,
+          "airrprep_records": 7983,
+          "identical": 7983,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "fail": {
+          "native_records": 17,
+          "airrprep_records": 17,
+          "identical": 17,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "4733908353a94d15cda4b9da6598c3f404f02be061882c563fea7a4725d28e1e",
+        "airrprep": "f14ebf453e9a84496fffc152a01968d5c42cb9dc2bd97f5db4be9481c46bd7d8"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "FilterSeq.repeats",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/raw_R1.fastq"
+      ],
+      "parameters": {
+        "include_missing": false,
+        "inner": true,
+        "max_repeat": 20
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe FilterSeq.py repeats -s paper/test/component_matrix/work/fixtures/raw_R1.fastq -n 20 --inner --outdir paper/test/component_matrix/work/cases/FilterSeq_repeats/native --outname native --nproc 1 --failed",
+        "returncode": 0,
+        "seconds": 12.01,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 2.17,
+        "by_lane": {
+          "R1": {
+            "before": 8000,
+            "failed": 4,
+            "remaining": 7996
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/raw_R1.fastq), {\"name\": \"FilterSeq.repeats\", \"params\": {\"include_missing\": false, \"inner\": true, \"max_repeat\": 20}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 7996,
+          "airrprep_records": 7996,
+          "identical": 7996,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "fail": {
+          "native_records": 4,
+          "airrprep_records": 4,
+          "identical": 4,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "b4a941f694307ea6b9c4527f38e5f075b8f2b2b6e63f29fe6538c928cea0e01a",
+        "airrprep": "577949be6c003375eb929cffa661d9962335c86de6533dd71a5101be7a5227b1"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "FilterSeq.trimqual",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/raw_R1.fastq"
+      ],
+      "parameters": {
+        "min_qual": 20,
+        "reverse": false,
+        "window": 10
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe FilterSeq.py trimqual -s paper/test/component_matrix/work/fixtures/raw_R1.fastq -q 20 --win 10 --outdir paper/test/component_matrix/work/cases/FilterSeq_trimqual/native --outname native --nproc 1 --failed",
+        "returncode": 0,
+        "seconds": 11.6,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 1.04,
+        "by_lane": {
+          "R1": {
+            "before": 8000,
+            "failed": 13,
+            "remaining": 7987
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/raw_R1.fastq), {\"name\": \"FilterSeq.trimqual\", \"params\": {\"min_qual\": 20, \"reverse\": false, \"window\": 10}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 7987,
+          "airrprep_records": 7987,
+          "identical": 7987,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "fail": {
+          "native_records": 13,
+          "airrprep_records": 13,
+          "identical": 13,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "7ac3bc55052e862b4e735205a386068d111ef3e78e00975cdc97d5eecfe6c805",
+        "airrprep": "cefb03246ad2c71ae40678a24f610e9c63d4b90283552ff16636fdbcfa46edda"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "FilterSeq.maskqual",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/raw_R1.fastq"
+      ],
+      "parameters": {
+        "min_qual": 20
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe FilterSeq.py maskqual -s paper/test/component_matrix/work/fixtures/raw_R1.fastq -q 20 --outdir paper/test/component_matrix/work/cases/FilterSeq_maskqual/native --outname native --nproc 1 --failed",
+        "returncode": 0,
+        "seconds": 12.18,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 1.26,
+        "by_lane": {
+          "R1": {
+            "before": 8000,
+            "failed": 0,
+            "remaining": 8000
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/raw_R1.fastq), {\"name\": \"FilterSeq.maskqual\", \"params\": {\"min_qual\": 20}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 8000,
+          "airrprep_records": 8000,
+          "identical": 8000,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "5f005d021afce6433e84faa193e23f714346bd866db845cc5813f8f90bf64520",
+        "airrprep": "00c1122b587b2d8311829052b1d07eca9e44ec72c1388af1ae08ed6bd897b014"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "MaskPrimers.align",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/raw_R1.fastq"
+      ],
+      "parameters": {
+        "max_error": 0.2,
+        "max_len": 50,
+        "mode": "cut",
+        "primer_file": "3bee7420-11bb-4d5c-be48-72da23f1347c"
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe MaskPrimers.py align -s paper/test/component_matrix/work/fixtures/raw_R1.fastq -p presto-backend/temp/bench/inputs/Stern2014_CPrimers.fasta --maxlen 50 --maxerror 0.2 --mode cut --outdir paper/test/component_matrix/work/cases/MaskPrimers_align/native --outname native --nproc 1 --failed",
+        "returncode": 0,
+        "seconds": 16.5,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 4.86,
+        "by_lane": {
+          "R1": {
+            "before": 8000,
+            "failed": 618,
+            "remaining": 7382
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/raw_R1.fastq), {\"name\": \"MaskPrimers.align\", \"params\": {\"max_error\": 0.2, \"max_len\": 50, \"mode\": \"cut\", \"primer_file\": \"3bee7420-11bb-4d5c-be48-72da23f1347c\"}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 7382,
+          "airrprep_records": 7382,
+          "identical": 7382,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "fail": {
+          "native_records": 618,
+          "airrprep_records": 618,
+          "identical": 618,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "32d6d5350cbf2cb68cec5338ebd69327976f69ff2b608f85ac62a6abd4843734",
+        "airrprep": "4095c0011aa11ef69c589ccf43517a80fa2239539996b5e6f4a0863fdc0eb860"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "MaskPrimers.score",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/raw_R1.fastq"
+      ],
+      "parameters": {
+        "barcode": true,
+        "mode": "cut",
+        "primer_file": "3bee7420-11bb-4d5c-be48-72da23f1347c",
+        "start": 15
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe MaskPrimers.py score -s paper/test/component_matrix/work/fixtures/raw_R1.fastq -p presto-backend/temp/bench/inputs/Stern2014_CPrimers.fasta --start 15 --mode cut --barcode --outdir paper/test/component_matrix/work/cases/MaskPrimers_score/native --outname native --nproc 1 --failed",
+        "returncode": 0,
+        "seconds": 13.82,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 1.97,
+        "by_lane": {
+          "R1": {
+            "before": 8000,
+            "failed": 1000,
+            "remaining": 7000
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/raw_R1.fastq), {\"name\": \"MaskPrimers.score\", \"params\": {\"barcode\": true, \"mode\": \"cut\", \"primer_file\": \"3bee7420-11bb-4d5c-be48-72da23f1347c\", \"start\": 15}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 7000,
+          "airrprep_records": 7000,
+          "identical": 7000,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "fail": {
+          "native_records": 1000,
+          "airrprep_records": 1000,
+          "identical": 1000,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "385ad7efad7ce81c75671c767ad22bbaebaacd5c7f928e72b1781f88108d1547",
+        "airrprep": "c2659535b6fee6f4ac31b5cd3dedd486fb1692322356b8c82d6ceda40c4d2e8d"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "MaskPrimers.extract",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/raw_R1.fastq"
+      ],
+      "parameters": {
+        "barcode": true,
+        "length": 15,
+        "mode": "cut",
+        "start": 0
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe MaskPrimers.py extract -s paper/test/component_matrix/work/fixtures/raw_R1.fastq --len 15 --start 0 --mode cut --barcode --outdir paper/test/component_matrix/work/cases/MaskPrimers_extract/native --outname native --nproc 1 --failed",
+        "returncode": 0,
+        "seconds": 12.33,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 1.21,
+        "by_lane": {
+          "R1": {
+            "before": 8000,
+            "failed": 0,
+            "remaining": 8000
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/raw_R1.fastq), {\"name\": \"MaskPrimers.extract\", \"params\": {\"barcode\": true, \"length\": 15, \"mode\": \"cut\", \"start\": 0}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 8000,
+          "airrprep_records": 8000,
+          "identical": 8000,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "2b6d1c6908abe881535a86e20da99ff058a224725b51994d0f2b33adbe7f2130",
+        "airrprep": "f5202d4ed9926828fa2c69fa1492640ffcd155ad150af77ede0219b6e19e81f5"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "CollapseSeq.default",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/asm_min/ASMMIN_reheader.fastq"
+      ],
+      "parameters": {
+        "copy_actions": [
+          "sum"
+        ],
+        "copy_fields": [
+          "CONSCOUNT"
+        ],
+        "inner": true,
+        "max_missing": 20,
+        "uniq_fields": [
+          "PRCONS"
+        ]
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe CollapseSeq.py -s paper/test/component_matrix/work/fixtures/asm_min/ASMMIN_reheader.fastq -n 20 --inner --uf PRCONS --cf CONSCOUNT --act sum --outdir paper/test/component_matrix/work/cases/CollapseSeq_default/native --outname native",
+        "returncode": 0,
+        "seconds": 4.41,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.22,
+        "by_lane": {
+          "R1": {
+            "before": 1211,
+            "failed": 401,
+            "remaining": 810
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/asm_min/ASMMIN_reheader.fastq), {\"name\": \"CollapseSeq.default\", \"params\": {\"copy_actions\": [\"sum\"], \"copy_fields\": [\"CONSCOUNT\"], \"inner\": true, \"max_missing\": 20, \"uniq_fields\": [\"PRCONS\"]}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 810,
+          "airrprep_records": 810,
+          "identical": 810,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "adbe18fd8b4e61c64b37d378d7153a8073c10ca249f35b033cfb3bba8b4ed3b6",
+        "airrprep": "bdeeb3d451a50ac9b1a0452e48d0fca2c0353c0feb86cf26d7a922624276dc6f"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "BuildConsensus.default",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/pair/R1_primers-pass_pair-pass.fastq"
+      ],
+      "parameters": {
+        "barcode_field": "BARCODE",
+        "max_error": 0.1,
+        "max_gap": 0.5,
+        "primer_field": "PRIMER",
+        "primer_freq": 0.6
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe BuildConsensus.py -s paper/test/component_matrix/work/fixtures/pair/R1_primers-pass_pair-pass.fastq --bf BARCODE --pf PRIMER --prcons 0.6 --maxerror 0.1 --maxgap 0.5 --outdir paper/test/component_matrix/work/cases/BuildConsensus_default/native --outname native --nproc 1 --failed",
+        "returncode": 0,
+        "seconds": 12.05,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 2.8,
+        "by_lane": {
+          "R1": {
+            "before": 6766,
+            "failed": 4539,
+            "remaining": 2227
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/pair/R1_primers-pass_pair-pass.fastq), {\"name\": \"BuildConsensus.default\", \"params\": {\"barcode_field\": \"BARCODE\", \"max_error\": 0.1, \"max_gap\": 0.5, \"primer_field\": \"PRIMER\", \"primer_freq\": 0.6}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 2227,
+          "airrprep_records": 2227,
+          "identical": 2227,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "43f98c98822312bfe77d7608f55a2deb2904ffdd459dba84b670c8c21917b2ee",
+        "airrprep": "c40668f2265d86749b9d4e3ea49e7982b8d6d1c99fb9e084fe4580505a51bf33"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "PairSeq.default",
+      "denominator": "component-matrix-47",
+      "comparator": "parts",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq",
+        "paper/test/component_matrix/work/fixtures/r2p/R2_primers-pass.fastq"
+      ],
+      "parameters": {
+        "coord_type": "sra",
+        "fields_1": [
+          "BARCODE"
+        ]
+      },
+      "lanes": "paired",
+      "native": {
+        "command": "python.exe PairSeq.py -1 paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq -2 paper/test/component_matrix/work/fixtures/r2p/R2_primers-pass.fastq --1f BARCODE --coord sra --outdir paper/test/component_matrix/work/cases/PairSeq_default/native --failed",
+        "returncode": 0,
+        "seconds": 2.88,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 1.73,
+        "by_lane": {
+          "R1": {
+            "before": 7000,
+            "failed": 234,
+            "remaining": 6766
+          },
+          "R2": {
+            "before": 7488,
+            "failed": 722,
+            "remaining": 6766
+          }
+        },
+        "command": "run_pipeline_step(DUAL(r1=paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq, r2=paper/test/component_matrix/work/fixtures/r2p/R2_primers-pass.fastq), {\"name\": \"PairSeq.default\", \"params\": {\"coord_type\": \"sra\", \"fields_1\": [\"BARCODE\"]}, \"lanes\": \"paired\"})"
+      },
+      "comparison": {
+        "native_parts": 2,
+        "airrprep_parts": 2,
+        "matched_parts": 2,
+        "unmatched_native": [],
+        "unmatched_airrprep": [],
+        "records_in_parts": 13532,
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "03b448128ec810cdd363691788c9dbf08955edf295dab1180248e434902e8678",
+        "airrprep": "5b0d59372dedcc14f70f7b072d2e5ddff7c229c591bfe8ed5e73322a02bf1b13"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "AssemblePairs.align",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/conspair/R1_consensus-pass_pair-pass.fastq",
+        "paper/test/component_matrix/work/fixtures/conspair/R2_consensus-pass_pair-pass.fastq"
+      ],
+      "parameters": {
+        "coord_type": "presto",
+        "head_fields": [
+          "CONSCOUNT"
+        ],
+        "rc": "tail",
+        "swap_head_tail": true,
+        "tail_fields": [
+          "CONSCOUNT",
+          "PRCONS"
+        ]
+      },
+      "lanes": "paired",
+      "native": {
+        "command": "python.exe AssemblePairs.py align -1 paper/test/component_matrix/work/fixtures/conspair/R2_consensus-pass_pair-pass.fastq -2 paper/test/component_matrix/work/fixtures/conspair/R1_consensus-pass_pair-pass.fastq --coord presto --rc tail --1f CONSCOUNT --2f CONSCOUNT PRCONS --outdir paper/test/component_matrix/work/cases/AssemblePairs_align/native --outname native --nproc 1 --failed",
+        "returncode": 0,
+        "seconds": 38.53,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 13.82,
+        "by_lane": {
+          "merged": {
+            "before": 2219,
+            "failed": 1008,
+            "remaining": 1211
+          }
+        },
+        "command": "run_pipeline_step(DUAL(r1=paper/test/component_matrix/work/fixtures/conspair/R1_consensus-pass_pair-pass.fastq, r2=paper/test/component_matrix/work/fixtures/conspair/R2_consensus-pass_pair-pass.fastq), {\"name\": \"AssembleSeq.align\", \"params\": {\"coord_type\": \"presto\", \"head_fields\": [\"CONSCOUNT\"], \"rc\": \"tail\", \"swap_head_tail\": true, \"tail_fields\": [\"CONSCOUNT\", \"PRCONS\"]}, \"lanes\": \"paired\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 1211,
+          "airrprep_records": 1211,
+          "identical": 1211,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "fail": {
+          "native_files": [
+            "native-1_assemble-fail.fastq",
+            "native-2_assemble-fail.fastq"
+          ],
+          "airrprep_files": [
+            "airrprep_assembled_fail.fastq"
+          ],
+          "native_records": 2016,
+          "airrprep_records": 2016,
+          "identical": 2016,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "4ac53f91a93f57f3d4f7037ce68958d7641822eb9928c9b8f8ed4c477c6abd72",
+        "airrprep": "1cb81b2dc6cf1df1eafbcb279f1c2ee0f933688049030842d37b77c4905576a1"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "AssemblePairs.join",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/conspair/R1_consensus-pass_pair-pass.fastq",
+        "paper/test/component_matrix/work/fixtures/conspair/R2_consensus-pass_pair-pass.fastq"
+      ],
+      "parameters": {
+        "coord_type": "presto",
+        "gap": 0,
+        "head_fields": [
+          "CONSCOUNT"
+        ],
+        "rc": "tail",
+        "swap_head_tail": true,
+        "tail_fields": [
+          "CONSCOUNT",
+          "PRCONS"
+        ]
+      },
+      "lanes": "paired",
+      "native": {
+        "command": "python.exe AssemblePairs.py join -1 paper/test/component_matrix/work/fixtures/conspair/R2_consensus-pass_pair-pass.fastq -2 paper/test/component_matrix/work/fixtures/conspair/R1_consensus-pass_pair-pass.fastq --coord presto --rc tail --1f CONSCOUNT --2f CONSCOUNT PRCONS --gap 0 --outdir paper/test/component_matrix/work/cases/AssemblePairs_join/native --outname native --nproc 1 --failed",
+        "returncode": 0,
+        "seconds": 9.11,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.62,
+        "by_lane": {
+          "merged": {
+            "before": 2219,
+            "failed": 0,
+            "remaining": 2219
+          }
+        },
+        "command": "run_pipeline_step(DUAL(r1=paper/test/component_matrix/work/fixtures/conspair/R1_consensus-pass_pair-pass.fastq, r2=paper/test/component_matrix/work/fixtures/conspair/R2_consensus-pass_pair-pass.fastq), {\"name\": \"AssembleSeq.join\", \"params\": {\"coord_type\": \"presto\", \"gap\": 0, \"head_fields\": [\"CONSCOUNT\"], \"rc\": \"tail\", \"swap_head_tail\": true, \"tail_fields\": [\"CONSCOUNT\", \"PRCONS\"]}, \"lanes\": \"paired\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 2219,
+          "airrprep_records": 2219,
+          "identical": 2219,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "2d0cf230f486d07a13adb749dffc02a49a284f50bd81ceeb105b23673d7e8798",
+        "airrprep": "f8d80bccc880f1d1c354f64800f3799de9c3cd32d936a66a7dc61fab51896554"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "AssemblePairs.reference",
+      "comparator": "records",
+      "native": {
+        "command": "python AssemblePairs.py reference -1 /repo/paper/test/component_matrix/work/fixtures/cons_small_R2.fastq -2 /repo/paper/test/component_matrix/work/fixtures/cons_small_R1.fastq --coord presto --rc tail --1f CONSCOUNT --2f CONSCOUNT PRCONS -r /repo/presto-backend/temp/bench/inputs/IMGT_Human_IG_V.fasta --aligner blastn --exec /opt/tools/blastn --dbexec /opt/tools/makeblastdb --outdir /repo/paper/test/component_matrix/work/cases/AssemblePairs_reference/native --outname native --nproc 1 --failed",
+        "returncode": 0,
+        "seconds": 775.5,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 190.46,
+        "by_lane": {
+          "merged": {
+            "before": 300,
+            "failed": 259,
+            "remaining": 41
+          }
+        },
+        "command": "run_pipeline_step(DUAL(r1=paper/test/component_matrix/work/fixtures/cons_small_R1.fastq, r2=paper/test/component_matrix/work/fixtures/cons_small_R2.fastq), {\"name\": \"AssembleSeq.reference\", \"params\": {\"aligner\": \"blastn\", \"coord_type\": \"presto\", \"head_fields\": [\"CONSCOUNT\"], \"rc\": \"tail\", \"ref_file\": \"2f119993-bef2-481e-ac75-be6782ccfed6\", \"swap_head_tail\": true, \"tail_fields\": [\"CONSCOUNT\", \"PRCONS\"]}, \"lanes\": \"paired\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 41,
+          "airrprep_records": 41,
+          "identical": 41,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "fail": {
+          "native_files": [
+            "native-1_assemble-fail.fastq",
+            "native-2_assemble-fail.fastq"
+          ],
+          "airrprep_files": [
+            "airrprep_assembled_fail.fastq"
+          ],
+          "native_records": 518,
+          "airrprep_records": 518,
+          "identical": 518,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "denominator": "component-matrix-47",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/cons_small_R1.fastq",
+        "paper/test/component_matrix/work/fixtures/cons_small_R2.fastq"
+      ],
+      "parameters": {
+        "aligner": "blastn",
+        "coord_type": "presto",
+        "head_fields": [
+          "CONSCOUNT"
+        ],
+        "rc": "tail",
+        "ref_file": "2f119993-bef2-481e-ac75-be6782ccfed6",
+        "swap_head_tail": true,
+        "tail_fields": [
+          "CONSCOUNT",
+          "PRCONS"
+        ]
+      },
+      "lanes": "paired",
+      "output_sha256": {
+        "native": "dc30ef2d8aeefd3b3e48402c25253b534abe3f2411babce25ee36e3b4e1b1b12",
+        "airrprep": "95e6d7f428e1f938be0fcae8c5005b28fe845c92991405d50fab2863431a9d29"
+      },
+      "host": "linux"
+    },
+    {
+      "operation": "AssemblePairs.sequential",
+      "comparator": "records",
+      "native": {
+        "command": "python AssemblePairs.py sequential -1 /repo/paper/test/component_matrix/work/fixtures/cons_small_R2.fastq -2 /repo/paper/test/component_matrix/work/fixtures/cons_small_R1.fastq --coord presto --rc tail --1f CONSCOUNT --2f CONSCOUNT PRCONS -r /repo/presto-backend/temp/bench/inputs/IMGT_Human_IG_V.fasta --aligner blastn --exec /opt/tools/blastn --dbexec /opt/tools/makeblastdb --scanrev --outdir /repo/paper/test/component_matrix/work/cases/AssemblePairs_sequential/native --outname native --nproc 1 --failed",
+        "returncode": 0,
+        "seconds": 12.21,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 5.63,
+        "by_lane": {
+          "merged": {
+            "before": 300,
+            "failed": 2,
+            "remaining": 298
+          }
+        },
+        "command": "run_pipeline_step(DUAL(r1=paper/test/component_matrix/work/fixtures/cons_small_R1.fastq, r2=paper/test/component_matrix/work/fixtures/cons_small_R2.fastq), {\"name\": \"AssembleSeq.sequential\", \"params\": {\"aligner\": \"blastn\", \"coord_type\": \"presto\", \"head_fields\": [\"CONSCOUNT\"], \"rc\": \"tail\", \"ref_file\": \"2f119993-bef2-481e-ac75-be6782ccfed6\", \"scan_reverse\": true, \"swap_head_tail\": true, \"tail_fields\": [\"CONSCOUNT\", \"PRCONS\"]}, \"lanes\": \"paired\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 298,
+          "airrprep_records": 298,
+          "identical": 298,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "fail": {
+          "native_files": [
+            "native-1_assemble-fail.fastq",
+            "native-2_assemble-fail.fastq"
+          ],
+          "airrprep_files": [
+            "airrprep_assembled_fail.fastq"
+          ],
+          "native_records": 4,
+          "airrprep_records": 4,
+          "identical": 4,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "denominator": "component-matrix-47",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/cons_small_R1.fastq",
+        "paper/test/component_matrix/work/fixtures/cons_small_R2.fastq"
+      ],
+      "parameters": {
+        "aligner": "blastn",
+        "coord_type": "presto",
+        "head_fields": [
+          "CONSCOUNT"
+        ],
+        "rc": "tail",
+        "ref_file": "2f119993-bef2-481e-ac75-be6782ccfed6",
+        "scan_reverse": true,
+        "swap_head_tail": true,
+        "tail_fields": [
+          "CONSCOUNT",
+          "PRCONS"
+        ]
+      },
+      "lanes": "paired",
+      "output_sha256": {
+        "native": "4bb6636ff0b19f10ba744411067a0059e95939444c0273b9ae83ef2832702a2a",
+        "airrprep": "fad5a95e0595fce857842afa8bfb8665d3ef385459cd80117428ecc84c383594"
+      },
+      "host": "linux"
+    },
+    {
+      "operation": "ParseHeaders.add",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq"
+      ],
+      "parameters": {
+        "fields": [
+          "SAMPLE"
+        ],
+        "values": [
+          "S1"
+        ]
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe ParseHeaders.py add -s paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq -f SAMPLE -u S1 --outdir paper/test/component_matrix/work/cases/ParseHeaders_add/native --outname native",
+        "returncode": 0,
+        "seconds": 1.91,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.48,
+        "by_lane": {
+          "R1": {
+            "before": 1211,
+            "failed": 0,
+            "remaining": 1211
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq), {\"name\": \"ParseHeaders.add\", \"params\": {\"fields\": [\"SAMPLE\"], \"values\": [\"S1\"]}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 1211,
+          "airrprep_records": 1211,
+          "identical": 1211,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "0a73e92b89bc3a08ebbdedf4f0029409a445751f8965c7e4ba8afb3afc3afa3b",
+        "airrprep": "d64adb46aed136c730101718e0ddbb8778dff817f0fcead821ca2f73138b8b1a"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "ParseHeaders.collapse",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq"
+      ],
+      "parameters": {
+        "actions": [
+          "min"
+        ],
+        "fields": [
+          "CONSCOUNT"
+        ]
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe ParseHeaders.py collapse -s paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq -f CONSCOUNT --act min --outdir paper/test/component_matrix/work/cases/ParseHeaders_collapse/native --outname native",
+        "returncode": 0,
+        "seconds": 1.36,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.21,
+        "by_lane": {
+          "R1": {
+            "before": 1211,
+            "failed": 0,
+            "remaining": 1211
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq), {\"name\": \"ParseHeaders.collapse\", \"params\": {\"actions\": [\"min\"], \"fields\": [\"CONSCOUNT\"]}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 1211,
+          "airrprep_records": 1211,
+          "identical": 1211,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "19cf8f3100ae9739bad286c54ad727ef002b17ead65dcebd356601ece4b88bf3",
+        "airrprep": "3e41810377a6a1ca3191dd1e8b719aaa2977b22f8db7c09920e3720a5dfbaf31"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "ParseHeaders.copy",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq"
+      ],
+      "parameters": {
+        "fields": [
+          "PRCONS"
+        ],
+        "names": [
+          "ISOTYPE"
+        ]
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe ParseHeaders.py copy -s paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq -f PRCONS -k ISOTYPE --outdir paper/test/component_matrix/work/cases/ParseHeaders_copy/native --outname native",
+        "returncode": 0,
+        "seconds": 0.93,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.15,
+        "by_lane": {
+          "R1": {
+            "before": 1211,
+            "failed": 0,
+            "remaining": 1211
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq), {\"name\": \"ParseHeaders.copy\", \"params\": {\"fields\": [\"PRCONS\"], \"names\": [\"ISOTYPE\"]}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 1211,
+          "airrprep_records": 1211,
+          "identical": 1211,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "6c70da1f58b1858b2e54d2a286d37e62cacbe4a0e5f495d94f8b6777ada36bbf",
+        "airrprep": "8df59daaa1f0e4b083525e1cda37358a8e4be1c6d0be43b04e005b67ef7b7a36"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "ParseHeaders.delete",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq"
+      ],
+      "parameters": {
+        "fields": [
+          "PRCONS"
+        ]
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe ParseHeaders.py delete -s paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq -f PRCONS --outdir paper/test/component_matrix/work/cases/ParseHeaders_delete/native --outname native",
+        "returncode": 0,
+        "seconds": 1.16,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.19,
+        "by_lane": {
+          "R1": {
+            "before": 1211,
+            "failed": 0,
+            "remaining": 1211
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq), {\"name\": \"ParseHeaders.delete\", \"params\": {\"fields\": [\"PRCONS\"]}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 1211,
+          "airrprep_records": 1211,
+          "identical": 1211,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "1c3c9905d68e5b3bd74392e9891070d1d6cad55496a2814a3fbcee44664b7139",
+        "airrprep": "2b70fc16830c7f92121ef29aecfa90d9aef0d9f5ebccac036c568e61b6a3ee04"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "ParseHeaders.expand",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq"
+      ],
+      "parameters": {
+        "fields": [
+          "CONSCOUNT"
+        ],
+        "separator": ","
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe ParseHeaders.py expand -s paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq -f CONSCOUNT --sep , --outdir paper/test/component_matrix/work/cases/ParseHeaders_expand/native --outname native",
+        "returncode": 0,
+        "seconds": 1.66,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.22,
+        "by_lane": {
+          "R1": {
+            "before": 1211,
+            "failed": 0,
+            "remaining": 1211
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq), {\"name\": \"ParseHeaders.expand\", \"params\": {\"fields\": [\"CONSCOUNT\"], \"separator\": \",\"}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 1211,
+          "airrprep_records": 1211,
+          "identical": 1211,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "b66dca34167cab2f71cfe4160853404fc5a6da2c4125a7b5ec3ff257ba1f782c",
+        "airrprep": "c73443e1bc78b9a55aa9d223ac0d50ef6c3178c7f3b1751ed8f31e1c8253b0a7"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "ParseHeaders.merge",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq"
+      ],
+      "parameters": {
+        "fields": [
+          "CONSCOUNT",
+          "PRCONS"
+        ],
+        "name": "MERGED"
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe ParseHeaders.py merge -s paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq -f CONSCOUNT PRCONS -k MERGED --outdir paper/test/component_matrix/work/cases/ParseHeaders_merge/native --outname native",
+        "returncode": 0,
+        "seconds": 1.18,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.32,
+        "by_lane": {
+          "R1": {
+            "before": 1211,
+            "failed": 0,
+            "remaining": 1211
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq), {\"name\": \"ParseHeaders.merge\", \"params\": {\"fields\": [\"CONSCOUNT\", \"PRCONS\"], \"name\": \"MERGED\"}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 1211,
+          "airrprep_records": 1211,
+          "identical": 1211,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "80722704df154a658b631615782189b7a31d5e65ec52a5fbaa904be88eda083e",
+        "airrprep": "e55e676e714379d23be165d32e68675ac891f282e6724700cffd0038f0bb2373"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "ParseHeaders.rename",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq"
+      ],
+      "parameters": {
+        "fields": [
+          "PRCONS"
+        ],
+        "names": [
+          "ISOTYPE"
+        ]
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe ParseHeaders.py rename -s paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq -f PRCONS -k ISOTYPE --outdir paper/test/component_matrix/work/cases/ParseHeaders_rename/native --outname native",
+        "returncode": 0,
+        "seconds": 1.61,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.2,
+        "by_lane": {
+          "R1": {
+            "before": 1211,
+            "failed": 0,
+            "remaining": 1211
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq), {\"name\": \"ParseHeaders.rename\", \"params\": {\"fields\": [\"PRCONS\"], \"names\": [\"ISOTYPE\"]}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 1211,
+          "airrprep_records": 1211,
+          "identical": 1211,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "2e8553fd068f83f581b55f94260159c905702c2deeb84420fb95403e74e2d25a",
+        "airrprep": "d49565be218e52312a2a449b635fd179600f7a1ffdebcb859552e26d5fd76525"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "ParseHeaders.table",
+      "denominator": "component-matrix-47",
+      "comparator": "tables",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq"
+      ],
+      "parameters": {
+        "fields": [
+          "ID",
+          "PRCONS",
+          "CONSCOUNT"
+        ]
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe ParseHeaders.py table -s paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq -f ID PRCONS CONSCOUNT --outdir paper/test/component_matrix/work/cases/ParseHeaders_table/native --outname native",
+        "returncode": 0,
+        "seconds": 1.4,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.07,
+        "by_lane": {
+          "R1": {
+            "before": 1211,
+            "failed": 0,
+            "remaining": 1211
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/asm/ASM_assemble-pass.fastq), {\"name\": \"ParseHeaders.table\", \"params\": {\"fields\": [\"ID\", \"PRCONS\", \"CONSCOUNT\"]}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "tables": {
+          "native_headers.tab": {
+            "airrprep_file": "airrprep_R1.tsv",
+            "rows_native": 1211,
+            "rows_airrprep": 1211,
+            "same_columns": true,
+            "identical_rows": 1211,
+            "ok": true
+          }
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "8b04e83dd11637439dbf4d7417af2b3b943a066a79e3e8254d8221608752780c",
+        "airrprep": "66b3779fb25008194283862d21be6ba841a736e2f6186cdc10520d6c49dddf24"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "SplitSeq.count",
+      "denominator": "component-matrix-47",
+      "comparator": "parts",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/asm_min/ASMMIN_reheader.fastq"
+      ],
+      "parameters": {
+        "max_count": 100
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe SplitSeq.py count -s paper/test/component_matrix/work/fixtures/asm_min/ASMMIN_reheader.fastq -n 100 --outdir paper/test/component_matrix/work/cases/SplitSeq_count/native --outname native",
+        "returncode": 0,
+        "seconds": 3.96,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.34,
+        "by_lane": {
+          "R1": {
+            "before": 1211,
+            "failed": 0,
+            "remaining": 1211
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/asm_min/ASMMIN_reheader.fastq), {\"name\": \"SplitSeq.count\", \"params\": {\"max_count\": 100}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "native_parts": 13,
+        "airrprep_parts": 13,
+        "matched_parts": 13,
+        "unmatched_native": [],
+        "unmatched_airrprep": [],
+        "records_in_parts": 1211,
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "545cac4a99b5daa88222d9586f4da7cd2a8485996648dd88dc2722eb06458609",
+        "airrprep": "e8119ad242fcd213594e4503af5e53dcb5235793c8490121b91a20dbeabfd186"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "SplitSeq.group",
+      "denominator": "component-matrix-47",
+      "comparator": "parts",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/asm_min/ASMMIN_reheader.fastq"
+      ],
+      "parameters": {
+        "field": "PRCONS"
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe SplitSeq.py group -s paper/test/component_matrix/work/fixtures/asm_min/ASMMIN_reheader.fastq -f PRCONS --outdir paper/test/component_matrix/work/cases/SplitSeq_group/native --outname native",
+        "returncode": 0,
+        "seconds": 3.95,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.22,
+        "by_lane": {
+          "R1": {
+            "before": 1211,
+            "failed": 0,
+            "remaining": 1211
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/asm_min/ASMMIN_reheader.fastq), {\"name\": \"SplitSeq.group\", \"params\": {\"field\": \"PRCONS\"}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "native_parts": 5,
+        "airrprep_parts": 5,
+        "matched_parts": 5,
+        "unmatched_native": [],
+        "unmatched_airrprep": [],
+        "records_in_parts": 1211,
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "0b8fd53b10c496a21e175d86c3cd4c550933577b49d0e2dc93c73b3fd23d1261",
+        "airrprep": "44b0e37253567c44a37a789df46335cb673fe5231fb824ff70e6ba2b69cd54c8"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "SplitSeq.sample",
+      "denominator": "component-matrix-47",
+      "comparator": "sample",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/asm_min/ASMMIN_reheader.fastq"
+      ],
+      "parameters": {
+        "max_count": [
+          100
+        ]
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe SplitSeq.py sample -s paper/test/component_matrix/work/fixtures/asm_min/ASMMIN_reheader.fastq -n 100 --outdir paper/test/component_matrix/work/cases/SplitSeq_sample/native --outname native",
+        "returncode": 0,
+        "seconds": 4.14,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.04,
+        "by_lane": {
+          "R1": {
+            "before": 1211,
+            "failed": 1111,
+            "remaining": 100
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/asm_min/ASMMIN_reheader.fastq), {\"name\": \"SplitSeq.sample\", \"params\": {\"max_count\": [100]}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "native": {
+          "files": 1,
+          "records": 100,
+          "duplicates": 0,
+          "not_in_input": 0
+        },
+        "airrprep": {
+          "files": 1,
+          "records": 100,
+          "duplicates": 0,
+          "not_in_input": 0
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "ec0e84bc42636ea080c623a8680df2cdb9ba40991d358d9f562f5556ac85629a",
+        "airrprep": "ce8072271c3093ee870697b62c2913bc5b7725f2bb8f3f5e50b6edae57e0dd8d"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "SplitSeq.samplepair",
+      "denominator": "component-matrix-47",
+      "comparator": "sample",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/conspair/R1_consensus-pass_pair-pass.fastq",
+        "paper/test/component_matrix/work/fixtures/conspair/R2_consensus-pass_pair-pass.fastq"
+      ],
+      "parameters": {
+        "coord_type": "presto",
+        "max_count": [
+          100
+        ]
+      },
+      "lanes": "paired",
+      "native": {
+        "command": "python.exe SplitSeq.py samplepair -1 paper/test/component_matrix/work/fixtures/conspair/R1_consensus-pass_pair-pass.fastq -2 paper/test/component_matrix/work/fixtures/conspair/R2_consensus-pass_pair-pass.fastq -n 100 --coord presto --outdir paper/test/component_matrix/work/cases/SplitSeq_samplepair/native",
+        "returncode": 0,
+        "seconds": 3.7,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.14,
+        "by_lane": {
+          "R1": {
+            "before": 2219,
+            "failed": 2119,
+            "remaining": 100
+          },
+          "R2": {
+            "before": 2219,
+            "failed": 2119,
+            "remaining": 100
+          }
+        },
+        "command": "run_pipeline_step(DUAL(r1=paper/test/component_matrix/work/fixtures/conspair/R1_consensus-pass_pair-pass.fastq, r2=paper/test/component_matrix/work/fixtures/conspair/R2_consensus-pass_pair-pass.fastq), {\"name\": \"SplitSeq.samplepair\", \"params\": {\"coord_type\": \"presto\", \"max_count\": [100]}, \"lanes\": \"paired\"})"
+      },
+      "comparison": {
+        "native": {
+          "files": 2,
+          "records": 200,
+          "duplicates": 0,
+          "not_in_input": 0
+        },
+        "airrprep": {
+          "files": 2,
+          "records": 200,
+          "duplicates": 0,
+          "not_in_input": 0
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "27b0ceb2b63985bf92f26b5f5ee697a664febf69e148b2b1b8065c8408338186",
+        "airrprep": "ba845238d385be71a344328c4a2ce1bc90ad1d36d84a884590210e092fe58426"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "SplitSeq.sort",
+      "denominator": "component-matrix-47",
+      "comparator": "parts",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/asm_min/ASMMIN_reheader.fastq"
+      ],
+      "parameters": {
+        "field": "CONSCOUNT",
+        "numeric": true
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe SplitSeq.py sort -s paper/test/component_matrix/work/fixtures/asm_min/ASMMIN_reheader.fastq -f CONSCOUNT --num --outdir paper/test/component_matrix/work/cases/SplitSeq_sort/native --outname native",
+        "returncode": 0,
+        "seconds": 3.74,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.24,
+        "by_lane": {
+          "R1": {
+            "before": 1211,
+            "failed": 0,
+            "remaining": 1211
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/asm_min/ASMMIN_reheader.fastq), {\"name\": \"SplitSeq.sort\", \"params\": {\"field\": \"CONSCOUNT\", \"numeric\": true}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "native_parts": 1,
+        "airrprep_parts": 1,
+        "matched_parts": 1,
+        "unmatched_native": [],
+        "unmatched_airrprep": [],
+        "records_in_parts": 1211,
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "6ec57fbaa8b0f2bca012c91e273a36f759b520e10380e268b6c9bc14076259a4",
+        "airrprep": "2a34d832698136a2eab5558ef6f7965f7a7a0a93492ede400b2486d153a6c2b2"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "SplitSeq.select",
+      "denominator": "component-matrix-47",
+      "comparator": "parts",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/asm_min/ASMMIN_reheader.fastq"
+      ],
+      "parameters": {
+        "field": "PRCONS",
+        "value_list": [
+          "Human-IGHG"
+        ]
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe SplitSeq.py select -s paper/test/component_matrix/work/fixtures/asm_min/ASMMIN_reheader.fastq -f PRCONS -u Human-IGHG --outdir paper/test/component_matrix/work/cases/SplitSeq_select/native --outname native",
+        "returncode": 0,
+        "seconds": 4.29,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.05,
+        "by_lane": {
+          "R1": {
+            "before": 1211,
+            "failed": 1211,
+            "remaining": 0
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/asm_min/ASMMIN_reheader.fastq), {\"name\": \"SplitSeq.select\", \"params\": {\"field\": \"PRCONS\", \"value_list\": [\"Human-IGHG\"]}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "native_parts": 1,
+        "airrprep_parts": 1,
+        "matched_parts": 1,
+        "unmatched_native": [],
+        "unmatched_airrprep": [],
+        "records_in_parts": 0,
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "29801425cf3fe8340823399f9ca18dbacad894467c1712317c66296e822c37ec",
+        "airrprep": "c4cbcc82c54c3f58f01c21e3fe4db68c32d1f6ee0b1d1bf41ba693f26fa66dae"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "AlignSets.muscle",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq"
+      ],
+      "parameters": {
+        "barcode_field": "BARCODE"
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe AlignSets.py muscle -s paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq --bf BARCODE --exec C:/Tools/muscle/muscle3.8.31_i86win32.exe --outdir paper/test/component_matrix/work/cases/AlignSets_muscle/native --outname native --nproc 1 --failed",
+        "returncode": 0,
+        "seconds": 96.49,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 24.71,
+        "by_lane": {
+          "R1": {
+            "before": 7000,
+            "failed": 0,
+            "remaining": 7000
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq), {\"name\": \"AlignSets.muscle\", \"params\": {\"barcode_field\": \"BARCODE\"}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 7000,
+          "airrprep_records": 7000,
+          "identical": 7000,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "c9d69f747c0344fa113fcf3e48faa1f1be6b9f345df00967e12bdef7cd8aaf2d",
+        "airrprep": "5b5f7dbfb99615f74419262750897ec38d014690d8bde9bb4b5d2e7b8e01600f"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "AlignSets.offset",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq"
+      ],
+      "parameters": {
+        "barcode_field": "BARCODE",
+        "offset_file": "52595699-9d99-49eb-ab5c-7ac2ed241356",
+        "offset_mode": "pad",
+        "primer_field": "PRIMER"
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe AlignSets.py offset -s paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq -d paper/test/component_matrix/work/fixtures/offsets/OFFSETS_offsets-forward.tab --bf BARCODE --pf PRIMER --mode pad --outdir paper/test/component_matrix/work/cases/AlignSets_offset/native --outname native --nproc 1 --failed",
+        "returncode": 0,
+        "seconds": 8.06,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.72,
+        "by_lane": {
+          "R1": {
+            "before": 7000,
+            "failed": 0,
+            "remaining": 7000
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq), {\"name\": \"AlignSets.offset\", \"params\": {\"barcode_field\": \"BARCODE\", \"offset_file\": \"52595699-9d99-49eb-ab5c-7ac2ed241356\", \"offset_mode\": \"pad\", \"primer_field\": \"PRIMER\"}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 7000,
+          "airrprep_records": 7000,
+          "identical": 7000,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "0b2bbc5ce74763f2e08af6170add68e9376c0504f0c96775a9823c3cafb868e6",
+        "airrprep": "6d5d02422635549b657f42def89b3a782ed76e90bcfc3228298dbcedc4a727d8"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "AlignSets.table",
+      "denominator": "component-matrix-47",
+      "comparator": "tables",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq"
+      ],
+      "parameters": {
+        "primer_file": "3bee7420-11bb-4d5c-be48-72da23f1347c"
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe AlignSets.py table -p presto-backend/temp/bench/inputs/Stern2014_CPrimers.fasta --exec C:/Tools/muscle/muscle3.8.31_i86win32.exe --outdir paper/test/component_matrix/work/cases/AlignSets_table/native --outname native",
+        "returncode": 0,
+        "seconds": 2.31,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.08,
+        "by_lane": {
+          "R1": {
+            "before": 5,
+            "failed": 0,
+            "remaining": 5
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq), {\"name\": \"AlignSets.table\", \"params\": {\"primer_file\": \"3bee7420-11bb-4d5c-be48-72da23f1347c\"}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "tables": {
+          "native_offsets-forward.tab": {
+            "airrprep_file": "airrprep_R1.tsv",
+            "rows_native": 4,
+            "rows_airrprep": 4,
+            "same_columns": true,
+            "identical_rows": 4,
+            "ok": true
+          }
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "18a71698c952b5a34c5bc3820015edf929b65e0343d255395025db60f541708c",
+        "airrprep": "a3c79d2a8cbd9d2d13c9c4494ec7b593f09373fd257e7b5792792a2f0d67b1a2"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "ClusterSets.all [vsearch]",
+      "comparator": "cluster",
+      "native": {
+        "command": "python ClusterSets.py all -s /repo/paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq --ident 0.9 --cluster vsearch --exec /opt/tools/vsearch --outdir /repo/paper/test/component_matrix/work/cases/ClusterSets_all_vsearch/native --outname native --nproc 1",
+        "returncode": 0,
+        "seconds": 9.92,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 11.11,
+        "by_lane": {
+          "R1": {
+            "before": 7000,
+            "failed": 0,
+            "remaining": 7000
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq), {\"name\": \"ClusterSets.all\", \"params\": {\"cluster_tool\": \"vsearch\", \"ident\": 0.9}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "exact": {
+          "native_records": 7000,
+          "airrprep_records": 7000,
+          "identical": 7000,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "records_identical_except_label": true,
+        "same_partition": true,
+        "clusters_native": 743,
+        "clusters_airrprep": 743,
+        "ok": true
+      },
+      "outcome": "identical",
+      "denominator": "component-matrix-47",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq"
+      ],
+      "parameters": {
+        "cluster_tool": "vsearch",
+        "ident": 0.9
+      },
+      "lanes": "R1",
+      "output_sha256": {
+        "native": "e24de7b6710236628009b4de070f4ab3e74b3ea517c38b70b79aa05c5e2950c2",
+        "airrprep": "574befc7f09de8163bc1022a6e35c37e1e4226c53f60fcc2a8670325be7cb4a2"
+      },
+      "host": "linux"
+    },
+    {
+      "operation": "ClusterSets.barcode [vsearch]",
+      "comparator": "cluster",
+      "native": {
+        "command": "python ClusterSets.py barcode -s /repo/paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq -f BARCODE --ident 0.9 --cluster vsearch --exec /opt/tools/vsearch --outdir /repo/paper/test/component_matrix/work/cases/ClusterSets_barcode_vsearch/native --outname native --nproc 1",
+        "returncode": 0,
+        "seconds": 8.08,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 9.4,
+        "by_lane": {
+          "R1": {
+            "before": 7000,
+            "failed": 0,
+            "remaining": 7000
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq), {\"name\": \"ClusterSets.barcode\", \"params\": {\"barcode_field\": \"BARCODE\", \"cluster_tool\": \"vsearch\", \"ident\": 0.9}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "exact": {
+          "native_records": 7000,
+          "airrprep_records": 7000,
+          "identical": 7000,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "records_identical_except_label": true,
+        "same_partition": true,
+        "clusters_native": 2066,
+        "clusters_airrprep": 2066,
+        "ok": true
+      },
+      "outcome": "identical",
+      "denominator": "component-matrix-47",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq"
+      ],
+      "parameters": {
+        "barcode_field": "BARCODE",
+        "cluster_tool": "vsearch",
+        "ident": 0.9
+      },
+      "lanes": "R1",
+      "output_sha256": {
+        "native": "195f96c67dbbb68e39a7c923592774080630edb653b99bbbac78c7fdbfc33711",
+        "airrprep": "1056ebb201666ffa66880d506c4584dbf3a4a54d882eba7147c34942204c3a14"
+      },
+      "host": "linux"
+    },
+    {
+      "operation": "ClusterSets.set [vsearch]",
+      "comparator": "cluster",
+      "native": {
+        "command": "python ClusterSets.py set -s /repo/paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq -f BARCODE --ident 0.9 --cluster vsearch --exec /opt/tools/vsearch --outdir /repo/paper/test/component_matrix/work/cases/ClusterSets_set_vsearch/native --outname native --nproc 1",
+        "returncode": 0,
+        "seconds": 19.45,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 12.84,
+        "by_lane": {
+          "R1": {
+            "before": 7000,
+            "failed": 0,
+            "remaining": 7000
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq), {\"name\": \"ClusterSets.set\", \"params\": {\"cluster_tool\": \"vsearch\", \"ident\": 0.9, \"set_field\": \"BARCODE\"}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "exact": {
+          "native_records": 7000,
+          "airrprep_records": 7000,
+          "identical": 7000,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "records_identical_except_label": true,
+        "same_partition": true,
+        "clusters_native": 2460,
+        "clusters_airrprep": 2460,
+        "ok": true
+      },
+      "outcome": "identical",
+      "denominator": "component-matrix-47",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq"
+      ],
+      "parameters": {
+        "cluster_tool": "vsearch",
+        "ident": 0.9,
+        "set_field": "BARCODE"
+      },
+      "lanes": "R1",
+      "output_sha256": {
+        "native": "c928055ef52877db298091b40958923c3c3cb15dc672b74673274083c6590223",
+        "airrprep": "9d0777524e98444e1880c87f6ecb20d72a781ceb27ebe3632bab2897b05fea40"
+      },
+      "host": "linux"
+    },
+    {
+      "operation": "ConvertHeaders.454",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/vendor/h454.fastq"
+      ],
+      "parameters": {},
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe ConvertHeaders.py 454 -s paper/test/component_matrix/work/fixtures/vendor/h454.fastq --outdir paper/test/component_matrix/work/cases/ConvertHeaders_454/native --outname native --failed",
+        "returncode": 0,
+        "seconds": 0.51,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.03,
+        "by_lane": {
+          "R1": {
+            "before": 500,
+            "failed": 0,
+            "remaining": 500
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/vendor/h454.fastq), {\"name\": \"ConvertHeaders.454\", \"params\": {}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 500,
+          "airrprep_records": 500,
+          "identical": 500,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "8325c6af85b7e674dd41ad3398cc37f27c9a9f761f1181c841be9970bb7830e0",
+        "airrprep": "48c91ae13674bde933134c02ffea2d76e60b86c5fcc68eb8746b2c668a37d4a8"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "ConvertHeaders.genbank",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/vendor/hgenbank.fasta"
+      ],
+      "parameters": {},
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe ConvertHeaders.py genbank -s paper/test/component_matrix/work/fixtures/vendor/hgenbank.fasta --outdir paper/test/component_matrix/work/cases/ConvertHeaders_genbank/native --outname native --failed",
+        "returncode": 0,
+        "seconds": 0.51,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.02,
+        "by_lane": {
+          "R1": {
+            "before": 500,
+            "failed": 0,
+            "remaining": 500
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/vendor/hgenbank.fasta), {\"name\": \"ConvertHeaders.genbank\", \"params\": {}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 500,
+          "airrprep_records": 500,
+          "identical": 500,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "41f59f70b558dc90d821d448c18947dc716685ec8fa0c798c5aea9852555af9a",
+        "airrprep": "e8bb2bf9d83c6923e7c73c35112824436def7e03397312d3741dcde622086951"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "ConvertHeaders.generic",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/vendor/hgeneric.fastq"
+      ],
+      "parameters": {},
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe ConvertHeaders.py generic -s paper/test/component_matrix/work/fixtures/vendor/hgeneric.fastq --outdir paper/test/component_matrix/work/cases/ConvertHeaders_generic/native --outname native --failed",
+        "returncode": 0,
+        "seconds": 0.56,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.04,
+        "by_lane": {
+          "R1": {
+            "before": 500,
+            "failed": 0,
+            "remaining": 500
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/vendor/hgeneric.fastq), {\"name\": \"ConvertHeaders.generic\", \"params\": {}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 500,
+          "airrprep_records": 500,
+          "identical": 500,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "99bb89a99b24627867d1518d0ef5398f769f298768a5ce33131ed1373560d853",
+        "airrprep": "c2a0eccc65762613492ad0cab90dec4fe868823f9a30150ebb012e52353bd238"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "ConvertHeaders.illumina",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/vendor/hillumina.fastq"
+      ],
+      "parameters": {},
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe ConvertHeaders.py illumina -s paper/test/component_matrix/work/fixtures/vendor/hillumina.fastq --outdir paper/test/component_matrix/work/cases/ConvertHeaders_illumina/native --outname native --failed",
+        "returncode": 0,
+        "seconds": 0.51,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.03,
+        "by_lane": {
+          "R1": {
+            "before": 500,
+            "failed": 0,
+            "remaining": 500
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/vendor/hillumina.fastq), {\"name\": \"ConvertHeaders.illumina\", \"params\": {}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 500,
+          "airrprep_records": 500,
+          "identical": 500,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "ace86a275ffe18117800effa01687fd8f87a0b3bef42c804468153192c9c3eff",
+        "airrprep": "697471dcc01591aeb50688d7529626d9efdc8aa968d07f3cab4acf670fdd45be"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "ConvertHeaders.imgt",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/vendor/himgt.fasta"
+      ],
+      "parameters": {},
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe ConvertHeaders.py imgt -s paper/test/component_matrix/work/fixtures/vendor/himgt.fasta --outdir paper/test/component_matrix/work/cases/ConvertHeaders_imgt/native --outname native --failed",
+        "returncode": 0,
+        "seconds": 0.48,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.01,
+        "by_lane": {
+          "R1": {
+            "before": 500,
+            "failed": 0,
+            "remaining": 500
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/vendor/himgt.fasta), {\"name\": \"ConvertHeaders.imgt\", \"params\": {}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 500,
+          "airrprep_records": 500,
+          "identical": 500,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "54c0527dc78ca7bf8b6b6937ff79d679142086d73fe15d046912c17b40338500",
+        "airrprep": "d2ed5f1eb7dfef9caf2b6bc4e6bf0862153f10cebf19a9bee03adb154a188178"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "ConvertHeaders.migec",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/vendor/hmigec.fastq"
+      ],
+      "parameters": {},
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe ConvertHeaders.py migec -s paper/test/component_matrix/work/fixtures/vendor/hmigec.fastq --outdir paper/test/component_matrix/work/cases/ConvertHeaders_migec/native --outname native --failed",
+        "returncode": 1,
+        "seconds": 0.47,
+        "stderr_tail": "ERROR> File E:\\AIRR-Preprocessing\\Preprocessing-code\\paper\\test\\component_matrix\\work\\fixtures\\vendor\\hmigec.fastq is invalid with exception: Duplicate key 'MIG'.\n\n"
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.03,
+        "by_lane": {
+          "R1": {
+            "before": 500,
+            "failed": 0,
+            "remaining": 500
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/vendor/hmigec.fastq), {\"name\": \"ConvertHeaders.migec\", \"params\": {}, \"lanes\": \"R1\"})"
+      },
+      "outcome": "not comparable (native pRESTO failed)",
+      "output_sha256": {
+        "native": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "airrprep": "a489a3b4ea6ea7ac2518c12f1903b2d723f05dc524501ae6454ff9564850a564"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "ConvertHeaders.sra",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/raw_R1.fastq"
+      ],
+      "parameters": {},
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe ConvertHeaders.py sra -s paper/test/component_matrix/work/fixtures/raw_R1.fastq --outdir paper/test/component_matrix/work/cases/ConvertHeaders_sra/native --outname native --failed",
+        "returncode": 0,
+        "seconds": 0.87,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.41,
+        "by_lane": {
+          "R1": {
+            "before": 8000,
+            "failed": 0,
+            "remaining": 8000
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/raw_R1.fastq), {\"name\": \"ConvertHeaders.sra\", \"params\": {}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 8000,
+          "airrprep_records": 8000,
+          "identical": 8000,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "8c94e7681502ee2825ac6b96b38dc5b1394f04b235fd43ab4d5952f784afec2f",
+        "airrprep": "8497ebca0c03206123375ef04795749c6953a38bc56bd5bae38b4fc81b408754"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "EstimateError.barcode",
+      "denominator": "component-matrix-47",
+      "comparator": "tables",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq"
+      ],
+      "parameters": {
+        "barcode_field": "BARCODE"
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe EstimateError.py barcode -s paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq -f BARCODE --outdir paper/test/component_matrix/work/cases/EstimateError_barcode/native --outname native",
+        "returncode": 0,
+        "seconds": 3.85,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 1.58,
+        "by_lane": {
+          "R1": {
+            "before": 7000,
+            "failed": 6966,
+            "remaining": 34
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq), {\"name\": \"EstimateError.barcode\", \"params\": {\"barcode_field\": \"BARCODE\"}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "tables": {
+          "native_distance-barcode.tab": {
+            "airrprep_file": "airrprep_R1_distance-barcode.tab",
+            "rows_native": 16,
+            "rows_airrprep": 16,
+            "same_columns": true,
+            "identical_rows": 16,
+            "ok": true
+          },
+          "native_threshold-barcode.tab": {
+            "airrprep_file": "airrprep_R1_threshold-barcode.tab",
+            "rows_native": 1,
+            "rows_airrprep": 1,
+            "same_columns": true,
+            "identical_rows": 1,
+            "ok": true
+          }
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "ea695771cb58bb233b2f18976abbca4400d53d338dccf83c736ea990d94a782e",
+        "airrprep": "b0af4db85f69d683cc83ae7d8929f7730cb32c3403b555f859b38ac92fd1d2e0"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "EstimateError.set",
+      "denominator": "component-matrix-47",
+      "comparator": "tables",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq"
+      ],
+      "parameters": {
+        "min_count": 3,
+        "set_field": "BARCODE"
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe EstimateError.py set -s paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq -f BARCODE -n 3 --outdir paper/test/component_matrix/work/cases/EstimateError_set/native --outname native --nproc 1",
+        "returncode": 0,
+        "seconds": 11.97,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 4.76,
+        "by_lane": {
+          "R1": {
+            "before": 7000,
+            "failed": 6564,
+            "remaining": 436
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/r1p/R1_primers-pass.fastq), {\"name\": \"EstimateError.set\", \"params\": {\"min_count\": 3, \"set_field\": \"BARCODE\"}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "tables": {
+          "native_distance-set.tab": {
+            "airrprep_file": "airrprep_R1_distance-set.tab",
+            "rows_native": 50,
+            "rows_airrprep": 50,
+            "same_columns": true,
+            "identical_rows": 50,
+            "ok": true
+          },
+          "native_error-nucleotide.tab": {
+            "airrprep_file": "airrprep_R1_error-nucleotide.tab",
+            "rows_native": 12,
+            "rows_airrprep": 12,
+            "same_columns": true,
+            "identical_rows": 12,
+            "ok": true
+          },
+          "native_error-position.tab": {
+            "airrprep_file": "airrprep_R1_error-position.tab",
+            "rows_native": 217,
+            "rows_airrprep": 217,
+            "same_columns": true,
+            "identical_rows": 217,
+            "ok": true
+          },
+          "native_error-quality.tab": {
+            "airrprep_file": "airrprep_R1_error-quality.tab",
+            "rows_native": 94,
+            "rows_airrprep": 94,
+            "same_columns": true,
+            "identical_rows": 94,
+            "ok": true
+          },
+          "native_error-set.tab": {
+            "airrprep_file": "airrprep_R1_error-set.tab",
+            "rows_native": 47,
+            "rows_airrprep": 47,
+            "same_columns": true,
+            "identical_rows": 47,
+            "ok": true
+          },
+          "native_threshold-set.tab": {
+            "airrprep_file": "airrprep_R1_threshold-set.tab",
+            "rows_native": 1,
+            "rows_airrprep": 1,
+            "same_columns": true,
+            "identical_rows": 1,
+            "ok": true
+          }
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "ae751bcb65468c0f543c39fc3f6cf1482607de5de66020bf9d00440d8b6e82c1",
+        "airrprep": "4f16b0f1a10e880b33bd85170e3258514603e21023930420e950395e240ff701"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "UnifyHeaders.consensus",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/pair/R1_primers-pass_pair-pass.fastq"
+      ],
+      "parameters": {
+        "set_field": "BARCODE",
+        "unify_field": "PRIMER"
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe UnifyHeaders.py consensus -s paper/test/component_matrix/work/fixtures/pair/R1_primers-pass_pair-pass.fastq -f BARCODE -k PRIMER --outdir paper/test/component_matrix/work/cases/UnifyHeaders_consensus/native --outname native --nproc 1 --failed",
+        "returncode": 0,
+        "seconds": 6.56,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 1.11,
+        "by_lane": {
+          "R1": {
+            "before": 6766,
+            "failed": 0,
+            "remaining": 6766
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/pair/R1_primers-pass_pair-pass.fastq), {\"name\": \"UnifyHeaders.consensus\", \"params\": {\"set_field\": \"BARCODE\", \"unify_field\": \"PRIMER\"}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 6766,
+          "airrprep_records": 6766,
+          "identical": 6766,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "c1b932d9d19cc9efbf915f181c5db8becc870e7e91abf42c0b109f02022685f1",
+        "airrprep": "a80729a8489199f8cf7e4979d5e5a49915148ad3d5fd73254bb11a7600f30a33"
+      },
+      "host": "win32"
+    },
+    {
+      "operation": "UnifyHeaders.delete",
+      "denominator": "component-matrix-47",
+      "comparator": "records",
+      "inputs": [
+        "paper/test/component_matrix/work/fixtures/pair/R1_primers-pass_pair-pass.fastq"
+      ],
+      "parameters": {
+        "set_field": "BARCODE",
+        "unify_field": "PRIMER"
+      },
+      "lanes": "R1",
+      "native": {
+        "command": "python.exe UnifyHeaders.py delete -s paper/test/component_matrix/work/fixtures/pair/R1_primers-pass_pair-pass.fastq -f BARCODE -k PRIMER --outdir paper/test/component_matrix/work/cases/UnifyHeaders_delete/native --outname native --nproc 1 --failed",
+        "returncode": 0,
+        "seconds": 6.2,
+        "stderr_tail": ""
+      },
+      "airrprep": {
+        "ok": true,
+        "seconds": 0.39,
+        "by_lane": {
+          "R1": {
+            "before": 6766,
+            "failed": 0,
+            "remaining": 6766
+          }
+        },
+        "command": "run_pipeline_step(SINGLE(r1=paper/test/component_matrix/work/fixtures/pair/R1_primers-pass_pair-pass.fastq), {\"name\": \"UnifyHeaders.delete\", \"params\": {\"set_field\": \"BARCODE\", \"unify_field\": \"PRIMER\"}, \"lanes\": \"R1\"})"
+      },
+      "comparison": {
+        "pass": {
+          "native_records": 6766,
+          "airrprep_records": 6766,
+          "identical": 6766,
+          "only_native": 0,
+          "only_airrprep": 0,
+          "ids_only_native": 0,
+          "ids_only_airrprep": 0,
+          "ok": true
+        },
+        "ok": true
+      },
+      "outcome": "identical",
+      "output_sha256": {
+        "native": "c1b932d9d19cc9efbf915f181c5db8becc870e7e91abf42c0b109f02022685f1",
+        "airrprep": "a80729a8489199f8cf7e4979d5e5a49915148ad3d5fd73254bb11a7600f30a33"
+      },
+      "host": "win32"
+    }
+  ]
+}

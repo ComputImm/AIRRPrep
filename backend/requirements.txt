@@ -1,0 +1,48 @@
+aiofiles==25.1.0
+amqp==5.3.1
+annotated-doc==0.0.4
+annotated-types==0.7.0
+anyio==4.13.0
+billiard==4.2.4
+biopython==1.87
+celery==5.6.3
+click==8.3.3
+click-didyoumean==0.3.1
+click-plugins==1.1.1.2
+click-repl==0.3.0
+colorama==0.4.6
+fastapi==0.136.1
+greenlet==3.5.0
+h11==0.16.0
+idna==3.14
+kombu==5.6.2
+limits==3.13.0
+numpy==2.4.4
+packaging
+pandas==3.0.3
+presto==0.7.9
+prompt_toolkit==3.0.52
+psycopg2-binary==2.9.12
+pydantic==2.13.4
+pydantic_core==2.46.4
+python-dateutil==2.9.0.post0
+python-multipart==0.0.28
+redis==7.4.0
+scipy==1.17.1
+six==1.17.0
+slowapi==0.1.9
+SQLAlchemy==2.0.49
+starlette==1.0.0
+typing-inspection==0.4.2
+typing_extensions==4.15.0
+tzdata==2026.2
+tzlocal==5.3.1
+uvicorn==0.46.0
+vine==5.1.0
+wcwidth==0.7.0
+
+# pysam is deliberately NOT a dependency. TRUST4's own bam-extractor reads
+# the per-read CB/UB tags, and the samtools route shells out to samtools, so
+# reading the BAM in Python first would duplicate that work and add a
+# heavyweight build dependency for no gain. See the note at the top of
+# app/singlecell/adapters/bam_adapter.py.
