@@ -1,0 +1,101 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.77kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for quay.io/biocontainers/samtools:1.23.1--ha83d96e_0
+#2 DONE 1.4s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 ...
+
+#4 [internal] load metadata for quay.io/biocontainers/trust4:1.1.9--h7f5d12c_0
+#4 DONE 1.4s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 2.5s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 DONE 0.0s
+
+#7 [trust4 1/1] FROM quay.io/biocontainers/trust4:1.1.9--h7f5d12c_0@sha256:526d4157ee09c9f19026e88aa170a0d5f2ee4de253f7151e6990d0c25cb4204b
+#7 resolve quay.io/biocontainers/trust4:1.1.9--h7f5d12c_0@sha256:526d4157ee09c9f19026e88aa170a0d5f2ee4de253f7151e6990d0c25cb4204b 0.0s done
+#7 DONE 0.1s
+
+#8 [samtools 1/1] FROM quay.io/biocontainers/samtools:1.23.1--ha83d96e_0@sha256:23cda33a3a42125872766df9aaf1d2db67cdb8c85314b793465188435af31ba6
+#8 resolve quay.io/biocontainers/samtools:1.23.1--ha83d96e_0@sha256:23cda33a3a42125872766df9aaf1d2db67cdb8c85314b793465188435af31ba6 0.0s done
+#8 DONE 0.1s
+
+#9 [stage-2 1/6] FROM docker.io/library/python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea
+#9 resolve docker.io/library/python:3.12-slim@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea 0.1s done
+#9 DONE 0.1s
+
+#10 [stage-2 2/6] COPY --from=trust4 /usr/local /opt/trust4env
+#10 CACHED
+
+#11 [stage-2 3/6] COPY --from=samtools /usr/local /opt/samtoolsenv
+#11 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 107B done
+#6 DONE 0.0s
+
+#12 [stage-2 4/6] RUN pip install --no-cache-dir --no-deps         numpy==2.4.4         redis==7.4.0         pydantic==2.13.4         pydantic_core==2.46.4         annotated-types==0.7.0         typing_extensions==4.15.0         typing-inspection==0.4.2         biopython==1.87
+#12 4.095 Collecting numpy==2.4.4
+#12 4.875   Downloading numpy-2.4.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+#12 5.268 Collecting redis==7.4.0
+#12 5.443   Downloading redis-7.4.0-py3-none-any.whl.metadata (12 kB)
+#12 6.342 Collecting pydantic==2.13.4
+#12 6.516   Downloading pydantic-2.13.4-py3-none-any.whl.metadata (109 kB)
+#12 10.25 Collecting pydantic_core==2.46.4
+#12 10.41   Downloading pydantic_core-2.46.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+#12 10.58 Collecting annotated-types==0.7.0
+#12 10.75   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+#12 10.99 Collecting typing_extensions==4.15.0
+#12 11.15   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+#12 11.35 Collecting typing-inspection==0.4.2
+#12 11.51   Downloading typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+#12 11.85 Collecting biopython==1.87
+#12 12.01   Downloading biopython-1.87-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (13 kB)
+#12 12.21 Downloading numpy-2.4.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)
+#12 29.39    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.6/16.6 MB 966.7 kB/s eta 0:00:00
+#12 29.64 Downloading redis-7.4.0-py3-none-any.whl (409 kB)
+#12 30.20 Downloading pydantic-2.13.4-py3-none-any.whl (472 kB)
+#12 30.86 Downloading pydantic_core-2.46.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+#12 34.51    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 551.1 kB/s eta 0:00:00
+#12 34.66 Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+#12 34.83 Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+#12 35.03 Downloading typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+#12 35.21 Downloading biopython-1.87-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (3.2 MB)
+#12 39.78    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 696.7 kB/s eta 0:00:00
+#12 39.85 Installing collected packages: typing-inspection, typing_extensions, redis, pydantic_core, pydantic, numpy, biopython, annotated-types
+#12 43.65 Successfully installed annotated-types-0.7.0 biopython-1.87 numpy-2.4.4 pydantic-2.13.4 pydantic_core-2.46.4 redis-7.4.0 typing-inspection-0.4.2 typing_extensions-4.15.0
+#12 43.65 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#12 44.63 
+#12 44.63 [notice] A new release of pip is available: 25.0.1 -> 26.2.1
+#12 44.63 [notice] To update, run: pip install --upgrade pip
+#12 DONE 44.9s
+
+#13 [stage-2 5/6] COPY refs/ /opt/trust4/references/
+#13 DONE 0.1s
+
+#14 [stage-2 6/6] WORKDIR /work
+#14 DONE 0.1s
+
+#15 exporting to image
+#15 exporting layers
+#15 exporting layers 4.3s done
+#15 exporting manifest sha256:417b03daa5167f936766fe400bcadaea428bfdd8265a69d5d06b67ef5ef1c6da 0.0s done
+#15 exporting config sha256:92cbeb56a01d364db630832e40f2f028b250170722900170bd98952e4420beb4 0.0s done
+#15 exporting attestation manifest sha256:002b2b081e4b1974da087cde637ad18c1ba08b7d1acd1c56b366a5731b8a444e 0.0s done
+#15 exporting manifest list sha256:4f5ecab92336c868b461970806c7ce1cc417d7be96d581ce3ba0bc469ab7ab8d 0.0s done
+#15 naming to docker.io/library/airrprep-trust4-test:latest
+#15 naming to docker.io/library/airrprep-trust4-test:latest done
+#15 unpacking to docker.io/library/airrprep-trust4-test:latest
+#15 unpacking to docker.io/library/airrprep-trust4-test:latest 1.4s done
+#15 DONE 5.9s

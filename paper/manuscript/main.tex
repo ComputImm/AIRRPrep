@@ -31,7 +31,7 @@
 \abstract{
 \textbf{Motivation:} Preprocessing adaptive immune receptor repertoire sequencing (AIRR-seq) data with established command-line tools requires local installation, scripting and knowledge of how interdependent steps must be ordered.\\
 \textbf{Results:} We present \textit{AIRRPrep}, a web application built on pRESTO and TRUST4. Three predefined bulk workflows implement documented pRESTO protocols, and a builder composes others from 47 pRESTO operations. Every workflow is checked against the uploaded files before it runs, and the same contracts enable or disable components while it is built; this establishes internal coherence, not the biological appropriateness of parameters. Workflow graphs, stepwise read retention and reusable workflow definitions are exportable. Single-cell inputs in seven formats are normalized into one internal FASTA and metadata representation without inventing cell identifiers, with the upstream annotations that the normalized schema omits written out unchanged beside it. On three public datasets AIRRPrep wrote the same records as command-line pRESTO at every step, and 46 of the 47 operations produced equivalent output when tested in isolation; the 47th could not be compared, because native pRESTO fails on that input. On one Windows~11 workstation, using 25,000-read-pair subsets, AIRRPrep completed the three workflows 1.2--2.8 times faster than command-line pRESTO; these measurements quantify small-input execution overhead rather than production-scale throughput.\\
-\textbf{Availability and Implementation:} Free hosted service, no account required, at \url{https://preprocessing.computimm.com}; source code, container build and validation scripts at \url{https://github.com/ComputImm/AIRRPrep}, under the GNU Affero General Public License v3.0 or later.\\
+\textbf{Availability and Implementation:} Free hosted service, no account required, at \url{https://preprocessing.computimm.com}; source code, container build and validation scripts at \url{https://github.com/ComputImm/AIRRPrep}, under the GNU Affero General Public License v3.0 or later; release \texttt{v1.0.0} is archived at \url{https://doi.org/10.5281/zenodo.22857985}.\\
 \textbf{Contact:} \href{mailto:preprocessing@computimm.com}{preprocessing@computimm.com}\\
 \textbf{Supplementary information:} Supplementary data are available at \textit{Bioinformatics} online.
 }
@@ -93,9 +93,12 @@ scripts and their archived outputs (Supplementary Tables~S2--S7) and the
 benchmark harness with every replicate time (Supplementary Tables~S8--S9) are
 available at \url{https://github.com/ComputImm/AIRRPrep} under the GNU Affero
 General Public License v3.0 or later, the licence of pRESTO, which AIRRPrep
-builds on and partly redistributes. The repository's \texttt{README} maps each
-supplementary table to the script that produces it and to the result file it
-is read from.
+builds on and partly redistributes. The version this manuscript describes is
+release \texttt{v1.0.0} (commit
+\texttt{9148dba8bdd4c516b80db4eece07dd0a0b23a929}), archived at
+\url{https://doi.org/10.5281/zenodo.22857985}. The repository's
+\texttt{README} maps each supplementary table to the script that produces it
+and to the result file it is read from.
 
 The bulk validation data are the first 25,000 read pairs of SRR4026043
 \citep{vanderheiden2017}, ERR346600 (sample Replicate-1-M1) \citep{greiff2014}

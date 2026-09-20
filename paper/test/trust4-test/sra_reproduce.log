@@ -1,0 +1,12 @@
+fastq-dump : 3.4.1
+
+SRR4026043 fastq-dump exit=1 9s: 2026-09-17T16:16:29 fastq-dump.3.4.1 fatal: SIGNAL - Segmentation fault  fastq-dump quit with error code 1 
+  SRR4026043_1 new= bench=f0f1e921983f7fae DIFFERENT
+  SRR4026043_2 new= bench=055debd753ab7e86 DIFFERENT
+ERR346600 fastq-dump exit=1 7s: 2026-09-17T16:16:38 fastq-dump.3.4.1 fatal: SIGNAL - Segmentation fault  fastq-dump quit with error code 1 
+  ERR346600_1 new= bench=c8b31a643842f6e0 DIFFERENT
+  ERR346600_2 new= bench=b7c5e84c7b05fee7 DIFFERENT
+SRR1383456 fastq-dump exit=1 8s: 2026-09-17T16:16:48 fastq-dump.3.4.1 fatal: SIGNAL - Segmentation fault  fastq-dump quit with error code 1 
+  SRR1383456_1 new= bench=4eefc6ea2f48b98f DIFFERENT
+  SRR1383456_2 new= bench=484acf4eb8bfd149 DIFFERENT
+exit=0

@@ -1,0 +1,8 @@
+3.4.1--h4304569_1: Pulling from biocontainers/sra-tools
+9fe64913ea4b: Pulling fs layer
+9fe64913ea4b: Download complete
+9fe64913ea4b: Pull complete
+Digest: sha256:a0bea7ab01218629ac25ecec77e35f30ededf330aeb8820eada5b13af6e1edcb
+Status: Downloaded newer image for quay.io/biocontainers/sra-tools:3.4.1--h4304569_1
+quay.io/biocontainers/sra-tools:3.4.1--h4304569_1
+exit=0

@@ -28,11 +28,13 @@ release-artifacts/*.tar.gz
 paper/test/component_matrix/work/
 paper/test/validation_output/
 
-# LaTeX build products
-*.aux
-*.log
-*.out
-*.toc
-*.fls
-*.fdb_latexmk
-*.synctex.gz
+# LaTeX build products. Scoped to the manuscript directory on purpose: a bare
+# *.log would also swallow paper/test/trust4-test/*.log, which are the
+# archived records of the TRUST4 runs behind Supplementary Table S7.
+paper/manuscript/*.aux
+paper/manuscript/*.log
+paper/manuscript/*.out
+paper/manuscript/*.toc
+paper/manuscript/*.fls
+paper/manuscript/*.fdb_latexmk
+paper/manuscript/*.synctex.gz

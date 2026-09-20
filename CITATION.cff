@@ -1,0 +1,51 @@
+cff-version: 1.2.0
+title: >-
+  AIRRPrep: validated workflows for bulk and single-cell AIRR-seq
+  preprocessing
+message: >-
+  If you use AIRRPrep, please cite it using the metadata in this file. Cite the
+  version DOI below to point at the exact code a result came from; cite the
+  all-versions DOI (10.5281/zenodo.22857984) to refer to the software in
+  general.
+type: software
+authors:
+  - given-names: Parsa
+    family-names: Esmaeili
+    affiliation: ComputImm
+  - given-names: Fatemeh
+    family-names: Chaker Hosseini Zavareh
+    affiliation: ComputImm
+    orcid: 'https://orcid.org/0009-0005-9918-0199'
+    email: fatemeh.ch.hosseini@gmail.com
+  - given-names: Nika
+    family-names: Abdolahi
+    affiliation: ComputImm
+    orcid: 'https://orcid.org/0000-0003-2618-4760'
+  - given-names: Changiz
+    family-names: Eslahchi
+    affiliation: ComputImm
+    orcid: 'https://orcid.org/0000-0002-8913-3904'
+version: v1.0.0
+date-released: '2026-09-20'
+doi: 10.5281/zenodo.22857985
+commit: 9148dba8bdd4c516b80db4eece07dd0a0b23a929
+license: AGPL-3.0-or-later
+repository-code: 'https://github.com/ComputImm/AIRRPrep'
+url: 'https://preprocessing.computimm.com'
+abstract: >-
+  AIRRPrep exposes pRESTO and TRUST4 through a web application. It separates
+  bulk and single-cell data, checks every workflow against the uploaded files
+  before it runs, and makes each run inspectable and repeatable.
+keywords:
+  - AIRR-seq
+  - immune repertoire
+  - preprocessing
+  - pRESTO
+  - TRUST4
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22857984
+    description: Concept DOI for all versions of AIRRPrep
+  - type: doi
+    value: 10.5281/zenodo.22857985
+    description: DOI for release v1.0.0, the version the manuscript describes

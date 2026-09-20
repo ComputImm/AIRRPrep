@@ -1,0 +1,78 @@
+--- T4_bam_genome
+/data/out/validate_trust4.py:196: PydanticDeprecatedSince211: Accessing the 'model_fields' attribute on the instance is deprecated. Instead, you should access this attribute from the model class. Deprecated in Pydantic V2.11 to be removed in V3.0.
+  "fields": list(records[0].model_fields) if records else [],
+{
+ "case": "T4_bam_genome",
+ "outcome": "accepted",
+ "seconds": 24.1,
+ "parse_report": {
+  "annot_contigs": 6461,
+  "report_rows": 279,
+  "report_rows_without_barcode": 0,
+  "report_chain_fields_parsed": 337,
+  "report_chain_fields_unmatched": 0,
+  "airr_rows": 322,
+  "airr_rows_with_cell_id": 322,
+  "duplicate_mappings": 322,
+  "conflicting_mappings": 0,
+  "contigs_not_in_cell_report": 6124,
+  "records_written": 337,
+  "cells": 279
+ },
+ "records": 337,
+ "cells": 279,
+ "cell_ids_not_barcode_shaped": 0,
+ "cell_ids_equal_to_a_sequence_id": 0,
+ "contigs_per_cell_median": 1,
+ "chains": {
+  "IGH": 19,
+  "IGK": 61,
+  "IGL": 36,
+  "TRA": 70,
+  "TRB": 150,
+  "TRD": 1
+ },
+ "cellranger_cells": 83,
+ "cellranger_cells_recovered": 79,
+ "inputs": {
+  "bam": {
+   "file": "sc5p_v2_hs_PBMC_1k_5gex_vdj_loci.bam",
+   "size_bytes": 15432117,
+   "sha256": "bcc2c1fdc3e3224af7e788b99a366c5f7a65035b81eca091122e8b9b9a0f28d2"
+  }
+ },
+ "cdr3_concordance_with_cellranger": {
+  "cellranger_cells": 83,
+  "cellranger_cells_called_by_trust4": 79,
+  "cell_locus_pairs": 165,
+  "cell_locus_pairs_with_identical_cdr3": 95,
+  "cells_with_heavy_chain": 81,
+  "heavy_identical": 17,
+  "cells_with_light_chain": 83,
+  "light_identical": 77,
+  "cells_with_both": 81,
+  "both_identical": 16
+ },
+ "barcodes_with_N": 0,
+ "attempts": 1,
+ "trust4_segfaults_before_success": 0,
+ "trust4_outputs": {
+  "trust4_annot.fa": {
+   "file": "trust4_annot.fa",
+   "size_bytes": 2370057,
+   "sha256": "9a69420cbd51db6e1fc3bb552bc7a87c809a0fba2248fa6c7fee1b17e2c087ea"
+  },
+  "trust4_barcode_report.tsv": {
+   "file": "trust4_barcode_report.tsv",
+   "size_bytes": 49751,
+   "sha256": "24510997a4b81d15072014fbb0727dd952504ae2c75fecc7e5d64a5ac8e30218"
+  },
+  "trust4_barcode_airr.tsv": {
+   "file": "trust4_barcode_airr.tsv",
+   "size_bytes": 399813,
+   "sha256": "2ba2265bfdaf481baf52f01d510dd7ffabeaf31db13837573a0c31a93f4f9ece"
+  }
+ }
+}
+FAILED CASES: none
+exit=0

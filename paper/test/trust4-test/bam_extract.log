@@ -1,0 +1,31 @@
+chr1:144075628-144096098 ok attempt 1 9s reads=12
+chr10:42175339-42195791 ok attempt 1 6s reads=0
+chr14:21611838-22562156 ok attempt 1 14s reads=37180
+chr14:105573731-106889812 ok attempt 1 11s reads=72758
+chr15:19954666-20649890 ok attempt 1 7s reads=581
+chr15:22150431-22205317 ok attempt 1 10s reads=3320
+chr16:32024853-33960420 ok attempt 1 9s reads=148
+chr18:3384889-3405312 ok attempt 1 8s reads=2
+chr2:87328511-87349035 ok attempt 1 7s reads=22
+chr2:88847161-90325836 ok attempt 1 13s reads=95245
+chr2:91807771-92045000 ok attempt 1 9s reads=12
+chr2:97036588-97396368 ok attempt 1 8s reads=3556
+chr2:113396396-113416872 ok attempt 1 8s reads=28
+chr21:10639400-10659835 ok attempt 1 8s reads=0
+chr22:16894219-16944003 ok attempt 1 9s reads=7
+chr22:22016076-22933034 ok attempt 1 9s reads=24411
+chr22:25427306-25447823 ok attempt 1 8s reads=3
+chr22:32189919-32387135 ok attempt 1 6s reads=268
+chr7:38229580-38378169 ok attempt 1 7s reads=6968
+chr7:142289177-142823399 ok attempt 1 10s reads=83855
+chr8:47192444-47212897 ok attempt 1 6s reads=11
+chr9:33607762-33796828 ok attempt 1 7s reads=167
+chr9:40631841-40652117 ok attempt 1 6s reads=1
+chr9:64755054-65781434 ok attempt 1 5s reads=2309
+failed regions: 0
+-rw-r--r-- 1 root root 15432117 Sep 17 16:39 /out/sc5p_v2_hs_PBMC_1k_5gex_vdj_loci.bam
+-rw-r--r-- 1 root root   361304 Sep 17 16:39 /out/sc5p_v2_hs_PBMC_1k_5gex_vdj_loci.bam.bai
+reads: 330864  with CB: 320907  with UB: 330847  @SQ: 194
+duplicates removed by merge? unique names: 330864
+bcc2c1fdc3e3224af7e788b99a366c5f7a65035b81eca091122e8b9b9a0f28d2  /out/sc5p_v2_hs_PBMC_1k_5gex_vdj_loci.bam
+exit=0

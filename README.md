@@ -1,5 +1,9 @@
 # AIRRPrep
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22857984.svg)](https://doi.org/10.5281/zenodo.22857984)
+[![Release](https://img.shields.io/github/v/tag/ComputImm/AIRRPrep?label=release&sort=semver)](https://github.com/ComputImm/AIRRPrep/releases/tag/v1.0.0)
+[![Licence: AGPL v3.0-or-later](https://img.shields.io/badge/licence-AGPL--3.0--or--later-blue.svg)](LICENSE)
+
 Validated workflows for bulk and single-cell AIRR-seq preprocessing.
 
 AIRRPrep exposes [pRESTO](https://presto.readthedocs.io) and
@@ -12,6 +16,38 @@ no account is required.
 This repository is the source of the manuscript *AIRRPrep: validated workflows
 for bulk and single-cell AIRR-seq preprocessing*, together with every script,
 input description, report and checksum behind the numbers it reports.
+
+---
+
+## Release and citation
+
+The version the manuscript describes is tag
+[`v1.0.0`](https://github.com/ComputImm/AIRRPrep/releases/tag/v1.0.0), commit
+`9148dba8bdd4c516b80db4eece07dd0a0b23a929`, archived on Zenodo:
+
+| | |
+| --- | --- |
+| This version (`v1.0.0`) | [10.5281/zenodo.22857985](https://doi.org/10.5281/zenodo.22857985) |
+| All versions (resolves to the newest) | [10.5281/zenodo.22857984](https://doi.org/10.5281/zenodo.22857984) |
+
+Cite the **version** DOI to point at the exact code a result came from, and the
+**all-versions** DOI to refer to the software in general. `CITATION.cff` carries
+the same metadata, so GitHub's *Cite this repository* button and tools that read
+it stay in step with this file.
+
+```bibtex
+@software{airrprep_v1_0_0,
+  author    = {Esmaeili, Parsa and Chaker Hosseini Zavareh, Fatemeh and
+               Abdolahi, Nika and Eslahchi, Changiz},
+  title     = {{AIRRPrep}: validated workflows for bulk and single-cell
+               {AIRR}-seq preprocessing},
+  version   = {v1.0.0},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.22857985},
+  url       = {https://doi.org/10.5281/zenodo.22857985}
+}
+```
 
 ---
 
