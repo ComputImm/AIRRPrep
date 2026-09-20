@@ -49,3 +49,8 @@ identifiers:
   - type: doi
     value: 10.5281/zenodo.22857985
     description: DOI for release v1.0.0, the version the manuscript describes
+  - type: doi
+    value: 10.5281/zenodo.22858375
+    description: >-
+      Validation and benchmark artifacts for v1.0.0 - the archives too large to
+      commit to this repository

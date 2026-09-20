@@ -27,11 +27,14 @@ The version the manuscript describes is tag
 
 | | |
 | --- | --- |
-| This version (`v1.0.0`) | [10.5281/zenodo.22857985](https://doi.org/10.5281/zenodo.22857985) |
-| All versions (resolves to the newest) | [10.5281/zenodo.22857984](https://doi.org/10.5281/zenodo.22857984) |
+| Software, this version (`v1.0.0`) | [10.5281/zenodo.22857985](https://doi.org/10.5281/zenodo.22857985) |
+| Software, all versions (resolves to the newest) | [10.5281/zenodo.22857984](https://doi.org/10.5281/zenodo.22857984) |
+| Validation and benchmark artifacts (the `release-artifacts/` archives) | [10.5281/zenodo.22858375](https://doi.org/10.5281/zenodo.22858375) |
 
 Cite the **version** DOI to point at the exact code a result came from, and the
-**all-versions** DOI to refer to the software in general. `CITATION.cff` carries
+**all-versions** DOI to refer to the software in general. The artifacts deposit
+holds the three archives that are too large to commit here; it is registered as
+a supplement to the software record. `CITATION.cff` carries
 the same metadata, so GitHub's *Cite this repository* button and tools that read
 it stay in step with this file.
 
@@ -62,7 +65,7 @@ it stay in step with this file.
 | `paper/benchmark/` | Benchmark harness, the reference command-line scripts and every replicate time |
 | `paper/EXPECTED_OUTPUTS.sha256` | SHA-256 and size of every archived validation output |
 | `paper/INPUT_DATASETS.sha256` | SHA-256 and size of every public input file the validation uses |
-| `release-artifacts/` | The bulky archived outputs, as compressed archives with their own checksums — attach these to the tagged release rather than committing them |
+| `release-artifacts/` | `SHA256SUMS` and `README.md` for the bulky archived outputs. The archives themselves are not committed; they are archived at [10.5281/zenodo.22858375](https://doi.org/10.5281/zenodo.22858375) |
 | `LICENSE` | GNU Affero General Public License v3.0 |
 | `THIRD_PARTY_NOTICES.md` | Every redistributed dependency and its licence |
 | `SECURITY.md` | Threat model, operator responsibilities, secrets and data retention |
