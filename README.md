@@ -60,7 +60,7 @@ it stay in step with this file.
 | --- | --- |
 | `backend/` | FastAPI application, Celery workers, pRESTO wrappers, single-cell adapters, automated tests, Dockerfile |
 | `frontend/` | React / TanStack Start web interface |
-| `paper/manuscript/` | The submission package: `main.tex`, `supplementary.tex`, the OUP class file and every figure |
+| `paper/manuscript/` | The submission package: `main.tex`, `supplementary.tex`, the OUP class file, every figure, the two compiled PDFs, `build_submission_package.py` and the `AIRRPrep-submission.zip` it writes |
 | `paper/test/` | Validation scripts and their reports |
 | `paper/benchmark/` | Benchmark harness, the reference command-line scripts and every replicate time |
 | `paper/EXPECTED_OUTPUTS.sha256` | SHA-256 and size of every archived validation output |

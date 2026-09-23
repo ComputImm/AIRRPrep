@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 580" role="img" aria-label="Workflow overview. Uploaded data divide into bulk AIRR-seq, taking one or two FASTQ or FASTA files, and single-cell AIRR, whose file set is matched to one of seven format specifications. Bulk data are composed into a pRESTO step list, contract-validated, then executed, producing FASTQ, FASTA or TSV. Single-cell data go to an adapter, preceded by a TRUST4 assembly when the input is raw reads, producing FASTA, metadata TSV and provenance files from which upstream V(D)J annotations are omitted. Both outputs feed downstream IMGT or IgBLAST annotation." font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="12">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 580" role="img" aria-label="Workflow overview. Uploaded data divide into bulk AIRR-seq, taking one or two FASTQ or FASTA files, and single-cell AIRR, whose file set is matched to one of seven format specifications. Bulk data are composed into a pRESTO step list, contract-validated, then executed, producing FASTQ, FASTA or TSV. Single-cell data go to an adapter, preceded by a TRUST4 assembly when the input is raw reads, producing three record-level files, final.fasta, metadata.tsv and source_annotations.tsv, plus a run-level provenance.json; upstream V(D)J annotations are omitted from the normalized record and kept unchanged in source_annotations.tsv. Both outputs feed downstream IMGT or IgBLAST annotation." font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="12">
   <defs>
     <marker id="f1ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
@@ -98,8 +98,9 @@
   <!-- SC: output -->
   <rect x="570" y="414" width="320" height="56" rx="6" fill="#75CD9F" fill-opacity="0.18" stroke="#75CD9F" stroke-width="1.8"/>
   <text x="730" y="432" text-anchor="middle" fill="currentColor" font-weight="600">Single-cell output</text>
-  <text x="730" y="447" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.9">final.fasta · metadata.tsv · provenance.json</text>
-  <text x="730" y="460" text-anchor="middle" fill="currentColor" font-size="10.5" opacity="0.9">same 8-field schema for all 7 input specifications</text>
+  <text x="730" y="445" text-anchor="middle" fill="currentColor" font-size="9.5" opacity="0.9">per record: final.fasta · metadata.tsv · source_annotations.tsv</text>
+  <text x="730" y="456" text-anchor="middle" fill="currentColor" font-size="9.5" opacity="0.9">per run: provenance.json</text>
+  <text x="730" y="467" text-anchor="middle" fill="currentColor" font-size="9.5" opacity="0.9">same 8-field schema for all 7 input specifications</text>
 
   <g stroke="currentColor" stroke-width="1.4" fill="none">
     <path d="M 836 172 L 836 192" marker-end="url(#f1ar)"/>

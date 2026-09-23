@@ -15,7 +15,7 @@ could be timed, flagged `derived` in the output. The residual absorbs any
 unattributed overhead, so it is an upper bound on that step.
 
 The recovery is checked where the data allows it: in both workflows whose steps
-1 and 2 are the same operation on opposite mate lanes, the derived step 1 lands
+1 and 2 are the same operation on opposite mate streams, the derived step 1 lands
 within 2% of the measured step 2 (13.2s vs 12.9s; 11.0s vs 11.1s).
 """
 

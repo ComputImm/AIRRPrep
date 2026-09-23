@@ -11,11 +11,14 @@ The ZIP contains exactly the files needed to compile `main.tex` and
     supplementary.tex
     oup-authoring-template.cls
     figure1_workflow.pdf
-    figure2_bulk_lanes.pdf
+    figure2_bulk_read_streams.pdf
     supp_fig_S1_single_cell_workflow.png
     supp_fig_S2_paired_read_workflow.png
     supp_fig_S3_read_retention.png
     README.txt
+    build_submission_package.py
+    main.pdf
+    supplementary.pdf
 
 Nothing else: no working copies, no superseded drafts, no build logs, no
 auxiliary files, no unreferenced figures. The build fails rather than writes a
@@ -41,14 +44,28 @@ CONTENTS = [
     "supplementary.tex",
     "oup-authoring-template.cls",
     "figure1_workflow.pdf",
-    "figure2_bulk_lanes.pdf",
+    "figure2_bulk_read_streams.pdf",
     "supp_fig_S1_single_cell_workflow.png",
     "supp_fig_S2_paired_read_workflow.png",
     "supp_fig_S3_read_retention.png",
+    # The compiled documents ship too, so a reader can check the typeset result
+    # against the sources without a TeX installation.
+    "main.pdf",
+    "supplementary.pdf",
+    # Shipped so that the rebuild command README.txt gives can be run from an
+    # extracted copy of the package itself.
+    "build_submission_package.py",
 ]
 
-#: Files that live here for the build itself and are not part of the package.
-NOT_SHIPPED = {ZIP_NAME, Path(__file__).name}
+#: Only the ZIP itself is a build product rather than package content.
+NOT_SHIPPED = {ZIP_NAME}
+
+#: A compile leaves these beside the sources; they are not package content and
+#: must not make the inventory check fail when the script is run after one.
+AUX_SUFFIXES = {
+    ".aux", ".bbl", ".blg", ".fdb_latexmk", ".fls", ".gz", ".lof", ".log",
+    ".lot", ".out", ".toc", ".xdv",
+}
 
 
 def graphics_referenced(source: Path) -> set[str]:
@@ -65,7 +82,10 @@ def main() -> int:
 
     extra = sorted(
         p.name for p in HERE.iterdir()
-        if p.is_file() and p.name not in CONTENTS and p.name not in NOT_SHIPPED
+        if p.is_file()
+        and p.name not in CONTENTS
+        and p.name not in NOT_SHIPPED
+        and p.suffix.lower() not in AUX_SUFFIXES
     )
     if extra:
         problems.append(

@@ -91,8 +91,8 @@ into the run directory and a copy preserves the source modification time, and
 directory rather than to a numbered step directory. Each residual absorbs any
 unattributed overhead and is therefore an upper bound on that step. Where the
 recovery can be checked it holds: in the two workflows whose first and second
-steps are the same operation on opposite mate lanes, the recovered first step
-falls within 2{BS}% of the measured second step.
+steps are the same operation on opposite mate streams, the recovered first
+step falls within 2{BS}% of the measured second step.
 {body}"""
 
     tex = TEX.read_text(encoding="utf-8")

@@ -5,7 +5,7 @@ PNG previews) with Microsoft Edge in headless mode.
     python render_figures.py
 
 figure1_workflow.svg -> figure1_workflow.pdf   (main text, Figure 1)
-figure2_bulk_lanes.svg -> figure2_bulk_lanes.pdf (Supplementary Figure S4)
+figure2_bulk_read_streams.svg -> figure2_bulk_read_streams.pdf (Supplementary Figure S4)
 
 Each SVG is placed in a one-page HTML document whose @page size equals the
 SVG viewBox, so the PDF has no margins; `currentColor` is resolved to black.
@@ -17,7 +17,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 EDGE = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
-FIGURES = ["figure1_workflow", "figure2_bulk_lanes"]
+FIGURES = ["figure1_workflow", "figure2_bulk_read_streams"]
 
 
 def render(name: str) -> None:
