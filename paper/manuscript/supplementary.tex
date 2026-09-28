@@ -1443,8 +1443,9 @@ Python & 3.12.14, with Biopython 1.87 and pydantic 2.13.4 \\
 \multicolumn{2}{l}{\textit{Deployment container image
 (\texttt{presto-backend/Dockerfile})}} \\
 Base image & \texttt{python:3.12-slim} \\
+Published image & \url{ghcr.io/computimm/airrprep-backend@sha256:1cc4dcc98bb2869f9b6d6300887f6d593e1ba2e2464ae1e864113a62a6da4e96} (release \texttt{v1.0.0}) \\
 TRUST4 & 1.1.9, built from source at the tagged release, with its bundled reference set \\
-BLAST+, samtools, MUSCLE 3, VSEARCH, CD-HIT & Debian packages of the base image's Debian release; the exact version the build resolved for each is recorded inside the image as \texttt{/app/TOOL\_VERSIONS.txt}, and is written out for a release by \texttt{docker/make-tool-versions.sh} \\
+BLAST+, samtools, MUSCLE 3, VSEARCH, CD-HIT & Debian packages; the version each build resolved is recorded in the image as \texttt{/app/TOOL\_VERSIONS.txt}, and for the published image in \texttt{docker/tool-versions.md} \\
 USEARCH & not included \\
 Default clustering tool / reference aligner & VSEARCH / BLAST+ (both in the image); USEARCH is never a default \\
 Frontend & React with TanStack Start \\
@@ -1458,9 +1459,8 @@ included in the image. It was installed locally only for the separate
 \texttt{ClusterSets} test described under Supplementary Table~S2, and a
 deployment holding a USEARCH licence supplies its own binary (environment
 variable \texttt{USEARCH\_BIN}). The Debian-packaged tools are not version-pinned
-in the Dockerfile; instead the build records the resolved version of each one
-inside the image, so the versions an image actually contains can be read back
-from that image rather than taken on trust from this table.\par}
+in the Dockerfile; the versions an image contains are read back from the image
+itself.\par}
 \end{landscape}
 
 \clearpage
