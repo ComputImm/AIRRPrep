@@ -198,7 +198,7 @@ was read from, the adapter options, software versions and parse counts; a
 checksum of the source file therefore verifies the identity of that file,
 while the sidecar is what preserves its annotation content. The join is
 covered by an automated test
-(\texttt{presto-backend/tests/test\_source\_annotations.py}), which asserts
+(\texttt{backend/tests/test\_source\_annotations.py}), which asserts
 that every normalized record has exactly one sidecar row, that no identifier
 is duplicated or lost on either side, and that the fields the normalized
 output omits are present in the sidecar with the values the source gave.\par}
@@ -399,7 +399,7 @@ reference-guided assembly to BLAST+, both of which the image carries. That the
 released tree and image contain no USEARCH binary, that nothing in the build
 installs one, and that no predefined workflow needs one, are asserted by
 automated tests
-(\texttt{presto-backend/tests/test\_no\_proprietary\_binaries.py}). The USEARCH
+(\texttt{backend/tests/test\_no\_proprietary\_binaries.py}). The USEARCH
 and VSEARCH versions used are listed in Supplementary Table~S10.
 
 \clearpage
@@ -467,7 +467,7 @@ reject a name it has simply not seen yet. The same field-existence check is
 applied once more, non-interactively, when the workflow is dispatched.
 
 \textbf{Tests of the validator.} The job-launch validator is covered by an
-automated test suite (\texttt{presto-backend/tests/test\_workflow\_validation.py})
+automated test suite (\texttt{backend/tests/test\_workflow\_validation.py})
 that runs it on freshly written FASTQ and FASTA files without pRESTO
 annotations, the state of a new upload. The three predefined workflows must be
 accepted, and each of the following 14 deliberately invalid compositions must
@@ -568,7 +568,7 @@ per minute for sending a verification code); tracking codes expire seven days
 after their last use. All of these values are deployment settings.
 
 Every statement in this paragraph is covered by an automated test
-(\texttt{presto-backend/tests/test\_security\_controls.py}), which runs against
+(\texttt{backend/tests/test\_security\_controls.py}), which runs against
 an in-memory store with an injectable clock, so expiry and cooldowns are
 checked without a server and without waiting: code expiry and that a wrong
 guess does not extend it, the attempt limit and that it burns the code, the
@@ -1441,7 +1441,7 @@ samtools & 1.23.1 (htslib 1.23.1) \\
 Python & 3.12.14, with Biopython 1.87 and pydantic 2.13.4 \\
 \midrule
 \multicolumn{2}{l}{\textit{Deployment container image
-(\texttt{presto-backend/Dockerfile})}} \\
+(\texttt{backend/Dockerfile})}} \\
 Base image & \texttt{python:3.12-slim} \\
 Published image & \url{ghcr.io/computimm/airrprep-backend@sha256:1cc4dcc98bb2869f9b6d6300887f6d593e1ba2e2464ae1e864113a62a6da4e96} (release \texttt{v1.0.0}) \\
 TRUST4 & 1.1.9, built from source at the tagged release, with its bundled reference set \\
