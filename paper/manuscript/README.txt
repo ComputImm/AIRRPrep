@@ -48,7 +48,7 @@ document; supplementary.tex compiles as a second document.
 
 LATEX PACKAGES USED
 -------------------
-main.tex          graphicx, url, microtype, xurl (plus what the OUP class
+main.tex          graphicx, url, lmodern, fontenc (T1), microtype, xurl (plus what the OUP class
                   loads: amsmath, amssymb, amsthm, natbib, hyperref, tikz,
                   tcolorbox, algorithm/algpseudocode, caption, listings,
                   rotating, wrapfig, multirow, subfloat, stfloats, flushend,

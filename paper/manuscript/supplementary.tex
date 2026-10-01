@@ -23,11 +23,11 @@
 \setlength{\emergencystretch}{2em}
 \sloppy
 
-\title{Supplementary Information\\AIRRPrep: validated workflows for bulk and single-cell AIRR-seq preprocessing}
+\title{Supplementary Information\\AIRRPrep: Workflows for Preparing Bulk and Single-Cell AIRR-Seq Data for Annotation}
 \author{
 Parsa Esmaeili,
 Fatemeh Chaker Hosseini Zavareh,
-Nika Abdolahi and
+Nika Abdollahi and
 Changiz Eslahchi
 }
 
@@ -62,9 +62,9 @@ are tracked, notified and recovered. Supplementary Tables~S3--S5 report, for
 each of the three predefined bulk workflows, the number of records retained
 after every processing step and the record-level comparison with the
 equivalent command-line pRESTO scripts. Supplementary Table~S6 compares
-AIRRPrep's normalized single-cell output record by record with three Cell
+AIRRPrep's harmonized single-cell output record by record with three Cell
 Ranger representations of a public 10x Genomics dataset, including the join
-between the normalized output and the lossless record of the annotations it
+between the harmonized output and the lossless record of the annotations it
 omits, and Supplementary Table~S7 reports the remaining single-cell input
 specifications: generic receptor FASTA (including inputs that must be refused)
 and the TRUST4-based routes.
@@ -86,7 +86,7 @@ Cell Ranger V(D)J filtered contigs input. The application displays the
 processing route associated with the selected single-cell input and allows the
 workflow graphic to be exported as a PNG; this figure is that export. The
 annotation fields the \emph{Strip annotation fields} step removes from the
-normalized record are not discarded: they are kept unchanged in
+harmonized record are not discarded: they are kept unchanged in
 \texttt{source\_annotations.tsv}, keyed on the same \texttt{sequence\_id} as
 \texttt{final.fasta} and \texttt{metadata.tsv}. The run therefore writes three
 record-level outputs --- \texttt{final.fasta}, \texttt{metadata.tsv} and
@@ -174,7 +174,7 @@ an uploaded file set matches a specification only in part, the application
 names the companion files needed to complete it. Single-cell input is not
 processed through a user-composed chain, because upstream software may already
 have reconstructed contigs; each specification has one adapter. The
-single-cell output is AIRRPrep's internal normalized representation, not an
+single-cell output is AIRRPrep's internal harmonized representation, not an
 AIRR Rearrangement record, with eight fields: \texttt{sequence\_id} (the source
 record's own identifier, unchanged), \texttt{sequence}, \texttt{cell\_id},
 \texttt{umi\_count}, \texttt{read\_count}, \texttt{is\_cell},
@@ -183,7 +183,7 @@ carry is left empty rather than inferred, and \texttt{productive} is filled only
 when the user opts in, for Cell Ranger input.
 
 Upstream V(D)J calls, junctions and CDR3 annotations are excluded from that
-normalized record so that every sequence is re-annotated with one reference
+harmonized record so that every sequence is re-annotated with one reference
 and one procedure. Excluding them from the analysis schema does not destroy
 them: every field the uploaded file carried for a record --- the contig
 annotations CSV or AIRR TSV row, the barcode mapping file row, the FASTA
@@ -199,8 +199,8 @@ checksum of the source file therefore verifies the identity of that file,
 while the sidecar is what preserves its annotation content. The join is
 covered by an automated test
 (\texttt{backend/tests/test\_source\_annotations.py}), which asserts
-that every normalized record has exactly one sidecar row, that no identifier
-is duplicated or lost on either side, and that the fields the normalized
+that every harmonized record has exactly one sidecar row, that no identifier
+is duplicated or lost on either side, and that the fields the harmonized
 output omits are present in the sidecar with the values the source gave.\par}
 
 \textit{Note:} In the hosted deployment an uploaded file may be up to 200~MB
@@ -837,7 +837,7 @@ AIRR TSV & --- & --- & \texttt{70376051c9e6cf2d} \\
 \end{center}
 
 {\small\textit{Supplementary Table S6.} Record-level comparison of AIRRPrep's
-normalized single-cell output with three Cell Ranger representations of the
+harmonized single-cell output with three Cell Ranger representations of the
 \texttt{sc5p\_v2\_hs\_PBMC\_10k} T-cell V(D)J dataset
 (\texttt{*\_all\_contig.fasta} with \texttt{*\_all\_contig\_annotations.csv};
 \texttt{*\_filtered\_contig.fasta} with
@@ -847,18 +847,18 @@ stores the UMI count in \texttt{duplicate\_count} and the read count in
 \texttt{consensus\_count}. \textsuperscript{a}~The AIRR TSV has no
 \texttt{high\_confidence} column; the value is left empty in all 10,817 output
 rows rather than assumed. \textsuperscript{b}~The lossless sidecar was written
-for each of the three routes and checked as a join partner of the normalized
+for each of the three routes and checked as a join partner of the harmonized
 output: every output record has exactly one row keyed on the same
 \texttt{sequence\_id}, no identifier is duplicated, no row is orphaned in
 either direction, and every column the source file declared is present ---
-including the V(D)J calls and CDR3s the normalized record omits
+including the V(D)J calls and CDR3s the harmonized record omits
 (\texttt{chain}, \texttt{v\_gene}, \texttt{d\_gene}, \texttt{j\_gene},
 \texttt{c\_gene}, \texttt{cdr3}, \texttt{cdr3\_nt} for the contig routes;
 \texttt{v\_call}, \texttt{d\_call}, \texttt{j\_call}, \texttt{c\_call},
 \texttt{junction}, \texttt{junction\_aa}, the alignments and the CIGARs for the
 AIRR TSV) and a column that is empty in every source row. With the
 \texttt{productive} opt-in disabled, the same adapter left \texttt{productive}
-empty in all output rows of the normalized table, while the sidecar still
+empty in all output rows of the harmonized table, while the sidecar still
 carried the source's own value. Every output FASTA header consisted of the
 identifier alone; the filtered-contig and AIRR TSV routes wrote byte-identical
 \texttt{final.fasta} files.\par}
@@ -897,7 +897,7 @@ turn N sequences into N artificial cells. In G1 and G2 \texttt{is\_cell} and
 \texttt{high\_confidence} are left empty, because a FASTA file carries no cell
 calling. Both accepted cases also wrote the lossless sidecar --- the mapping
 file's own columns in G1, the FASTA header in G2 --- with 10,817 rows joining
-back to the 10,817 normalized records without duplication or loss.
+back to the 10,817 harmonized records without duplication or loss.
 
 \textbf{TRUST4-based routes.} Precomputed TRUST4 output (\texttt{*\_annot.fa}
 with \texttt{*\_barcode\_report.tsv}), raw 10x FASTQ and a 10x BAM share one
@@ -1488,14 +1488,14 @@ comparison is not a benchmark of the other tools.
 \bottomrule
 \endfoot
 Interface & Web application; container for self-hosting & Command-line programs [1] & Nextflow pipeline run from the command line [2] & Web browser interface [3] & Galaxy web interface [4] \\
-Stated scope & Preprocessing of bulk reads; normalization of single-cell inputs; no gene assignment & Preprocessing of raw repertoire reads [1] & Bulk and single-cell data from raw reads or assembled sequences, through annotation, clonal analysis and lineage trees [2] & Preprocessing and quality control, V(D)J assignment, repertoire characterization and comparison, data sharing [3] & Analysis and visualization of repertoire data from IMGT/HighV-QUEST output, incl.\ diversity, SHM, clonality, CSR [4] \\
+Stated scope & Preprocessing of bulk reads; harmonization of single-cell inputs; no gene assignment & Preprocessing of raw repertoire reads [1] & Bulk and single-cell data from raw reads or assembled sequences, through annotation, clonal analysis and lineage trees [2] & Preprocessing and quality control, V(D)J assignment, repertoire characterization and comparison, data sharing [3] & Analysis and visualization of repertoire data from IMGT/HighV-QUEST output, incl.\ diversity, SHM, clonality, CSR [4] \\
 User composition of individual pRESTO operations in any order & Yes, interactive builder over 47 operations & Yes, by writing command scripts [1] & No; a defined pipeline configured by parameters and protocol profiles [2] & Not evaluated & Not evaluated \\
 Check of a composed operation sequence against the supplied files before execution & Yes (Supplementary Note~S1) & No; each command checks its own arguments when it runs [1] & Not evaluated; the step sequence is defined by the pipeline [2] & Not evaluated & Not evaluated \\
 Per-step record counts shown as a workflow graph & Yes, exportable & Per-step log files, tabulated by \texttt{ParseLog.py} [1] & Not evaluated & Not evaluated & Not evaluated \\
 Reusable, machine-readable workflow definition & Yes, JSON export with companion-file checksums & Shell scripts written by the user & Versioned pipeline with parameter files and profiles [2] & Not evaluated & Not evaluated \\
-Single-cell inputs & Seven input specifications normalized to an internal 8-field record (Supplementary Table~S1) & Not a stated scope [1] & 10x raw reads and single-cell AIRR rearrangement tables [2] & Not evaluated & Not evaluated \\
+Single-cell inputs & Seven input specifications harmonized to an internal 8-field record (Supplementary Table~S1) & Not a stated scope [1] & 10x raw reads and single-cell AIRR rearrangement tables [2] & Not evaluated & Not evaluated \\
 Output standard & pRESTO files (bulk); internal schema, AIRR compliance not claimed (single-cell) & pRESTO-annotated FASTA/FASTQ and tables [1] & AIRR-compliant outputs [2] & Repository in the AIRR Data Commons [3] & Not evaluated \\
-Upstream annotations of a single-cell input & Excluded from the normalized record; preserved unchanged in \texttt{source\_annotations.tsv} & Not a stated scope [1] & Not evaluated & Not evaluated & Not evaluated \\
+Upstream annotations of a single-cell input & Excluded from the harmonized record; preserved unchanged in \texttt{source\_annotations.tsv} & Not a stated scope [1] & Not evaluated & Not evaluated & Not evaluated \\
 \end{longtable}
 \normalsize
 
