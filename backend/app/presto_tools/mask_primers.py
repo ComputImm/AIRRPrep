@@ -27,6 +27,13 @@ def _align_primers_worker(
 ):
     result = SeqResult(data.id, data.data)
 
+    # An empty read (e.g. one MaskPrimers.extract cut down to nothing) makes
+    # Biopython's PairwiseAligner raise "sequence has zero length" and abort
+    # the whole step; fail the read instead.
+    if len(data.data) == 0:
+        result.valid = False
+        return result
+
     align = localAlignment(
         data.data,
         primers,
@@ -142,6 +149,8 @@ def _extract_primers_worker(
     )
 
     result.results = out_seq
-    result.valid = True
+    # pRESTO passes every extracted read, so a read no longer than start+length
+    # comes out of mode='cut' empty and later crashes MaskPrimers.align.
+    result.valid = len(out_seq) > 0
 
     return result
