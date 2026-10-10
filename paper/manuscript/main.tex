@@ -25,8 +25,8 @@
 
 \title[AIRRPrep]{AIRRPrep: Workflows for Preparing Bulk and Single-Cell AIRR-Seq Data for Annotation}
 
-\author[1,2,$\dagger$]{Parsa Esmaeili}
-\author[1,2,$\dagger$]{Fatemeh Chaker Hosseini Zavareh}
+\author[1,$\dagger$]{Parsa Esmaeili}
+\author[1,$\dagger$]{Fatemeh Chaker Hosseini Zavareh}
 \author[1,2]{Nika Abdollahi}
 \author[1,$\ast$]{Changiz Eslahchi}
 
@@ -39,7 +39,7 @@ Sciences (IPM), Farmanieh Campus, 19395-5746}, \orgaddress{\state{Tehran}, \coun
 \corresp[$\ast$]{Corresponding author. \href{mailto:cheslahchi@computimm.com}{cheslahchi@computimm.com}}
 
 \abstract{
-\textbf{Summary:} AIRRPrep is a web application for reproducible preprocessing of bulk and single-cell AIRR-seq data, providing predefined and customizable pRESTO workflows with input-aware compatibility checks and stepwise provenance, as well as harmonization of seven single-cell input specifications with linked retention of available source annotations. Validation on public datasets showed record-level agreement with equivalent pRESTO workflows and preservation of the tested sequence-to-cell metadata.\\
+\textbf{Summary:} AIRRPrep is a web application for reproducible preprocessing of bulk and single-cell AIRR-seq data, providing predefined and customizable pRESTO workflows with input-aware compatibility checks and stepwise provenance, alongside harmonization of seven single-cell input specifications with linked retention of available source annotations. Three predefined bulk workflows showed record-level agreement with equivalent command-line pRESTO workflows at every compared step. For the tested single-cell adapters, harmonized outputs preserved the evaluated sequence-to-cell links and available metadata.\\
 \textbf{Availability and Implementation:} AIRRPrep is freely available without registration at \url{https://preprocessing.computimm.com}. The Python backend, React frontend, container definitions and validation resources are available under the GNU Affero General Public License v3.0 or later at \url{https://github.com/ComputImm/AIRRPrep}. Release \texttt{v1.0.0} is archived at \url{https://doi.org/10.5281/zenodo.22857985}.\\
 \textbf{Contact:} \href{mailto:cheslahchi@computimm.com}{cheslahchi@computimm.com}\\
 \textbf{Supplementary information:} Supplementary data are available at \textit{Bioinformatics} online.
@@ -50,18 +50,15 @@ Sciences (IPM), Farmanieh Campus, 19395-5746}, \orgaddress{\state{Tehran}, \coun
 \maketitle
 
 \section{Introduction}
+Adaptive immune receptor repertoire sequencing (AIRR-seq) data enter analysis as bulk reads or heterogeneous single-cell inputs. Here, preprocessing refers to preparing receptor sequences and associated metadata for subsequent V(D)J annotation or reannotation and repertoire analysis. For bulk inputs, this involves configurable read-processing operations. For single-cell inputs, it involves receptor reconstruction when required and format and metadata harmonization (hereafter, harmonization) of sequences, cell identifiers and available metadata across supported input formats. Inputs arrive at different processing stages and carry different information, requiring preparation appropriate to their content and structure.
 
-Adaptive immune receptor repertoire sequencing (AIRR-seq) data enter analysis as bulk reads or heterogeneous single-cell inputs. Here, preprocessing refers to preparing receptor sequences and associated metadata for subsequent V(D)J annotation or reannotation and repertoire analysis. For bulk inputs, this involves configurable read-processing operations. For single-cell inputs, it involves receptor reconstruction when required and format and metadata harmonization (hereafter, harmonization) of sequences, cell identifiers and available metadata across supported input formats. This preparation is necessary because inputs arrive at different processing stages, carry different information and cannot simply be treated as interchangeable.
+Bulk reads may require quality filtering, primer masking, unique molecular identifier (UMI) extraction, paired-read assembly, consensus generation and duplicate collapsing before V(D)J assignment. These operations are order- and state-dependent: file formats, available annotations, read-stream relationships and required companion files determine which subsequent operations are computationally valid. Single-cell inputs may instead comprise raw reads, reconstructed sequences or platform-specific contig and annotation files. Their harmonization must preserve available sequence-to-cell links and source annotations without inventing missing identifiers. Incompatible workflow steps or lost metadata links can compromise downstream analysis.
 
-Bulk reads may require quality filtering, primer masking, unique molecular identifier (UMI) extraction, paired-read assembly, consensus generation and duplicate collapsing before V(D)J assignment. These operations are order- and state-dependent, requiring particular file types, read-stream states, annotations and companion files. Single-cell data may instead comprise raw reads, reconstructed sequences or platform-specific contig and annotation files; harmonization must preserve available sequence-cell links and source annotations without inventing missing identifiers. Errors in either path can propagate downstream.
+Existing software addresses these tasks at different levels. pRESTO provides command-line preprocessing of raw AIRR-seq reads \citep{vanderheiden2014}. TRUST4 reconstructs receptor sequences from bulk and single-cell RNA-seq \citep{song2021}, whereas nf-core/airrflow provides a configuration-driven, end-to-end workflow for both bulk and single-cell AIRR-seq \citep{gabernet2024}. Web platforms provide overlapping preprocessing, annotation and repertoire-analysis capabilities: VDJServer extends from read preprocessing and V(D)J gene assignment to repertoire analysis and data sharing \citep{christley2018}, while ARGalaxy supports read trimming and demultiplexing, IgBLAST-based annotation, and downstream repertoire analysis and visualization \citep{ijspeert2017}. For single-cell receptor data, scirpy supports import from Cell Ranger, TraCeR and AIRR-formatted files for downstream analysis and integration with transcriptomic data \citep{sturm2020}.
 
-The increasing adoption of AIRR-seq across experimental systems has created a growing need for flexible and reproducible preprocessing strategies. Unlike conventional sequence-processing pipelines in which individual steps can often be considered independently, AIRR-seq preprocessing operations are linked through evolving data states. The output of one operation determines the valid inputs of subsequent operations, including available annotations, file formats, read relationships and companion files. Consequently, workflow errors may remain hidden until late stages of analysis or may produce outputs that are technically generated but computationally inconsistent. This challenge is amplified in single-cell AIRR-seq, where receptor sequences must remain linked to their originating cells while integrating outputs from multiple sequencing and analysis platforms.
+These tools provide complementary capabilities. Direct use of pRESTO requires users to maintain compatible file and header-annotation states and to order interdependent operations correctly. AIRRPrep addresses these workflow-construction responsibilities through input-aware checks and combines this functionality with preparation of heterogeneous single-cell inputs for downstream annotation or reannotation. Its contribution lies in this combination of workflow validation, sequence and metadata harmonization, and linked retention of available source annotations, rather than heterogeneous single-cell import alone. Supplementary Table~S11 summarizes the capabilities assessed in related tools; features not evaluated are distinguished from those documented as absent.
 
-Existing software addresses these stages at different levels. pRESTO provides command-line preprocessing of raw AIRR-seq reads \citep{vanderheiden2014}. TRUST4 reconstructs receptor sequences from bulk and single-cell RNA-seq \citep{song2021}, whereas nf-core/airrflow provides a configuration-driven, end-to-end workflow for both bulk and single-cell AIRR-seq \citep{gabernet2024}. Web platforms have broader scopes: VDJServer extends from read preprocessing and V(D)J gene assignment to repertoire analysis and data sharing \citep{christley2018}, while ARGalaxy analyzes and visualizes annotated repertoires \citep{ijspeert2017}.
-
-These tools solve complementary parts of AIRR-seq analysis but leave different responsibilities to the user. Direct use of pRESTO requires users to maintain compatible file and header-annotation states and to order interdependent operations correctly. End-to-end workflows improve portability and reproducibility, but follow predefined or configuration-driven analysis paths rather than supporting interactive composition of individual pRESTO operations. Documented web platforms emphasize broader end-to-end workflows or downstream repertoire analysis. Across the systems and documentation examined, we did not identify a platform that combined input-aware validation of custom pRESTO workflows before execution with harmonization of heterogeneous single-cell inputs while retaining available source annotations in linked outputs (Supplementary Table~S11).
-
-AIRRPrep was designed to provide this combination within a single web application. For bulk data, it offers three predefined protocols and a builder covering 47 pRESTO operations. State-aware contracts track file type, required annotations, companion files and R1/R2 state during construction and before execution, identifying computationally incompatible workflows before they run. For single-cell data, AIRRPrep accepts reconstructed inputs or invokes TRUST4 when assembly is required, then maps seven supported input specifications to a common sequence-and-metadata representation. It does not invent missing cell identifiers and retains available source annotations in a linked sidecar keyed by the same \texttt{sequence\_id}. Workflow graphs, per-step record counts, provenance and exportable definitions support inspection and rerunning. These checks establish computational coherence, not the biological appropriateness of parameter choices.
+For bulk data, AIRRPrep offers three predefined protocols and a custom builder covering 47 pRESTO operations. State-aware contracts track file type, available annotations, companion-file requirements and R1/R2 state during construction and before execution, identifying computationally incompatible steps before they run. For single-cell data, AIRRPrep accepts reconstructed inputs or invokes TRUST4 when assembly is required, then maps seven supported input specifications to a common sequence-and-metadata representation. It does not invent missing cell identifiers and retains available source annotations in a linked sidecar keyed by the same \texttt{sequence\_id}. Workflow graphs, per-step record counts, provenance and exportable definitions support inspection and rerunning. These checks establish computational coherence, not the biological appropriateness of parameter choices.
 
 \begin{figure*}[!t]
 \centering
@@ -92,11 +89,47 @@ AIRRPrep uses a web-based client-server architecture with asynchronous job execu
 
 \section{Validation}
 
-The three predefined bulk workflows were evaluated against equivalent command-line pRESTO implementations using the first 25,000 read pairs from SRR4026043 \citep{vanderheiden2017}, ERR346600 \citep{greiff2014} and SRR1383456 \citep{stern2014}. Across all three workflows, AIRRPrep and pRESTO produced identical records, sequences, quality strings and annotations at each compared step; only record ordering differed (Supplementary Tables~S3--S5). Individual validation of the 47 supported operations showed equivalent output for 46 operations. The remaining \texttt{ConvertHeaders.py migec} case could not be directly compared because native pRESTO does not process the corresponding multi-record MIGEC input. The workflow validator accepted the predefined workflows and rejected invalid compositions involving missing annotations, incompatible file types, missing companion files and invalid read-stream states (Supplementary Note~S1).
+The three predefined bulk workflows were evaluated against equivalent
+command-line pRESTO implementations using the first 25,000 read pairs
+from SRR4026043 \citep{vanderheiden2017}, ERR346600
+\citep{greiff2014} and SRR1383456 \citep{stern2014}. Across all three
+workflows, AIRRPrep and pRESTO produced identical records, sequences,
+quality strings and annotations at each compared step; only record
+ordering differed (Supplementary Tables~S3--S5). Of the 47 operations,
+46 produced output equivalent to native pRESTO in one archived test
+case each. \texttt{ConvertHeaders.py migec} could not be compared
+because native pRESTO fails on multi-record MIGEC input. In a separate
+USEARCH-specific \texttt{ClusterSets} test, native pRESTO's generated
+command failed, whereas AIRRPrep's corrected invocation completed
+successfully. The workflow validator accepted the predefined workflows
+and rejected invalid compositions involving missing annotations,
+incompatible file types, missing companion files and invalid read-stream
+states (Supplementary Note~S1).
 
-Single-cell harmonization was evaluated using Cell Ranger representations of the 10x Genomics \texttt{sc5p\_v2\_hs\_PBMC\_10k} T-cell V(D)J dataset. Harmonized outputs matched the reference records without sequence, cell barcode, UMI, read count or cell-status discrepancies (Supplementary Table~S6). Generic FASTA inputs reproduced the same records when barcode mappings were provided, while inputs lacking a valid barcode mapping were rejected. TRUST4-based routes were evaluated using raw 10x reads, a contig-aligned BAM and a genome-aligned gene-expression BAM from the \texttt{sc5p\_v2\_hs\_PBMC\_1k} dataset. The raw-read and contig-aligned BAM routes recovered all 83 Cell Ranger-defined cells, whereas the genome-aligned gene-expression BAM route recovered 79 of 83; no route assigned artificial cell identifiers (Supplementary Table~S7).
+Single-cell harmonization was evaluated using Cell Ranger
+representations of the 10x Genomics
+\texttt{sc5p\_v2\_hs\_PBMC\_10k} T-cell V(D)J dataset. Harmonized
+outputs matched the reference records without sequence, cell barcode,
+UMI, read count or cell-status discrepancies (Supplementary
+Table~S6). Generic FASTA inputs reproduced the same records when
+barcode mappings were provided, while inputs lacking a valid barcode
+mapping were rejected. TRUST4-based routes were evaluated using raw
+10x reads, a contig-aligned BAM and a genome-aligned gene-expression
+BAM from the \texttt{sc5p\_v2\_hs\_PBMC\_1k} dataset. The raw-read
+and contig-aligned BAM routes recovered all 83 Cell Ranger-defined
+cells, whereas the genome-aligned gene-expression BAM route recovered
+79 of 83; no route assigned artificial cell identifiers (Supplementary
+Table~S7).
 
-Execution time was evaluated on three replicates using identical pRESTO and Python environments on a Windows 11 workstation. AIRRPrep reduced execution time for the tested 25,000-read-pair workflows, primarily by avoiding repeated interpreter startup overhead between steps. Reference-guided assembly showed similar runtime between implementations because the underlying alignment operation dominated execution time. These measurements represent small-scale comparative execution tests on one workstation and are not intended as estimates of production-scale throughput.
+Execution time was evaluated on three replicates using identical
+pRESTO and Python environments on a Windows~11 workstation.
+AIRRPrep reduced execution time for the tested 25,000-read-pair
+workflows, primarily by avoiding repeated interpreter startup overhead
+between steps. Reference-guided assembly showed similar runtime
+between implementations because the underlying alignment operation
+dominated execution time. These measurements represent small-scale
+comparative execution tests on one workstation and are not intended
+as estimates of production-scale throughput.
 
 \section{Discussion}
 
@@ -134,15 +167,11 @@ and is not redistributed; the corresponding commands, software version and test
 results are provided for users with an appropriate licence.
 
 \section*{Author contributions}
-Parsa Esmaeili: Conceptualization, Software, Validation, Writing --
-original draft.
-Fatemeh Chaker Hosseini Zavareh: Software, Methodology,
-Validation, Data curation, Writing -- review \& editing.
-Nika Abdollahi: Conceptualization, Methodology, Resources, Validation,
-Writing -- review \& editing.
-Changiz Eslahchi: Conceptualization, Supervision,
-Writing -- review \& editing.
 
+Parsa Esmaeili: Conceptualization, Software, Methodology, Validation, Data curation, Writing -- original draft, Writing -- review and editing.
+Fatemeh Chaker Hosseini Zavareh: Conceptualization, Software, Methodology, Validation, Data curation, Writing -- review and editing.
+Nika Abdollahi: Conceptualization, Methodology, Resources, Validation, Writing -- review and editing.
+Changiz Eslahchi: Conceptualization, Software, Supervision, Writing -- review and editing.
 \section*{Funding}
 No specific funding was received for this work.
 
@@ -195,6 +224,11 @@ Rognes T, Flouri T, Nichols B, Quince C, Mah\'e F. VSEARCH: a versatile open sou
 
 \bibitem[Fu et al.(2012)]{fu2012}
 Fu L, Niu B, Zhu Z, Wu S, Li W. CD-HIT: accelerated for clustering the next-generation sequencing data. \textit{Bioinformatics}. 2012;28(23):3150--3152.
+
+\bibitem[Sturm et al.(2020)]{sturm2020}
+Sturm G, Szabo T, Fotakis G, et al. Scirpy: a Scanpy extension
+for analyzing single-cell T-cell receptor-sequencing data.
+\textit{Bioinformatics}. 2020;36(18):4817--4818.
 
 \end{thebibliography}
 

@@ -74,8 +74,10 @@ and then broken down by individual processing step, and Supplementary
 Table~S9 lists the parameters and the full reference command-line scripts
 used for that comparison, so that it can be reproduced exactly. Supplementary
 Table~S10 lists the software and hardware environment in which the benchmarks
-were run, and Supplementary Table~S11 compares AIRRPrep with pRESTO,
-nf-core/airrflow, VDJServer and ARGalaxy, with a source for each entry.
+were run, and Supplementary Table S11 compares AIRRPrep with pRESTO,
+nf-core/airrflow, VDJServer and ARGalaxy, and separately
+contextualizes its single-cell import functionality against
+scirpy, with references to publications and official documentation.
 
 \section*{Supplementary Figure S1. Single-cell workflow visualization example}
 \begin{figure}[h!]
@@ -1474,7 +1476,6 @@ documentation (source given in brackets, listed below the table). ``Not
 evaluated'' means the authors found no statement on the property in those
 sources and did not test it; it does not mean the tool lacks the property. The
 comparison is not a benchmark of the other tools.
-
 \footnotesize
 \begin{longtable}{p{0.15\textwidth}p{0.145\textwidth}p{0.145\textwidth}p{0.155\textwidth}p{0.145\textwidth}p{0.145\textwidth}}
 \toprule
@@ -1487,60 +1488,181 @@ comparison is not a benchmark of the other tools.
 \endhead
 \bottomrule
 \endfoot
-Interface & Web application; container for self-hosting & Command-line programs [1] & Nextflow pipeline run from the command line [2] & Web browser interface [3] & Galaxy web interface [4] \\
-Stated scope & Preprocessing of bulk reads; harmonization of single-cell inputs; no gene assignment & Preprocessing of raw repertoire reads [1] & Bulk and single-cell data from raw reads or assembled sequences, through annotation, clonal analysis and lineage trees [2] & Preprocessing and quality control, V(D)J assignment, repertoire characterization and comparison, data sharing [3] & Analysis and visualization of repertoire data from IMGT/HighV-QUEST output, incl.\ diversity, SHM, clonality, CSR [4] \\
-User composition of individual pRESTO operations in any order & Yes, interactive builder over 47 operations & Yes, by writing command scripts [1] & No; a defined pipeline configured by parameters and protocol profiles [2] & Not evaluated & Not evaluated \\
-Check of a composed operation sequence against the supplied files before execution & Yes (Supplementary Note~S1) & No; each command checks its own arguments when it runs [1] & Not evaluated; the step sequence is defined by the pipeline [2] & Not evaluated & Not evaluated \\
-Per-step record counts shown as a workflow graph & Yes, exportable & Per-step log files, tabulated by \texttt{ParseLog.py} [1] & Not evaluated & Not evaluated & Not evaluated \\
-Reusable, machine-readable workflow definition & Yes, JSON export with companion-file checksums & Shell scripts written by the user & Versioned pipeline with parameter files and profiles [2] & Not evaluated & Not evaluated \\
-Single-cell inputs & Seven input specifications harmonized to an internal 8-field record (Supplementary Table~S1) & Not a stated scope [1] & 10x raw reads and single-cell AIRR rearrangement tables [2] & Not evaluated & Not evaluated \\
-Output standard & pRESTO files (bulk); internal schema, AIRR compliance not claimed (single-cell) & pRESTO-annotated FASTA/FASTQ and tables [1] & AIRR-compliant outputs [2] & Repository in the AIRR Data Commons [3] & Not evaluated \\
-Upstream annotations of a single-cell input & Excluded from the harmonized record; preserved unchanged in \texttt{source\_annotations.tsv} & Not a stated scope [1] & Not evaluated & Not evaluated & Not evaluated \\
+
+Interface &
+Web application; container for self-hosting &
+Command-line programs [1] &
+Nextflow pipeline run from the command line [2] &
+Web browser interface [3] &
+Galaxy web interface [4] \\
+
+Stated scope &
+Bulk read preprocessing and single-cell harmonization; no downstream V(D)J annotation stage &
+Preprocessing of raw repertoire reads [1] &
+Bulk and single-cell data from raw reads or assembled sequences, through annotation, clonal analysis and lineage trees [2] &
+Preprocessing and quality control, V(D)J assignment, repertoire characterization and comparison, data sharing [3] &
+Read trimming and demultiplexing; IgBLAST-based annotation; repertoire analysis and visualization, including SHM and CSR [4] \\
+
+User-defined ordering of individual pRESTO operations &
+Interactive builder over 47 operations, subject to compatibility checks &
+User-written command scripts [1] &
+Documented workflow configured through parameters and protocol profiles [2]; custom pRESTO operation composition not evaluated &
+Not evaluated &
+Not evaluated \\
+
+Pre-execution compatibility checking across a user-composed operation sequence &
+Contract-based checks of file type, annotations, companion files and read-stream state (Supplementary Note~S1) &
+Individual commands validate their arguments during execution [1]; cross-command pre-execution checking not evaluated &
+Not evaluated &
+Not evaluated &
+Not evaluated \\
+
+Per-step record tracking and workflow-graph display &
+Per-step counts displayed in an exportable workflow graph &
+Per-step logs can be tabulated using \texttt{ParseLog.py} [1]; graph display not evaluated &
+Not evaluated &
+Not evaluated &
+Not evaluated \\
+
+Reusable workflow representation &
+JSON workflow export; companion-file names, sizes and checksums recorded &
+User-written shell scripts [1] &
+Versioned pipeline with parameter files and profiles [2] &
+Not evaluated &
+Not evaluated \\
+
+Single-cell inputs &
+Seven input specifications harmonized to an internal eight-field record (Supplementary Table~S1) &
+Not a stated scope in the reviewed source [1] &
+10x raw reads and single-cell AIRR rearrangement tables [2] &
+Not evaluated &
+Not evaluated \\
+
+Output representation &
+pRESTO files for bulk processing; internal single-cell schema, with AIRR compliance not claimed &
+pRESTO-annotated FASTA/FASTQ and tables [1] &
+AIRR-compliant outputs [2] &
+IgBLAST annotation outputs include AIRR TSV, VDJML, Change-O TSV and RepSum TSV [3] &
+Not evaluated \\
+
+Handling of upstream single-cell annotations &
+Excluded from the harmonized representation; available source annotations retained in a linked \texttt{source\_annotations.tsv} &
+Not a stated scope in the reviewed source [1] &
+Not evaluated &
+Not evaluated &
+Not evaluated \\
+
+\end{longtable}
+
+\begin{longtable}{p{0.20\textwidth}p{0.35\textwidth}p{0.35\textwidth}}
+\toprule
+\textbf{Single-cell import context} &
+\textbf{AIRRPrep} &
+\textbf{scirpy} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Single-cell import context} &
+\textbf{AIRRPrep} &
+\textbf{scirpy} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+
+Interface and purpose &
+Web-based preparation of receptor sequences and metadata for downstream annotation or reannotation &
+Python toolkit for single-cell receptor analysis and integration with transcriptomic data [5] \\
+
+Documented inputs &
+Seven input specifications, including reconstructed inputs and raw-input routes using TRUST4 (Supplementary Table~S1) &
+Cell Ranger, TraCeR, BraCeR, BD Rhapsody and AIRR rearrangement files [5] \\
+
+Data representation &
+Sequence FASTA, metadata table and linked source-annotation sidecar &
+Receptor data stored in AnnData and integrated with gene-expression data through MuData [5] \\
+
+Sequence-to-cell association &
+Valid cell mapping required; missing cell identifiers are not invented &
+Each receptor chain must be associated with a cell in the documented data model [5] \\
+
+Separate preservation of source annotations &
+Available source annotations retained in a sidecar linked by \texttt{sequence\_id} &
+Separate source-annotation sidecar not evaluated \\
+
 \end{longtable}
 \normalsize
 
-{\small\textit{Supplementary Table S11.} AIRRPrep compared with pRESTO,
-nf-core/airrflow, VDJServer and ARGalaxy. Every cell about another tool is
-taken from the source bracketed in that cell; the sources are listed in full
-below. Documentation was accessed in September 2026. AIRRPrep's distinguishing
-combination is interactive composition of individual pRESTO operations with
-contract-based checking of the composition against the uploaded files before
-execution; the other tools cover scopes AIRRPrep does not, notably annotation
-and downstream analysis.\par}
-
+{\small\textit{Supplementary Table S11.}
+Documented capabilities of AIRRPrep and related tools.
+The first panel compares workflow and processing capabilities;
+the second places AIRRPrep's single-cell harmonization in the
+context of scirpy's import functionality. scirpy is included for
+this specific context rather than as a direct comparator for
+pRESTO workflow construction. Bracketed numbers identify the
+sources listed below. This is a documentation-based comparison,
+not a head-to-head software benchmark. ``Not evaluated'' denotes
+a capability not assessed in this comparison and does not imply
+its absence. ``Not a stated scope'' refers only to the reviewed
+source. Heterogeneous single-cell import alone is not claimed
+as a distinguishing contribution of AIRRPrep.\par}
 \vspace{1em}
-
 \subsection*{References for Supplementary Table S11}
 
 \begin{enumerate}
 \setlength{\itemsep}{2pt}
-\item Vander Heiden JA, Yaari G, Uduman M, Stern JNH, O'Connor KC, Hafler DA,
-  Vigneault F, Kleinstein SH. pRESTO: a toolkit for processing high-throughput
-  sequencing raw reads of lymphocyte receptor repertoires. \textit{Bioinformatics}.
-  2014;30(13):1930--1932. \url{https://doi.org/10.1093/bioinformatics/btu138}.
-  Accompanying documentation: pRESTO documentation,
-  \url{https://presto.readthedocs.io} (accessed September 2026).
-\item Gabernet G, Marquez S, Bjornson R, Peltzer A, Meng H, Aron E, Lee NY,
-  Jensen CG, Ladd D, Polster M, Hanssen F, Heumos S, Yaari G, Kowarik MC,
-  Nahnsen S, Kleinstein SH. nf-core/airrflow: an adaptive immune receptor
-  repertoire analysis workflow employing the Immcantation framework.
-  \textit{PLoS Computational Biology}. 2024;20(7):e1012265.
-  \url{https://doi.org/10.1371/journal.pcbi.1012265}. Accompanying
-  documentation: nf-core/airrflow documentation, \url{https://nf-co.re/airrflow}
-  (accessed September 2026).
-\item Christley S, Scarborough W, Salinas E, Rounds WH, Toby IT, Fonner JM,
-  Levin MK, Kim M, Mock SA, Jordan C, Ostmeyer J, Buntzman A, Rubelt F,
-  Davila ML, Monson NL, Scheuermann RH, Cowell LG. VDJServer: a cloud-based
-  analysis portal and data commons for immune repertoire sequences and
-  rearrangements. \textit{Frontiers in Immunology}. 2018;9:976.
-  \url{https://doi.org/10.3389/fimmu.2018.00976}. Accompanying documentation:
-  VDJServer documentation, \url{https://vdjserver.readthedocs.io} (accessed
-  September 2026).
-\item IJspeert H, van Schouwenburg PA, van Zessen D, Pico-Knijnenburg I,
-  Stubbs AP, van der Burg M. Antigen receptor Galaxy: a user-friendly,
-  web-based tool for analysis and visualization of T and B cell receptor
-  repertoire data. \textit{The Journal of Immunology}. 2017;198(10):4156--4165.
-  \url{https://doi.org/10.4049/jimmunol.1601921}.
+
+\item Vander Heiden JA, Yaari G, Uduman M, et al.
+pRESTO: a toolkit for processing high-throughput sequencing
+raw reads of lymphocyte receptor repertoires.
+\textit{Bioinformatics}. 2014;30(13):1930--1932.
+\url{https://doi.org/10.1093/bioinformatics/btu138}.
+Accompanying documentation: pRESTO, version 0.7.9.
+\url{https://presto.readthedocs.io/en/0.7.9/}.
+Accessed 7 October 2026.
+
+\item Gabernet G, Marquez S, Bjornson R, et al.
+nf-core/airrflow: an adaptive immune receptor repertoire
+analysis workflow employing the Immcantation framework.
+\textit{PLoS Computational Biology}. 2024;20(7):e1012265.
+\url{https://doi.org/10.1371/journal.pcbi.1012265}.
+Accompanying documentation: nf-core/airrflow, version 5.1.1,
+pipeline overview and usage.
+\url{https://nf-co.re/airrflow/5.1.1/};
+\url{https://nf-co.re/airrflow/5.1.1/docs/usage/}.
+Accessed 7 October 2026.
+
+\item Christley S, Scarborough W, Salinas E, et al.
+VDJServer: a cloud-based analysis portal and data commons
+for immune repertoire sequences and rearrangements.
+\textit{Frontiers in Immunology}. 2018;9:976.
+\url{https://doi.org/10.3389/fimmu.2018.00976}.
+Accompanying documentation: VDJServer Release Announcements,
+including release 1.0.0 for preprocessing and analysis
+capabilities, and release 1.1.0 for AIRR TSV annotation output.
+\url{https://vdjserver.readthedocs.io/en/latest/user/releases.html}.
+Accessed 7 October 2026.
+
+\item IJspeert H, van Schouwenburg PA, van Zessen D,
+Pico-Knijnenburg I, Stubbs AP, van der Burg M.
+Antigen receptor Galaxy: a user-friendly, web-based tool
+for analysis and visualization of T and B cell receptor
+repertoire data.
+\textit{The Journal of Immunology}. 2017;198(10):4156--4165.
+\url{https://doi.org/10.4049/jimmunol.1601921}.
+Capabilities summarized from the implementation described
+in this publication.
+
+\item Sturm G, Szabo T, Fotakis G, et al.
+Scirpy: a Scanpy extension for analyzing single-cell
+T-cell receptor-sequencing data.
+\textit{Bioinformatics}. 2020;36(18):4817--4818.
+\url{https://doi.org/10.1093/bioinformatics/btaa611}.
+Accompanying documentation: scirpy, version 0.14.0,
+Importing receptor data into scirpy.
+\url{https://scirpy.scverse.org/en/v0.14.0/tutorials/tutorial_io.html}.
+Accessed 7 October 2026.
+
 \end{enumerate}
 \end{landscape}
 
